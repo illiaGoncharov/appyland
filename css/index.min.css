@@ -1347,21 +1347,8 @@ body {
 	align-items: center;
 	justify-content: center;
 }
-.hero__logo .letter-lottie svg {
-    width: clamp(4rem, 9vw, 12rem) !important;
-    height: clamp(4rem, 9vw, 12rem) !important;
-}
-.hero__logo-letter {
-	cursor: pointer;
-	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: auto;
-	height: auto;
-	transform-style: preserve-3d;
-	perspective: 1000px;
-}
+.hero__logo .letter-lottie svg { width: 100% !important; height: 100% !important; display: block; }
+.hero__logo-letter { cursor:pointer;transition:all .4s cubic-bezier(.25,.46,.45,.94);display:flex;align-items:center;justify-content:center;width:auto;height:clamp(6rem,12vw,16rem);transform-style:preserve-3d;perspective:1000px;flex-shrink:0; }
 .hero__logo-letter:hover {
 	transform: scale(1.1) rotateY(15deg) rotateX(5deg) translateZ(20px);
 	-webkit-transform: scale(1.1) rotateY(15deg) rotateX(5deg) translateZ(20px);
@@ -1389,9 +1376,18 @@ body {
 	z-index: 10;
 }
 
-.hero__logo-letter.is-3d-active .letter-lottie {
-	transform: translateZ(15px);
-}
+.hero__logo-letter.is-3d-active .letter-lottie { transform: translateZ(15px); }
+
+/* Пропорции букв логотипа */
+.hero__logo-letter.letter-a{ aspect-ratio:929/1000; }
+.hero__logo-letter.letter-p{ aspect-ratio:1/1; }
+.hero__logo-letter.letter-y{ aspect-ratio:1/1; }
+.hero__logo-letter.letter-l{ aspect-ratio:1/1; }
+.hero__logo-letter.letter-n{ aspect-ratio:1/1; }
+.hero__logo-letter.letter-d{ aspect-ratio:1/1; }
+
+/* Первый символ P имеет другое соотношение (pballon_01 745×1000) */
+.hero__logo > .hero__logo-letter:nth-child(2){ aspect-ratio:745/1000; }
 
 /* Плавные переходы между состояниями */
 .hero__logo-letter,
@@ -4351,7 +4347,7 @@ body {
 }
 
 .team-slide__subtext {
-	background: url('/assets/img/team/star.svg') no-repeat center !important;
+background: url('../assets/img/team/star.svg') no-repeat center !important;
 }
 
 .footer {

@@ -750,4 +750,43 @@ btnPlaySlider.forEach(btn => {
     })
   }
   tabsTriggersItem();
+
+  // Подгоняем логотип APPYLAND под ширину контейнера по реальным пропорциям букв
+  // Используем ширину контейнера и сумму аспект‑коэффициентов, чтобы слово занимало всю строку
+  function fitHeroLogo() {
+    const logo = document.querySelector('.hero__logo');
+    if (!logo) return;
+
+    const letters = Array.from(logo.querySelectorAll('.hero__logo-letter'));
+    if (!letters.length) return;
+
+    const availableWidth = logo.clientWidth;
+    if (!availableWidth) return;
+
+    // Функция возвращает коэффициент ширины к высоте для конкретной буквы
+    const getRatio = (index, el) => {
+      if (el.classList.contains('letter-a')) return 0.929; // agrass_2 рендер
+      if (el.classList.contains('letter-p')) return index === 1 ? 0.745 : 1; // первая P — узкая pballon_01
+      return 1; // остальные квадратные рендеры
+    };
+
+    const ratios = letters.map((el, i) => getRatio(i, el));
+    const sumRatios = ratios.reduce((s, r) => s + r, 0);
+    if (!sumRatios) return;
+
+    // Вычисляем высоту, чтобы суммарная ширина ровно заняла контейнер
+    const targetHeight = Math.max(48, Math.floor(availableWidth / sumRatios));
+
+    letters.forEach((el, i) => {
+      const w = Math.round(targetHeight * ratios[i]);
+      el.style.height = targetHeight + 'px';
+      el.style.width = w + 'px';
+    });
+  }
+
+  // Инициализация и реакция на ресайз/перерисовку
+  window.addEventListener('resize', fitHeroLogo);
+  fitHeroLogo();
+  // Повтор через небольшой таймаут — на случай поздней загрузки шрифтов/полос прокрутки
+  setTimeout(fitHeroLogo, 300);
 })

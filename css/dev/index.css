@@ -4389,7 +4389,7 @@ body {
 }
 
 .team-slide__subtext {
-	background: url('/assets/img/team/star.svg') no-repeat center !important;
+background: url('../assets/img/team/star.svg') no-repeat center !important;
 }
 
 .footer {
