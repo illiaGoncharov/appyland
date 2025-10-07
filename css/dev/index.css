@@ -69,12 +69,28 @@
 	font-weight: 400;
 	font-style: normal;
 }
+/* Альяс под Book: вес 500 маппится на Regular, чтобы не было фолбэка в системный шрифт */
+@font-face {
+    font-family: Coolvetica;
+    font-display: swap;
+    src: url('../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
 @font-face {
 	font-family: Coolvetica;
 	font-display: swap;
 	src: url('../assets/fonts/Coolvetica-Light.woff2') format('woff2');
 	font-weight: 300;
 	font-style: normal;
+}
+/* Поддержка старого имени семейства Book */
+@font-face {
+    font-family: CoolveticaBk;
+    font-display: swap;
+    src: url('../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
 }
 * {
 	padding: 0rem;
