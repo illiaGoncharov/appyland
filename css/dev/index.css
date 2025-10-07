@@ -58,7 +58,7 @@
 @font-face {
 	font-family: CoolveticaBk;
 	font-display: swap;
-	src: url('../assets/fonts/Coolvetica-Light.woff2') format('woff2');
+	src: url('../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 }
@@ -1372,11 +1372,11 @@ body {
 	max-width: 11.375rem;
 }
 .hero__logo {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.5rem;
-	flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0; /* буквы вплотную как в макете */
+    flex-wrap: nowrap;
 }
 .hero__logo svg {
 	width: 100%;
@@ -1388,10 +1388,10 @@ body {
 	justify-content: center;
 }
 .hero__logo .letter-lottie svg {
-	width: clamp(3rem, 6vw, 6rem) !important;
-	height: clamp(3rem, 6vw, 6rem) !important;
-	width: 150px !important;
-	height: 150px !important;
+    /* Растягиваем анимацию на размеры контейнера буквы без искажения */
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
 }
 .hero__logo-letter {
 	cursor: pointer;
@@ -1415,6 +1415,11 @@ body {
 .hero__logo-letter .letter-lottie {
 	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	transform-style: preserve-3d;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .hero__logo-letter:hover .letter-lottie {
 	transform: translateZ(10px);
@@ -4606,10 +4611,22 @@ background-color: #1F2FA9;
 	font-weight: bold;
 }
 
+/* Размеры букв логотипа — управляем общей высотой и пропорциями */
 .hero__logo-letter {
-    width: 83px;
-    height: 140px;
+    height: clamp(6rem, 12vw, 16rem); /* масштабируется от ширины экрана, чтобы слово занимало ширину экрана */
+    flex-shrink: 0;
 }
+
+/* Пропорции букв. Важно: aspect-ratio задаёт ширину относительно высоты */
+.hero__logo-letter.letter-a { aspect-ratio: 929 / 1000; } /* A: 929×1000 */
+.hero__logo-letter.letter-p { aspect-ratio: 1 / 1; }     /* P (обычная квадратная) */
+.hero__logo-letter.letter-y { aspect-ratio: 1 / 1; }     /* Y: 800×800 */
+.hero__logo-letter.letter-l { aspect-ratio: 1 / 1; }     /* L: 1200×1200 */
+.hero__logo-letter.letter-n { aspect-ratio: 1 / 1; }     /* N: 800×800 */
+.hero__logo-letter.letter-d { aspect-ratio: 1 / 1; }     /* D: 800×800 */
+
+/* Первый символ P в слове (рендер pballon_01: 745×1000) уже с нужной пропорцией */
+.hero__logo > .hero__logo-letter:nth-child(2) { aspect-ratio: 745 / 1000; }
 
 @media screen and (max-width: 750px) {
 	.reviews__border {

@@ -16,7 +16,7 @@
 @font-face {
 	font-family: CoolveticaBk;
 	font-display: swap;
-	src: url('../assets/fonts/Coolvetica-Light.woff2') format('woff2');
+	src: url('../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 }
@@ -1332,11 +1332,11 @@ body {
 	max-width: 11.375rem;
 }
 .hero__logo {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.5rem;
-	flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: nowrap;
 }
 .hero__logo svg {
 	width: 100%;
@@ -1348,8 +1348,8 @@ body {
 	justify-content: center;
 }
 .hero__logo .letter-lottie svg {
-	width: clamp(3rem, 6vw, 6rem) !important;
-	height: clamp(3rem, 6vw, 6rem) !important;
+    width: clamp(4rem, 9vw, 12rem) !important;
+    height: clamp(4rem, 9vw, 12rem) !important;
 }
 .hero__logo-letter {
 	cursor: pointer;
