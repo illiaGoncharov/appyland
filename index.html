@@ -1,0 +1,3163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style data-fls-preloader="false" rel="preload">
+      body > *:not(.fls-preloader) {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      [data-fls-preloader-loaded] body > *:not(.fls-preloader) {
+        transition: opacity 0.5s ease 0s;
+        opacity: 1;
+        visibility: visible;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="preload"
+      href="./assets/fonts/HelveticaNeue-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/HelveticaNeue-Medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Coolvetica-Light.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Coolvetica-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Coolvetica-Light.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
+
+    <title>Home Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" crossorigin="" src="./js/dev/index.js"></script>
+    <script type="module" crossorigin="" src="./js/main.js"></script>
+    <link rel="stylesheet" crossorigin="" href="./css/dev/index.css" />
+  </head>
+
+  <body>
+    <div
+      class="3d_animate_header"
+      data-animation="3dAnimate"
+      data-lottie-data=""
+    ></div>
+    <div
+      class="letters_fall_animation"
+      data-animation="letters"
+      data-lottie-data=""
+    ></div>
+    <div class="modal">
+      <div class="modal_main">
+        <div class="modal_container">
+          <video
+            src="./video/A-Club PRO 02.mp4"
+            width="700px"
+            height="550px"
+            controls
+            muted
+            loop
+            autoplay
+          ></video>
+        </div>
+        <button class="modal__close">&#10006;</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <header data-fls-header="" class="header">
+        <div class="header__container">
+          <div class="header__content">
+            <div class="header__left">
+              <a href="/" class="header__logo logo">
+                <svg
+                  class="logo__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="161"
+                  height="35"
+                  viewbox="0 0 161 35"
+                  fill="none"
+                >
+                  <path
+                    d="M29.8342 20.1761L26.6975 11.3362L23.5322 20.1761H29.8342ZM35.4803 26.9343H32.1725L30.7182 22.6855H22.7053L21.1369 26.9343H17.9146L25.015 7.99991H28.4939L35.4803 26.9343ZM39.5812 26.9343H36.53V7.99991H44.714C46.482 7.99991 47.9078 8.58923 48.9914 9.76788C50.075 10.9275 50.6168 12.3723 50.6168 14.1023C50.6168 15.8322 50.075 17.2485 48.9914 18.3511C47.9268 19.4347 46.501 19.9765 44.714 19.9765H39.5812V26.9343ZM39.5812 17.4956H44.2578C45.4554 17.4956 46.3679 17.182 46.9953 16.5546C47.6226 15.9273 47.9363 15.0908 47.9363 14.0452C47.9363 12.9997 47.6226 12.1537 46.9953 11.5073C46.3679 10.861 45.4554 10.5378 44.2578 10.5378H39.5812V17.4956ZM54.6188 26.9343H51.5676V7.99991H59.7516C61.5196 7.99991 62.9453 8.58923 64.0289 9.76788C65.1125 10.9275 65.6543 12.3723 65.6543 14.1023C65.6543 15.8322 65.1125 17.2485 64.0289 18.3511C62.9644 19.4347 61.5386 19.9765 59.7516 19.9765H54.6188V26.9343ZM54.6188 17.4956H59.2953C60.493 17.4956 61.4055 17.182 62.0328 16.5546C62.6602 15.9273 62.9739 15.0908 62.9739 14.0452C62.9739 12.9997 62.6602 12.1537 62.0328 11.5073C61.4055 10.861 60.493 10.5378 59.2953 10.5378H54.6188V17.4956ZM74.3133 26.9343H71.2621V19.4917L64.4754 7.99991H68.0399L72.8305 16.355L77.393 7.99991H80.9289L74.3133 19.5202V26.9343Z"
+                    fill="#FFFDE9"
+                  ></path>
+                  <rect
+                    x="1"
+                    y="1"
+                    width="159"
+                    height="32.2786"
+                    rx="16.1393"
+                    stroke="#FFFDE9"
+                    stroke-width="2"
+                  ></rect>
+                  <path
+                    d="M95.2406 26.9343H82.2089V7.99991H85.2601V24.2824H95.2406V26.9343ZM107.677 20.1761L104.54 11.3362L101.375 20.1761H107.677ZM113.323 26.9343H110.015L108.561 22.6855H100.548L98.9795 26.9343H95.7572L102.858 7.99991H106.337L113.323 26.9343ZM129.429 26.9343H126.606L117.224 12.762V26.9343H114.373V7.99991H117.623L126.577 21.773V7.99991H129.429V26.9343ZM133.963 24.4535H138.126C139.932 24.4535 141.292 23.8356 142.204 22.5999C143.136 21.3643 143.601 19.5963 143.601 17.296C143.601 14.9958 143.117 13.2943 142.147 12.1917C141.197 11.0891 139.733 10.5378 137.756 10.5378H133.963V24.4535ZM138.725 26.9343H130.997V7.99991H138.155C140.702 7.99991 142.765 8.83637 144.343 10.5093C145.921 12.1822 146.71 14.473 146.71 17.3816C146.71 20.1951 145.968 22.4954 144.485 24.2824C143.022 26.0503 141.102 26.9343 138.725 26.9343Z"
+                    fill="#FFFDE9"
+                  ></path>
+                </svg>
+              </a>
+              <div class="header__menu menu">
+                <nav class="menu__body">
+                  <ul class="menu__list">
+                    <li class="menu__item">
+                      <a
+                        href="#services"
+                        data-fls-scrollto="#services"
+                        data-fls-scrollto-header=""
+                        data-fls-scrollto-top="100"
+                        class="menu__link"
+                        data-lang="services"
+                        >услуги</a
+                      >
+                    </li>
+                    <li class="menu__item">
+                      <a
+                        href="#our-works"
+                        data-fls-scrollto="#our-works"
+                        data-fls-scrollto-header=""
+                        data-fls-scrollto-top="100"
+                        class="menu__link"
+                        data-lang="portfolio"
+                        >Портфолио</a
+                      >
+                    </li>
+                    <li class="menu__item">
+                      <a
+                        href="#about"
+                        data-fls-scrollto="#about"
+                        data-fls-scrollto-header=""
+                        data-fls-scrollto-top="100"
+                        class="menu__link"
+                        data-lang="aboutus"
+                        >О нас</a
+                      >
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <!--
+<fetch url="@components/layout/menu/menu.js?v=1758491294879on">
+<each loop='item in response'>
+</each>
+</fetch>
+-->
+            </div>
+            <div class="header__right">
+              <div class="header__lang lang-switcher">
+                <a href="#" class="lang-switcher__item btn_en" data-btn="en">EN</a>
+                <a
+                  href="#"
+                  data-btn="ru"
+                  class="lang-switcher__item lang-switcher__item--active"
+                  >RU</a
+                >
+              </div>
+              <a
+                href="#footer"
+                data-fls-scrollto="#footer"
+                data-fls-scrollto-header=""
+                data-fls-scrollto-top="100"
+                data-lang="project"
+                class="header__cta cta-button button button-sm button-secondary"
+                >Обсудить проект</a
+              >
+              <button
+                type="button"
+                data-fls-menu=""
+                class="menu__icon icon-menu"
+              >
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="page page--home">
+        <section class="hero section-border section-border--primary">
+          <div class="hero__container">
+            <div class="hero__content">
+              <div
+                class="hero__mascot soax-lottie"
+                data-animation="dino-home"
+              ></div>
+              <div class="hero__mascot-mob soax-lottie anim-one">
+                <picture>
+                  <source
+                    media="(max-width: 600px)"
+                    srcset="./assets/img/hero-image-600.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    media="(max-width: 1200px)"
+                    srcset="./assets/img/hero-image-1200.webp"
+                    type="image/webp"
+                  />
+                  <img alt="Image" src="./assets/img/hero-image.webp" />
+                </picture>
+              </div>
+              <div class="hero__branding">
+                <div class="hero__labels">
+                  <span class="hero__label hero__label--left">multimedia</span>
+                  <span class="hero__label hero__label--center"
+                    >production</span
+                  >
+                  <span class="hero__label hero__label--right">studio</span>
+                </div>
+                <div class="hero__logo">
+                  <div class="hero__logo-letter letter-a">
+                    <div class="letter-lottie" data-animation="letter-a"></div>
+                  </div>
+                  <div class="hero__logo-letter letter-p">
+                    <div class="letter-lottie" data-animation="bubble"></div>
+                  </div>
+                  <div class="hero__logo-letter letter-p">
+                    <div class="letter-lottie" data-animation="letter-p"></div>
+                  </div>
+                  <div class="hero__logo-letter letter-y">
+                    <div class="letter-lottie" data-animation="letter-y"></div>
+                  </div>
+                  <div class="hero__logo-letter letter-l">
+                    <div class="letter-lottie" data-animation="letter-l"></div>
+                  </div>
+                  <div class="hero__logo-letter letter-a">
+                    <div class="letter-lottie" data-animation="letter-a"></div>
+                  </div>
+                  <div class="hero__logo-letter letter-n">
+                    <div class="letter-lottie" data-animation="letter-n"></div>
+                  </div>
+                  <div class="hero__logo-letter letter-d">
+                    <div class="letter-lottie" data-animation="letter-d"></div>
+                  </div>
+                  <!--
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="960"
+                    height="142"
+                    viewbox="0 0 960 142"
+                    fill="none"
+                  >
+                    <path
+                      d="M864.797 123.487H895.865C909.341 123.487 919.484 118.877 926.294 109.656C933.245 100.435 936.72 87.242 936.72 70.0769C936.72 52.9118 933.103 40.2153 925.868 31.9874C918.775 23.7595 907.852 19.6456 893.098 19.6456H864.797V123.487ZM900.333 142H842.667V0.707275H896.077C915.087 0.707275 930.478 6.94912 942.253 19.4328C954.027 31.9165 959.914 49.0107 959.914 70.7153C959.914 91.7106 954.382 108.876 943.317 122.211C932.394 135.404 918.066 142 900.333 142Z"
+                      fill="#1F2FA9"
+                    ></path>
+                    <path
+                      d="M830.963 142H809.896L739.888 36.2432V142H718.609V0.707275H742.867L809.684 103.485V0.707275H830.963V142Z"
+                      fill="#1F2FA9"
+                    ></path>
+                    <path
+                      d="M668.644 91.5687L645.237 25.6037L621.617 91.5687H668.644ZM710.776 142H686.092L675.24 110.294H615.446L603.743 142H579.697L632.682 0.707275H658.642L710.776 142Z"
+                      fill="#1F2FA9"
+                    ></path>
+                    <path
+                      d="M575.842 142H478.597V0.707275H501.365V122.211H575.842V142Z"
+                      fill="#1F2FA9"
+                    ></path>
+                    <path
+                      d="M421.617 142H398.848V86.4617L348.204 0.707275H374.803L410.552 63.0548L444.598 0.707275H470.984L421.617 86.6745V142Z"
+                      fill="#1F2FA9"
+                    ></path>
+                    <path
+                      d="M274.652 142H251.884V0.707275H312.955C326.148 0.707275 336.787 5.10494 344.873 13.9003C352.959 22.5537 357.002 33.3351 357.002 46.2444C357.002 59.1537 352.959 69.7222 344.873 77.9501C336.929 86.0362 326.289 90.0792 312.955 90.0792H274.652V142ZM274.652 71.5664H309.55C318.487 71.5664 325.296 69.2257 329.978 64.5443C334.659 59.863 337 53.6211 337 45.8188C337 38.0165 334.659 31.7037 329.978 26.8805C325.296 22.0572 318.487 19.6456 309.55 19.6456H274.652V71.5664Z"
+                      fill="#1F2FA9"
+                    ></path>
+                    <path
+                      d="M162.438 142H139.67V0.707275H200.741C213.934 0.707275 224.573 5.10494 232.659 13.9003C240.745 22.5537 244.788 33.3351 244.788 46.2444C244.788 59.1537 240.745 69.7222 232.659 77.9501C224.715 86.0362 214.076 90.0792 200.741 90.0792H162.438V142ZM162.438 71.5664H197.336C206.273 71.5664 213.083 69.2257 217.764 64.5443C222.445 59.863 224.786 53.6211 224.786 45.8188C224.786 38.0165 222.445 31.7037 217.764 26.8805C213.083 22.0572 206.273 19.6456 197.336 19.6456H162.438V71.5664Z"
+                      fill="#1F2FA9"
+                    ></path>
+                    <path
+                      d="M89.7041 91.5687L66.2972 25.6037L42.6775 91.5687H89.7041ZM131.837 142H107.153L96.3006 110.294H36.5066L24.8031 142H0.757812L53.7426 0.707275H79.703L131.837 142Z"
+                      fill="#1F2FA9"
+                    ></path>
+                  </svg>
+                  -->
+                </div>
+                <div class="hero__tagline">
+                  <span class="hero__tagline-word hero__tagline-word--left"
+                    >your</span
+                  >
+                  <span class="hero__tagline-word hero__tagline-word--center"
+                    >hAPPY</span
+                  >
+                  <span class="hero__tagline-word hero__tagline-word--right"
+                    >design</span
+                  >
+                </div>
+              </div>
+              <div
+                class="hero__scroll scroll-button scroll-button--primary"
+                data-go=".about"
+              >
+                <div class="scroll-button-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="33"
+                    height="32"
+                    viewbox="0 0 33 32"
+                    fill="none"
+                  >
+                    <path
+                      d="M16.5275 2.40735V29.9292M16.5275 29.9292L30.2884 16.1683M16.5275 29.9292L2.7666 16.1683"
+                      stroke="#FFFDE9"
+                      stroke-width="3.93169"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="index-sections index-sections--primary header-change-theme">
+          <div class="index-sections-start">
+            <!-- <img src="@img/index-section--circle.png" alt="Start"> -->
+          </div>
+          <section
+            class="about section-border section-border--white section-margin-bottom-90"
+          >
+            <div class="about__container">
+              <div class="about__content">
+                <div class="about__header">
+                  <h2 class="title-h1" data-lang="whoweare">Кто мы?</h2>
+                </div>
+                <div class="about__body">
+                  <div class="section-num section-num--white">
+                    <span class="section-num__number">01</span>
+                    <div class="section-num-icon"></div>
+                  </div>
+                  <div class="about__text">
+                    <p data-lang="text">
+                      Креативная команда, которая делает точно, с душой
+                      <br />
+                      и вау-эффектом.
+                    </p>
+                  </div>
+                </div>
+                <div class="about__footer">
+                  <div class="about__footer-text">
+                    <p data-lang="text1">
+                      Наши партнёры возвращаются,
+                      <br />
+                      <span>because we make them hAPPY!</span>
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="about__mascot soax-lottie"
+                  data-animation="dino-about"
+                ></div>
+              </div>
+            </div>
+          </section>
+          <!-- /.about -->
+          <section class="stats section-border section-border--white">
+            <div class="stats__small-container">
+              <div class="stats__content">
+                <div class="stats__header">
+                  <div class="section-num section-num--white">
+                    <span class="section-num__number">02</span>
+                    <div class="section-num-icon"></div>
+                  </div>
+                  <h2 class="stats__title" data-lang="text2">
+                    МЫ ЛЮБИМ ДИЗАЙН
+                    <br />
+
+                    <span class="stats__title-emoji">
+                      <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAACHCAYAAADTJSE0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAvqSURBVHgB7Z1fVttIFsZvlWwy9DwMvYKIFQRWELOC0CuAWUHgYU6azEOchwnpMw8NKwisIGQFcVYQsoJoVjDOS+iApOp7pTItG9ku/bHqSq7fORwDMd2W/eneW7eqvgJwOHIQsIYo9cIHiLcAZPIVRWor73meJ8b4PP0lx0L8FsCa0FlhKHWEH/bmAC/xMf64o5TawUcSgA/VCOhLCEGP1wDRF4Af10KcjaFDdEYYaRTwnkEqggFUF0BRAvxCgcAVRphPbY8urRYGimEQx2If714ShA+8oKgywohyiSIZQctonTAyYjiANDW0AS2Su3Mh/nsNLaAVwkjrhZ8OMEXs448DaDeUbs6EOL0ExrAWhhbEcxTEEbQnOpgS6HrknGM9wlIYHRfEAzDNXGAt8pqTQFgJY90EMQsKZKiL1QAsw0YYSr0kQQxhDQUxA6WYoe0axLowaJShlHwF7S8q6wYFEu/Zih7WhKE7k6+UgiNwzIXSixBvXkPDWBHG7e3LnV5PvQd+TSmuNB49JDQM1RIois/gRFEEH9PtV3zvXkFDNBYxKHUotUlRYgCO0qRD2+/Hq560a0QYNMGFiv8ILkrUxcpTy8pTiR51uNRRL8mNdnv7rx1YESsVRtqbSCLFuvcmVoHf6/U+huHJPqyAlQmDCiVsWJ2BY5VsSQnvlTo5gJpZSY2hRTEER2Ngt/Swzm5p7cJworBHneKoVRhOFPapSxy1CUNPgrmaggF1iKMWYVBlTEUQOLgwDsNwb2Oj/DLCysLQzSvqU7ghKS/G2ATbLdsEqzRczXQ0nSj4sUWfTTqLXZxKwohjOQTX0eSMr+enClNaGDQCwSKn9saKo3YGUXRSeM1LqRpDp5Cv4GgNURTv9fvmG59KRQxdVzhahOfJd0XqjcLC0ItFfHC0DZ+WUpo+uVAqcSmk/ZimlEIRw6WQ9mOaUoyFEYa/HoJLIV3Aj+NHS0cpRqnELc3rHEu7ooYRw6N+hQ+OroCpxFtYiC6NGK7g7C6LCtGlEUO3vR0dBAvRuVFjYcRw0aL7zIsaCyOGixbdp9fzcue75kYMNxJZH4S4+Xl2Z9vciBFFYgBOFGtBXl9jrjCkFI1toHXYRQj5fLYbmisM2lYILlqsEyiKvz/N/qKX9ywsOg8FH3cuzH2K8l+Q/igm1s9tRF8HXY+ga1jZ3tOiKBVTOvkw+Vk8fMJwS6kf/wfrqFEUqde93kOfbjJe8bz4SJvAskcIdRGG6jJvWJiusFfP8VkDsEy2CH0gDJosw/riHVhEKTj2vNOz5c9jP3IKwlD8srHxZukyflp+h1H6d7BI9n1/UGOgKJ6BReJY/dNEFARNApFPBNynGVYkr81EFARdM107WASFef/Z5xWfA7AE5jlMHW8vivwNiYPuSmBGGWMTuna6a8Eeg8noZEoYejRiq7ALPO+3IZSA7koSFTCBaoqyG310tAzAGunoZEoY5OoPlsA75RwqICVcABuiSteCIrdm/hrHEaXmaWFglf8ELBHHcel9loS+QwOwz7jq0RNR5F2BJbDGnI4YNEwFi/UFDUuhOgFYR1W+jn5/IwBLYOTeoTojEzFurDZbunamWBWEGFp9L8Lw0c69MLDbaVUY6Zlm7QfTceXiXUdva0gp/xIGjmGfgkXCsJYmlfUWM4ZiHypjN3pjJ/ZJtvi0rNJqIyLLQ+0sW3d3yWspje3oTfNRWWFYrjHEQVkvB4Im/oAJi9ZSmoDR+zlYhKKeTL9Jcprtu22ryN7KLDS/w8ySYVDWmJXJ3uB0VHJ3d+sDA+jskqIO+zTTimnI6uRTHthwe1fU0lmpfx9wcT1MhNHvR2zWN9Abo9TJ7yajFLorez3F1eppiyydTU1LUtfD+AKYkEy7c5hqzyH3pGMSDK1HxddLqWMA7SA55wzf6S/ZrqhSFFH6z/BmOARmSwcSYUTRi6EQ1QomR7do/IQjRzvQwhAcc7TDIpOI4YThmMKlEkcuThiOXJwwHLk4YThy0cJQATgcGVzEcOSiZ1dFAA5HBhcxHLkkwvA8V2M4pplEjAAcjgz3u93j+ESBw6HJ1hgBOBwpQVYYdewEc3QCFWS2KKr/AW/G+BqtbfatiaAN16AUfMkIg23EGJPFgRA325739hB/HkFLoeV9dA1CxNucBSKl9/G++ORoD00+EwB/HGf3tbb1AODUM+PtlGNOei201ta+/1YWIcLdKQ8uHJmQKRuDNzw1ZpvnjM/Br6ogwSKHHb0Ym8tZc2MpT3+ecdRRH4ABQoiLRed2adeZEbSEOIbjRQ472mLpE7BAJa9jpiUuWNQZ+CYNl21XxDuQwnIAzEl9xU6vFj/nhc9lJx2mthE9TglDytiak8sMS8/typiysfXVwAh8buIrxumUBynDET0+8PnEOoMKUB/ss/TcLoLpZikSxaUeRS2E2esPsL7Ypm8ezK7aNAabYQtHH0vfMMrPtv0xZzEVRWJpxMjMH0dOo8n3D4SBhdII+GB0YH0qDmCRVtL0sVwUKZusTr0mW+vJ97lW8ozSCWGUUgjLFtLYiIPXpq7GDFPgfRoh5hxLwSadEJRSPpqYqqQW0o926a6FRlEjEq+pKEjA3M6DmW1V5ApDyk2jC2wQHKX8ZNTQIsc7DOVHzbSdqREX70n51tgemgTO0RhfSjX1mc89lQTTCb34ATACG19DId4UsoamuzOOBR1hQQbqPlSH6hgSxPmiJtw88H19jw+V/MbqR41I3NnfzBUGGYx5XqJsVpQRxwRy3+n34SlGkgGkIjFxvKGDdK5pxhFHP1d556eYkhrCgJGRSpMIIfeF+M9UKll4jhHHqEFUEccsFFHyrCSV8sb9/vegLmNaspDiYqM0w1TROaG36C/wDrnEImkAzEjtmF5CHeJowoMcX+s77ZrDjtTpJ+f3sARmQ9cp8KLOhDi1eb7HQvTwmWoK68a0c8iNFoTB2e6qlpC9Cihfk3A52k2TIa0efXAVxdxokfwbGMA5amiwCQY48ji13n9J+y2brzgWmTPMjRaE0U40HJqxmovIAXsDcIFV/2eb0SONEpufWyCKhdEi+XcwhOsIJQ9a6IMD7vOqB8qYotMGdTIH0A6uMVrsLnqCsTCoB9Drqc/QLrBVTUdixZ/KnlE2jzQyeeTkS9GhZetP4+1l74exMIgo+hVHAcKqAXoFUCTiCq/iC0DxJlUqBLmDxfgA/zt0hAfbonIRevZ3aaorJAx9ijNFDR/aTwCp+3AQx/E3fUz4PVJ6j+kR30gSgA/dcDbE673ZNbkpCgmD4NoqdyyH1qwsW386obA/Bk0cNT+t7agKfWamoiAKR4z0f5KkFNbNG8cUC3sWeZRy1KE1D1jZsl6h7biHPqu9on9U2mqJhjtYobOdp3Ck0HLDMkP1Sh5c6Q4qPmeqO6ahz8Z0ueEspWqMWaLo5ILZmWQOgCusK36BktTi2idlsmuMxfZGRwI28G4qzW/VEjGIjjW/2szCnfWm1ObzqUcqVP0G4LBFLaIgaosYEyxv+llnahMFUbswCCeOxqlVFMRKLKPTHWFJWnEF6eqpXRTEyrzE9XbBPWywcNru2DFoa+TNbt2iIFaSSmZx57rWj+m6irI0IgxC7+6m/addWNdgFYzCx2U7mqY0JgzCFaWVSeylNjberLx2a1QYE1q+RNAWV9TNrGvL5DKsCIMIw5N9KROvTh8ciyhkyFIX1oRBZCwKXPTIp9EokcWqMCa42uMBAW3yKuO/URcshDGBmXWyDchQ38gbdNWwEsYE3feg9R0+rAeJIKT8cWYjbeTBUhhEWn+Q0wtQ/eFDN2EniAlshZGlgynmOt1f+/2SmyAmtEIYE2izEwrkEN/UNi4jHAuhrshk1WZRaUqrhDGBPCii6G/YB0mc+Jg54E2RGLvFMVx63h9XXKNDHq0URpZUJJsDvBuxHhFPwPomKBVgQ+pDVYc/27ReGLNQ0RpFcgeFgmIBFIogoaxo4o5OuBbXdNAgnfPheTejtgphls4JIw+KKmH4CMUitzxPPI7jeBvb8f/AO9vPPM2f/isxTnfAC6oNxpgOvkkpv2Lj6RuOlq7rtHrkyJ8QFLdMhSN1qgAAAABJRU5ErkJggg=="
+                        alt="Image"
+                      />
+                    </span>
+                    И ЦИФРЫ ЭТО
+                    <br />
+                    ПОДТВЕРЖДАЮТ!
+                  </h2>
+                </div>
+                <div class="stats__items" data-fls-watcher="">
+                  <div class="stats__item stat-card">
+                    <div class="stat-card__number">
+                      <span data-fls-digcounter="">5</span>
+                      +
+                    </div>
+                    <div class="stat-card__label" data-lang="text3">
+                      Лет опыта и проектов
+                    </div>
+                  </div>
+                  <div class="stats__item stat-card">
+                    <div class="stat-card__number">
+                      <span data-fls-digcounter="">5000</span>
+                      +
+                    </div>
+                    <div class="stat-card__label" data-lang="text5">
+                      Роликов и баннеров
+                    </div>
+                  </div>
+                  <div class="stats__item stat-card">
+                    <div class="stat-card__number">
+                      <span data-fls-digcounter="">60</span>
+                      +
+                    </div>
+                    <div class="stat-card__label" data-lang="text6">
+                      Довольных клиентов
+                    </div>
+                  </div>
+                  <div class="stats__item stat-card">
+                    <div class="stat-card__number">∞</div>
+                    <div class="stat-card__label" data-lang="text7">
+                      Идей для воплощения ваших задумок
+                    </div>
+                  </div>
+                </div>
+                <div class="stats__footer">
+                  <h3 class="stats__partners-title" data-lang="text8">
+                    С НАМИ РАБОТАЛИ
+                  </h3>
+                  <div
+                    class="stats__partners partners-list"
+                    data-marquee=""
+                    data-marquee-speed="500"
+                    data-marquee-space="50"
+                    data-marquee-pause=""
+                  >
+                    <div class="partners-list__item">
+                      <picture>
+                        <source
+                          media="(max-width: 600px)"
+                          srcset="./assets/img/banks/aplha-600.webp"
+                          type="image/webp"
+                        />
+                        <source
+                          media="(max-width: 1200px)"
+                          srcset="./assets/img/banks/aplha-1200.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="Альфа Банк"
+                          class="partners-list__logo"
+                          src="./assets/img/banks/aplha.webp"
+                        />
+                      </picture>
+                    </div>
+                    <div class="partners-list__item">
+                      <img
+                        src="data:image/png;base64,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"
+                        alt="СБЕР"
+                        class="partners-list__logo"
+                      />
+                    </div>
+                    <div class="partners-list__item">
+                      <img
+                        src="data:image/png;base64,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"
+                        alt="Tencent"
+                        class="partners-list__logo"
+                      />
+                    </div>
+                    <div class="partners-list__item">
+                      <picture>
+                        <source
+                          media="(max-width: 600px)"
+                          srcset="./assets/img/banks/yandex-600.webp"
+                          type="image/webp"
+                        />
+                        <source
+                          media="(max-width: 1200px)"
+                          srcset="./assets/img/banks/yandex-1200.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="Игры"
+                          class="partners-list__logo"
+                          src="./assets/img/banks/yandex.webp"
+                        />
+                      </picture>
+                    </div>
+                    <div class="partners-list__item">
+                      <picture>
+                        <source
+                          media="(max-width: 600px)"
+                          srcset="./assets/img/banks/indrive-600.webp"
+                          type="image/webp"
+                        />
+                        <source
+                          media="(max-width: 1200px)"
+                          srcset="./assets/img/banks/indrive-1200.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="InDrive"
+                          class="partners-list__logo"
+                          src="./assets/img/banks/indrive.webp"
+                        />
+                      </picture>
+                    </div>
+                    <div class="partners-list__item">
+                      <img
+                        src="data:image/png;base64,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"
+                        alt="Профиль"
+                        class="partners-list__logo"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- /.about-two -->
+          <section class="services" id="services">
+            <div class="services__small-container">
+              <div class="services__content">
+                <div class="services__header">
+                  <h2 class="services__title title-h1" data-lang="text9">
+                    что мы делаем?
+                  </h2>
+                </div>
+                <div class="services__items">
+                  <div class="section-num section-num--white">
+                    <span class="section-num__number">03</span>
+                    <div class="section-num-icon"></div>
+                  </div>
+                  <div class="services__item">
+                    <div class="service-card">
+                      <div class="service-card__icon">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="./assets/img/services-icon/01-600.webp"
+                            type="image/webp"
+                          />
+                          <source
+                            media="(max-width: 1200px)"
+                            srcset="./assets/img/services-icon/01-1200.webp"
+                            type="image/webp"
+                          />
+                          <img
+                            alt="Промо и обучающие ролики"
+                            src="./assets/img/services-icon/01.webp"
+                          />
+                        </picture>
+                      </div>
+                      <div class="service-card__label" data-lang="text10">
+                        промо и обучающие ролики
+                      </div>
+                    </div>
+                  </div>
+                  <div class="services__item">
+                    <div class="service-card">
+                      <div class="service-card__icon">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="./assets/img/services-icon/02-600.webp"
+                            type="image/webp"
+                          />
+                          <source
+                            media="(max-width: 1200px)"
+                            srcset="./assets/img/services-icon/02-1200.webp"
+                            type="image/webp"
+                          />
+                          <img
+                            alt="2D-графика"
+                            src="./assets/img/services-icon/02.webp"
+                          />
+                        </picture>
+                      </div>
+                      <div class="service-card__label" data-lang="text11">
+                        2D-графика
+                      </div>
+                    </div>
+                  </div>
+                  <div class="services__item services__item--three">
+                    <div class="service-card">
+                      <div class="service-card__icon">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="./assets/img/services-icon/03-600.webp"
+                            type="image/webp"
+                          />
+                          <source
+                            media="(max-width: 1200px)"
+                            srcset="./assets/img/services-icon/03-1200.webp"
+                            type="image/webp"
+                          />
+                          <img
+                            alt="Иллюстрации"
+                            src="./assets/img/services-icon/03.webp"
+                          />
+                        </picture>
+                      </div>
+                      <div class="service-card__label" data-lang="text12">
+                        иллюстрации
+                      </div>
+                    </div>
+                  </div>
+                  <div class="services__item">
+                    <div class="service-card">
+                      <div class="service-card__icon">
+                        <img
+                          src="data:image/png;base64,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"
+                          alt="3D-дизайн"
+                        />
+                      </div>
+                      <div class="service-card__label" data-lang="text13">
+                        3D-дизайн
+                      </div>
+                    </div>
+                  </div>
+                  <div class="services__item">
+                    <div class="service-card">
+                      <div class="service-card__icon">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="./assets/img/services-icon/05-600.webp"
+                            type="image/webp"
+                          />
+                          <source
+                            media="(max-width: 1200px)"
+                            srcset="./assets/img/services-icon/05-1200.webp"
+                            type="image/webp"
+                          />
+                          <img
+                            alt="Баннеры"
+                            src="./assets/img/services-icon/05.webp"
+                          />
+                        </picture>
+                      </div>
+                      <div class="service-card__label" data-lang="text14">
+                        баннеры
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="services__footer">
+                  <div class="services__mascot">
+                    <picture>
+                      <source
+                        srcset="./assets/img/services-icon/dino.png"
+                        media="(min-width: 768px)"
+                        type="image/png"
+                      />
+                      <picture>
+                        <source
+                          media="(max-width: 600px)"
+                          srcset="./assets/img/services-icon/dino-mob-600.webp"
+                          type="image/webp"
+                        />
+                        <source
+                          media="(max-width: 1200px)"
+                          srcset="./assets/img/services-icon/dino-mob-1200.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="Динозаврик"
+                          src="./assets/img/services-icon/dino-mob.webp"
+                        />
+                      </picture>
+                    </picture>
+                  </div>
+                </div>
+                <div class="services__cloud">
+                  <div class="services__cloud-body">
+                    <div class="services__cloud-body-icon">
+                      <picture>
+                        <source
+                          media="(max-width: 600px)"
+                          srcset="./assets/img/cloud-600.webp"
+                          type="image/webp"
+                        />
+                        <source
+                          media="(max-width: 1200px)"
+                          srcset="./assets/img/cloud-1200.webp"
+                          type="image/webp"
+                        />
+                        <img alt="Cloud" src="./assets/img/cloud.webp" />
+                      </picture>
+                    </div>
+                    <div class="services__cloud-text">
+                      <h2
+                        data-lang="text15"
+                        class="title-h1 title-h1--primary services__cloud-text-title"
+                      >
+                        А теперь то,
+                        <br />
+                        чем мы гордимся!
+                      </h2>
+                    </div>
+                  </div>
+                  <div class="services__cloud-footer">
+                    <div class="services__cloud-footer-text">
+                      <p data-lang="text16">
+                        Креатив, в который мы
+                        <br />
+                        вложили себя. Листайте!
+                      </p>
+                    </div>
+                    <div
+                      class="hero__scroll scroll-button scroll-button--white"
+                      data-go="#our-works"
+                    >
+                      <div class="scroll-button-icon">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="33"
+                          height="32"
+                          viewbox="0 0 33 32"
+                          fill="none"
+                        >
+                          <path
+                            d="M16.5275 2.40735V29.9292M16.5275 29.9292L30.2884 16.1683M16.5275 29.9292L2.7666 16.1683"
+                            stroke="#FFFDE9"
+                            stroke-width="3.93169"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- /.services -->
+          <div class="index-sections-final"></div>
+        </div>
+        <section
+          class="cases section-border-top section-border-top--primary"
+          id="our-works"
+        >
+          <div class="cases__small-container">
+            <div class="cases__content">
+              <div class="cases__left">
+                <div class="cases__header">
+                  <h2
+                    data-lang="text17"
+                    class="cases__title title-h1 title-h1--primary"
+                  >
+                    наши кейсы
+                  </h2>
+                  <div class="cases__header-bottom">
+                    <div class="section-num section-num--primary">
+                      <span class="section-num__number">04</span>
+                      <div class="section-num-icon"></div>
+                    </div>
+                    <div class="cases__description">
+                      <p data-lang="text18" class="cases__text">
+                        Ещё нас можно найти тут!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="cases__platforms">
+                  <ul>
+                    <li>
+                      <a href="https://www.behance.net/AppyLand_?">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="108"
+                          height="108"
+                          viewbox="0 0 108 108"
+                          fill="none"
+                        >
+                          <g clip-path="url(#clip0_1926_2350)">
+                            <path
+                              d="M108 50.6255V57.3745C107.939 57.6471 107.846 57.9158 107.827 58.1884C107.113 67.4866 104.234 76.063 99.0166 83.7795C90.4133 96.5021 78.5353 104.341 63.4057 107.163C61.4132 107.535 59.3862 107.727 57.3784 108H50.6293C49.3125 107.839 47.9919 107.697 46.6751 107.509C36.0026 105.984 26.547 101.746 18.4581 94.6094C8.99104 86.2595 3.07891 75.8557 0.84459 63.4057C0.479881 61.4132 0.276411 59.3862 0 57.3745C0 55.1248 0 52.8752 0 50.6255C0.157401 49.3394 0.287928 48.0533 0.468363 46.7711C2.0155 35.7914 6.4304 26.1132 13.8743 17.8976C22.2204 8.68776 32.5282 2.94071 44.8016 0.813877C46.7327 0.47988 48.6829 0.268733 50.6255 0C52.8752 0 55.1248 0 57.3745 0C57.6432 0.0575857 57.912 0.153562 58.1846 0.172757C66.3348 0.783165 73.9899 3.0674 81 7.25579C95.3043 15.8053 104.088 28.2784 107.171 44.6942C107.539 46.6521 107.727 48.6484 108 50.6255ZM25.2609 71.1029C27.7832 71.1029 30.2402 71.1298 32.6971 71.0953C36.7358 71.0415 40.786 71.1298 44.8055 70.8342C50.0381 70.4503 53.5969 66.9606 54.2994 61.8547C54.8024 58.2076 53.547 54.1344 49.3701 52.4567C49.2665 52.4145 49.1935 52.307 49.2741 52.3761C50.2723 51.3702 51.4317 50.5449 52.1419 49.4354C54.691 45.4313 53.0134 39.4116 48.7328 37.3961C47.155 36.6552 45.3161 36.1676 43.5808 36.1177C37.6802 35.9488 31.7758 36.0294 25.8713 36.0179C25.6755 36.0179 25.4759 36.0755 25.2609 36.1101V71.0953V71.1029ZM82.6777 60.0734C82.6777 58.5416 82.7544 57.1749 82.6623 55.8159C82.2861 50.2608 78.6543 45.9764 73.2374 44.8477C71.6442 44.5176 69.9512 44.46 68.3158 44.5368C62.7261 44.8016 58.3535 48.5678 57.148 54.0307C56.5568 56.7065 56.5376 59.4054 56.9945 62.0965C57.578 65.544 59.3248 68.2083 62.4037 69.9781C66.0392 72.0665 69.8975 72.4121 73.917 71.5521C77.0995 70.8726 79.568 69.1028 81.3033 66.3732C81.8254 65.5517 82.1133 64.5804 82.5855 63.5055C80.14 63.5055 78.0017 63.494 75.8634 63.5208C75.6368 63.5208 75.3221 63.6974 75.1992 63.8894C73.7519 66.2158 71.5329 66.6688 69.049 66.4193C65.7283 66.0853 63.3557 63.2291 63.7972 60.0695H82.6738L82.6777 60.0734ZM77.1993 37.6956H62.085V41.9185H77.1993V37.6956Z"
+                              fill="#1F2FA9"
+                            ></path>
+                            <path
+                              d="M32.3286 65.0067V55.8352C32.4246 55.7738 32.4822 55.7085 32.5398 55.7085C36.0794 55.7507 39.6305 55.6394 43.1547 55.9004C45.6655 56.0847 46.8287 57.6088 46.8632 59.9238C46.9016 62.6917 45.7269 64.2964 43.2238 64.784C42.4061 64.9452 41.5538 64.9875 40.7169 64.9951C37.9528 65.022 35.1849 65.0028 32.3325 65.0028L32.3286 65.0067Z"
+                              fill="#1F2FA9"
+                            ></path>
+                            <path
+                              d="M32.3477 49.7157V42.3025C32.4052 42.2564 32.4551 42.1758 32.5089 42.1758C36.0792 42.241 39.6534 42.2065 43.2122 42.4292C45.1394 42.552 46.0108 43.696 46.1644 45.5273C46.3256 47.5159 45.5194 48.802 43.6997 49.4239C43.335 49.5467 42.9549 49.6965 42.5825 49.7003C39.1927 49.7233 35.8028 49.7118 32.3515 49.7118L32.3477 49.7157Z"
+                              fill="#1F2FA9"
+                            ></path>
+                            <path
+                              d="M63.9468 55.4624C63.9046 52.4834 66.3078 50.1646 69.5135 50.0494C72.9609 49.9265 75.4217 52.0956 75.5599 55.4624H63.9468Z"
+                              fill="#1F2FA9"
+                            ></path>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_1926_2350">
+                              <rect
+                                width="108"
+                                height="108"
+                                rx="54"
+                                fill="white"
+                              ></rect>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://vimeo.com/appyland">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="108"
+                          height="108"
+                          viewbox="0 0 108 108"
+                          fill="none"
+                        >
+                          <g clip-path="url(#clip0_1926_2347)">
+                            <path
+                              d="M54.0672 0C84.0744 0.290786 108.096 24.0631 108.002 54.2206C107.908 84.1255 83.9661 108.106 53.7842 108C23.8633 107.896 -0.172612 83.9329 -5.32223e-05 53.6872C0.172506 23.8926 24.0098 0.234634 54.0672 0ZM75.8678 26.1307C70.5727 26.2269 66.5797 28.1 63.3492 31.7037C61.2545 34.04 59.9964 36.8196 58.9048 39.6993C58.7744 40.0443 58.8166 40.4574 58.7784 40.8384C59.1898 40.8484 59.6051 40.8966 60.0124 40.8585C61.3327 40.7341 62.651 40.4554 63.9693 40.4614C65.7129 40.4694 67.1696 41.6225 67.3021 43.2028C67.4204 44.6046 67.4204 46.1147 67.0232 47.4423C66.0821 50.5868 64.5491 53.4946 62.6269 56.1618C61.5374 57.6739 60.3535 59.1259 59.1296 60.5317C57.7431 62.124 56.3205 61.9916 55.3052 60.1366C54.621 58.8872 53.9448 57.5656 53.6378 56.1919C52.5402 51.2827 51.6012 46.3373 50.5999 41.406C50.0241 38.5683 49.6529 35.6644 48.8061 32.909C47.8269 29.7224 45.8706 27.2717 42.1947 26.9047C40.2183 26.7082 38.4405 27.3299 36.7992 28.3767C31.4178 31.808 27.0295 36.4225 22.2561 40.5797C21.7906 40.9848 21.7585 41.4019 22.1437 41.8812C22.8119 42.7135 23.48 43.5457 24.1241 44.396C24.5254 44.9275 24.9428 44.9856 25.4946 44.6166C26.3814 44.023 27.2643 43.4134 28.1993 42.906C30.26 41.789 31.2974 41.9514 32.425 44.001C33.5748 46.0886 34.6242 48.2906 35.3024 50.5647C37.1162 56.6351 38.7074 62.7717 40.3848 68.8842C41.1453 71.6577 41.9198 74.4533 43.6173 76.8137C44.6547 78.2576 45.8305 79.7115 47.2451 80.7523C49.9398 82.7317 52.8432 81.9035 55.6302 80.7403C59.0794 79.3024 61.8765 76.918 64.5552 74.3972C68.2612 70.9097 71.4334 66.957 74.4613 62.884C78.4903 57.4654 82.3308 51.9344 84.6884 45.5311C86.2475 41.2957 86.7491 36.994 85.4569 32.5881C84.4918 29.3012 82.4893 27.1113 78.996 26.5357C77.8161 26.3412 76.6223 26.2269 75.8698 26.1307H75.8678Z"
+                              fill="#1F2FA9"
+                            ></path>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_1926_2347">
+                              <rect
+                                width="108"
+                                height="108"
+                                rx="54"
+                                fill="white"
+                              ></rect>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="cases__right">
+                <div class="cases__mascot">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="./assets/img/ui-dino/dino-02-600.webp"
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 1200px)"
+                      srcset="./assets/img/ui-dino/dino-02-1200.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="Динозаврик талисман"
+                      src="./assets/img/ui-dino/dino-02.webp"
+                    />
+                  </picture>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- /.cases -->
+        <section
+          class="portfolio section-border-top section-border-top--primary"
+        >
+          <div class="portfolio__content">
+            <div class="portfolio__small-container">
+              <div class="portfolio__header">
+                <div class="client-info">
+                  <div class="client-card">
+                    <div class="client-card__content">
+                      <div class="client-card__header">
+                        <h3 class="client-card__title" data-lang="text21">
+                          АЛЬФА-БАНК
+                          <sup>(01)</sup>
+                        </h3>
+                      </div>
+                      <p class="client-card__description" data-lang="text22">
+                        Иллюстрации и кук visuals с 3D и AI, анимация для
+                        TikTok, оформление для брендинг дизайн-процесс под
+                        различные дизайн-форматы.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio__footer">
+              <div class="portfolio__small-container">
+                <ul class="portfolio__tags">
+                  <li class="portfolio__tag" data-lang="text19">баннеры</li>
+                  <li class="portfolio__tag" data-lang="text20">иллюстрации</li>
+                  <li class="portfolio__tag">3D</li>
+                </ul>
+              </div>
+            </div>
+            <div class="portfolio__gallery">
+              <div
+                class="portfolio__row row-top"
+                data-marquee=""
+                data-marquee-space="20"
+                data-marquee-speed="500"
+              >
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/arts/01-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/arts/01-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 1" src="./assets/img/arts/01.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/arts/02-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/arts/02-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 2" src="./assets/img/arts/02.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/arts/03-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/arts/03-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 3" src="./assets/img/arts/03.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/arts/04-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/arts/04-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 4" src="./assets/img/arts/04.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/arts/05-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/arts/05-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 5" src="./assets/img/arts/05.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/arts/06-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/arts/06-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 6" src="./assets/img/arts/06.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/arts/07-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/arts/07-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 7" src="./assets/img/arts/07.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/arts/08-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/arts/08-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 8" src="./assets/img/arts/08.webp" />
+                    </picture>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="portfolio__row row-bottom"
+                data-marquee=""
+                data-marquee-space="20"
+                data-marquee-direction="right"
+                data-marquee-speed="500"
+              >
+                <div class="portfolio__item portfolio__item--large">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/3d/01-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/3d/01-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 9" src="./assets/img/3d/01.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/3d/02-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/3d/02-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 10" src="./assets/img/3d/02.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/3d/03-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/3d/03-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 11" src="./assets/img/3d/03.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/3d/04-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/3d/04-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 12" src="./assets/img/3d/04.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/3d/05-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/3d/05-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 13" src="./assets/img/3d/05.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/3d/06-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/3d/06-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 14" src="./assets/img/3d/06.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/3d/07-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/3d/07-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 15" src="./assets/img/3d/07.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/3d/08-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/3d/08-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 16" src="./assets/img/3d/08.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/3d/09-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/3d/09-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 17" src="./assets/img/3d/09.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/3d/10-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/3d/10-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 18" src="./assets/img/3d/10.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/3d/11-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/3d/11-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 19" src="./assets/img/3d/11.webp" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="portfolio__item">
+                  <div class="work-card">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/3d/12-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/3d/12-1200.webp"
+                        type="image/webp"
+                      />
+                      <img alt="Работа 20" src="./assets/img/3d/12.webp" />
+                    </picture>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio__small-container">
+              <div class="portfolio__bottom">
+                <div class="client-info">
+                  <div class="client-card">
+                    <div class="client-card__content">
+                      <div class="client-card__header">
+                        <h3 class="client-card__title">
+                          SOAX
+                          <sup>(02)</sup>
+                        </h3>
+                      </div>
+                      <p class="client-card__description" data-lang="text23">
+                        Анимированные иконки в фирменном стиле и простое
+                        визуальное объяснение, как работает прокси-сервер и
+                        зачем он нужен.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio__image">
+                  <div class="soax-lottie" data-animation="soax_group"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- /.portfolio -->
+        <section
+          class="video-portfolio section-border-top section-border-top--primary"
+        >
+          <div class="video-portfolio__content">
+            <div class="video-portfolio__small-container">
+              <div data-fls-slider="" class="video-portfolio__slider swiper">
+                <div class="video-portfolio__wrapper swiper-wrapper">
+                  <!-- Слайд 1: Яндекс Образование -->
+                  <div class="video-portfolio__slide swiper-slide slide-video">
+                    <div class="slide-video__content">
+                      <div class="slide-video__header">
+                        <h2 data-lang="text26">
+                          ЯНДЕКС ОБРАЗОВАНИЕ. ИГРА ВИЗИОНЕРЫ
+                          <sup>(01)</sup>
+                        </h2>
+                      </div>
+                      <div class="slide-video__body">
+                        <div class="slide-video__description">
+                          <p class="slide-video__text" data-lang="text27">
+                            С помощью моушн-графики рассказали о том, как играть
+                            в игру «Визионеры».
+                          </p>
+                        </div>
+                        <div class="slide-video__video" data-custom-cursor="">
+                          <img
+                            class="play_slide_video"
+                            src="assets/img/video-preview/01.png"
+                          />
+                          <video
+                            src="./video/Final_4.mp4"
+                            width="700px"
+                            height="550px"
+                            controls
+                            muted
+                            loop
+                            autoplay
+                          ></video>
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Слайд 2: Appodeal -->
+                  <div class="video-portfolio__slide swiper-slide slide-video">
+                    <div class="slide-video__content">
+                      <div class="slide-video__header">
+                        <h2 data-lang="text28">
+                          APPODEAL. РЕКЛАМНАЯ КАМПАНИЯ
+                          <sup>(02)</sup>
+                        </h2>
+                      </div>
+                      <div class="slide-video__body">
+                        <div class="slide-video__description">
+                          <p class="slide-video__text" data-lang="text29">
+                            Серия креативов для Appodeal — коротко, ярко, по
+                            делу о преимуществах сервиса.
+                          </p>
+                        </div>
+                        <div class="slide-video__video" data-custom-cursor="">
+                          <img
+                            class="play_slide_video"
+                            src="assets/img/video-preview/02.png"
+                          />
+                          <video
+                            src="./video/APD.mp4"
+                            width="700px"
+                            height="550px"
+                            controls
+                            muted
+                            loop
+                            autoplay
+                          ></video>
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="video-portfolio__slide swiper-slide slide-video">
+                    <div class="slide-video__content">
+                      <div class="slide-video__header">
+                        <h2 data-lang="text30">
+                          SOAX. Продуктовый эксплейнер
+                          <sup>(02)</sup>
+                        </h2>
+                      </div>
+                      <div class="slide-video__body">
+                        <div class="slide-video__description">
+                          <p class="slide-video__text" data-lang="text31">
+                            Наглядное видео о том, как работает сервис, и почему
+                            он такой удобный.
+                          </p>
+                        </div>
+                        <div class="slide-video__video" data-custom-cursor="">
+                          <img
+                            class="play_slide_video"
+                            src="assets/img/video-preview/03.png"
+                          />
+                          <video
+                            src="./video/A-Club PRO 02.mp4"
+                            width="700px"
+                            height="550px"
+                            controls
+                            muted
+                            loop
+                            autoplay
+                          ></video>
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="video-portfolio__slide swiper-slide slide-video">
+                    <div class="slide-video__content">
+                      <div class="slide-video__header">
+                        <h2 data-lang="text32">
+                          Tencent.PUBG Showreel
+                          <sup>(02)</sup>
+                        </h2>
+                      </div>
+                      <div class="slide-video__body">
+                        <div class="slide-video__description">
+                          <p class="slide-video__text" data-lang="text33">
+                            Собрали всё крутое, что делали для PUBG, в один
+                            динамичный ролик.
+                          </p>
+                        </div>
+                        <div class="slide-video__video" data-custom-cursor="">
+                          <img
+                            class="play_slide_video"
+                            src="assets/img/video-preview/04.png"
+                          />
+                          <video
+                            src="./video/PUBG_Showreel.mp4"
+                            width="700px"
+                            height="550px"
+                            controls
+                            muted
+                            loop
+                            autoplay
+                          ></video>
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="video-portfolio__slide swiper-slide slide-video">
+                    <div class="slide-video__content">
+                      <div class="slide-video__header">
+                        <h2 data-lang="text34">
+                          Tencent x Егор Крид.PUBG
+                          <sup>(02)</sup>
+                        </h2>
+                      </div>
+                      <div class="slide-video__body">
+                        <div class="slide-video__description">
+                          <p class="slide-video__text" data-lang="video">
+                            Видео в поддержку масштабной коллаборации PUBG и
+                            Егора Крида.
+                          </p>
+                        </div>
+                        <div class="slide-video__video" data-custom-cursor="">
+                          <img
+                            class="play_slide_video"
+                            src="assets/img/video-preview/05.png"
+                          />
+                          <video
+                            src="./video/PUBG_Kreed.mp4"
+                            width="700px"
+                            height="550px"
+                            controls
+                            muted
+                            loop
+                            autoplay
+                          ></video>
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="video-portfolio__controls">
+                  <div class="slider-navigation">
+                    <button type="button" class="swiper-button-prev">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewbox="0 0 32 32"
+                        fill="none"
+                      >
+                        <path
+                          d="M30 16L2 16M2 16L16 30M2 16L16 2"
+                          stroke="#1F2FA9"
+                          stroke-width="4"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </button>
+                    <button type="button" class="swiper-button-next">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewbox="0 0 32 32"
+                        fill="none"
+                      >
+                        <path
+                          d="M2 16L30 16M30 16L16 2M30 16L16 30"
+                          stroke="#1F2FA9"
+                          stroke-width="4"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="slider-pagination">
+                    <div
+                      class="swiper-pagination swiper-pagination--white"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="video-portfolio__footer">
+            <div class="video-portfolio__small-container">
+              <ul class="video-portfolio__tags">
+                <li class="video-portfolio__tag" data-lang="text24">
+                  Моушн-дизайн
+                </li>
+                <li class="video-portfolio__tag" data-lang="text25">
+                  Рекламные ролики
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!-- /.video-portfolio -->
+        <section class="advertising-preview">
+          <div class="advertising-preview__content">
+            <div
+              data-fls-slider=""
+              class="advertising-preview__slider swiper slider_video"
+            >
+              <div class="swiper-wrapper">
+                <!-- Слайд 1: Alfa Only Cashback -->
+                <div
+                  class="advertising-preview__slide swiper-slide slide-advertising"
+                >
+                  <div class="slide-advertising__content">
+                    <div class="slide-advertising__body">
+                      <div class="slide-advertising__image">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              ./assets/img/advertising-preview/01-600.webp
+                            "
+                            type="image/webp"
+                          />
+                          <source
+                            media="(max-width: 1200px)"
+                            srcset="
+                              ./assets/img/advertising-preview/01-1200.webp
+                            "
+                            type="image/webp"
+                          />
+                          <img
+                            alt="Alfa Only Cashback"
+                            src="./assets/img/advertising-preview/01.webp"
+                          />
+                        </picture>
+                        <div
+                          class="slide-advertising__play-btn modal_window1"
+                        ></div>
+                        <video
+                          src="./video/SBP_14.03_final 1.mp4"
+                          width="700px"
+                          height="500px"
+                          controls
+                          muted
+                          loop
+                          autoplay
+                        ></video>
+                      </div>
+                      <div class="slide-advertising__header">
+                        <h2 data-lang="text35">
+                          <span>
+                            Альфа-Банк.
+                            <sup>(01)</sup>
+                          </span>
+                          <span>СБП</span>
+                        </h2>
+                      </div>
+                      <div class="slide-advertising__description">
+                        <p class="slide-advertising__text" data-lang="text36">
+                          Просто о том, как выбрать банк основным для СБП.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Слайд 2: Альфа-Банк. СБП -->
+                <div
+                  class="advertising-preview__slide swiper-slide slide-advertising"
+                >
+                  <div class="slide-advertising__content">
+                    <div class="slide-advertising__body">
+                      <div class="slide-advertising__image">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              ./assets/img/advertising-preview/02-600.webp
+                            "
+                            type="image/webp"
+                          />
+                          <source
+                            media="(max-width: 1200px)"
+                            srcset="
+                              ./assets/img/advertising-preview/02-1200.webp
+                            "
+                            type="image/webp"
+                          />
+                          <img
+                            alt="Альфа-Банк. СБП"
+                            src="./assets/img/advertising-preview/02.webp"
+                          />
+                        </picture>
+                        <div
+                          class="slide-advertising__play-btn modal_window1"
+                        ></div>
+                        <video
+                          src="./video/A-Club PRO 02.mp4"
+                          width="700px"
+                          height="500px"
+                          controls
+                          muted
+                          loop
+                          autoplay
+                        ></video>
+                      </div>
+                      <div class="slide-advertising__header">
+                        <h2 data-lang="text37">
+                          <span>
+                            Альфа-Банк.
+                            <sup>(02)</sup>
+                          </span>
+                          <span>A-Клуб PRO</span>
+                        </h2>
+                      </div>
+                      <div class="slide-advertising__description">
+                        <p class="slide-advertising__text" data-lang="text38">
+                          Ролик про закрытый клуб для самых-самых клиентов
+                          Альфы.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Слайд 3: Альфа-Банк. А-Клуб PRO -->
+                <div
+                  class="advertising-preview__slide swiper-slide slide-advertising"
+                >
+                  <div class="slide-advertising__content">
+                    <div class="slide-advertising__body">
+                      <div class="slide-advertising__image">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              ./assets/img/advertising-preview/03-600.webp
+                            "
+                            type="image/webp"
+                          />
+                          <source
+                            media="(max-width: 1200px)"
+                            srcset="
+                              ./assets/img/advertising-preview/03-1200.webp
+                            "
+                            type="image/webp"
+                          />
+                          <img
+                            alt="Альфа-Банк. А-Клуб PRO"
+                            src="./assets/img/advertising-preview/03.webp"
+                          />
+                        </picture>
+                        <div
+                          class="slide-advertising__play-btn modal_window1"
+                        ></div>
+                        <video
+                          src="./video/APPYLAND_TENDER_SMARTCAMERA_2024.mp4"
+                          width="700px"
+                          height="500px"
+                          controls
+                          muted
+                          loop
+                          autoplay
+                        ></video>
+                      </div>
+                      <div class="slide-advertising__header">
+                        <h2 data-lang="text39">
+                          <span>
+                            Альфа-Банк.
+                            <sup>(03)</sup>
+                          </span>
+                          <span>Умная камера</span>
+                        </h2>
+                      </div>
+                      <div class="slide-advertising__description">
+                        <p class="slide-advertising__text" data-lang="text40">
+                          Простым языком рассказываем, как работает «умная»
+                          камера в приложении и зачем она нужна.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Слайд 4: Альфа-Банк. Умная камера -->
+                <div
+                  class="advertising-preview__slide swiper-slide slide-advertising"
+                >
+                  <div class="slide-advertising__content">
+                    <div class="slide-advertising__body">
+                      <div class="slide-advertising__image">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              ./assets/img/advertising-preview/04-600.webp
+                            "
+                            type="image/webp"
+                          />
+                          <source
+                            media="(max-width: 1200px)"
+                            srcset="
+                              ./assets/img/advertising-preview/04-1200.webp
+                            "
+                            type="image/webp"
+                          />
+                          <img
+                            alt="Альфа-Банк. Умная камера"
+                            src="./assets/img/advertising-preview/04.webp"
+                          />
+                        </picture>
+                        <div
+                          class="slide-advertising__play-btn modal_window1"
+                        ></div>
+                        <video
+                          src="./video/PROFI_Map.mp4"
+                          width="700px"
+                          height="500px"
+                          controls
+                          muted
+                          loop
+                          autoplay
+                        ></video>
+                      </div>
+                      <div class="slide-advertising__header">
+                        <h2 data-lang="text41">
+                          <span>
+                            Профи.ру.
+                            <sup>(04)</sup>
+                          </span>
+                          <span>Видеокреатив</span>
+                        </h2>
+                      </div>
+                      <div class="slide-advertising__description">
+                        <p class="slide-advertising__text" data-lang="text42">
+                          Про то, как легко найти мастера на все руки.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Слайд 5: Профи.ру. Видеокреатив -->
+                <div
+                  class="advertising-preview__slide swiper-slide slide-advertising"
+                >
+                  <div class="slide-advertising__content">
+                    <div class="slide-advertising__body">
+                      <div class="slide-advertising__image">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              ./assets/img/advertising-preview/05-600.webp
+                            "
+                            type="image/webp"
+                          />
+                          <source
+                            media="(max-width: 1200px)"
+                            srcset="
+                              ./assets/img/advertising-preview/05-1200.webp
+                            "
+                            type="image/webp"
+                          />
+                          <img
+                            alt="Профи.ру. Видеокреатив"
+                            src="./assets/img/advertising-preview/05.webp"
+                          />
+                        </picture>
+                        <div
+                          class="slide-advertising__play-btn modal_window1"
+                        ></div>
+                        <video
+                          src="./video/Апподил-Акселератор -2 (9х16)_1.mp4"
+                          width="700px"
+                          height="500px"
+                          muted
+                          loop
+                          autoplay
+                        ></video>
+                      </div>
+                      <div class="slide-advertising__header">
+                        <h2 data-lang="text43">
+                          <span>
+                            Appodeal. <br />Реклама
+                            <sup class="pos_text">(05)</sup>
+                          </span>
+                        </h2>
+                      </div>
+                      <div class="slide-advertising__description">
+                        <p class="slide-advertising__text" data-lang="text44">
+                          Серия креативов для Appodeal — коротко, ярко, по делу
+                          о сервисе.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Слайд 6: Appodeal. Реклама -->
+                <div
+                  class="advertising-preview__slide swiper-slide slide-advertising"
+                >
+                  <div class="slide-advertising__content">
+                    <div class="slide-advertising__body">
+                      <div class="slide-advertising__image">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              ./assets/img/advertising-preview/06-600.webp
+                            "
+                            type="image/webp"
+                          />
+                          <source
+                            media="(max-width: 1200px)"
+                            srcset="
+                              ./assets/img/advertising-preview/06-1200.webp
+                            "
+                            type="image/webp"
+                          />
+                          <img
+                            alt="Appodeal. Реклама"
+                            src="./assets/img/advertising-preview/06.webp"
+                          />
+                        </picture>
+                        <div
+                          class="slide-advertising__play-btn modal_window1"
+                        ></div>
+                        <video
+                          src="./video/ЯндексИгры_Ферма.mp4"
+                          width="700px"
+                          height="500px"
+                          muted
+                          loop
+                          autoplay
+                        ></video>
+                      </div>
+                      <div class="slide-advertising__header">
+                        <h2 data-lang="text45">
+                          <span>
+                            Яндекс Игры. TikTok-кампания
+                            <sup class="pos_text1">(06)</sup>
+                          </span>
+                        </h2>
+                      </div>
+                      <div class="slide-advertising__description">
+                        <p class="slide-advertising__text" data-lang="text46">
+                          Видеокреативы для запуска рекламы в TikTok с крутым
+                          результатом по CPI.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Слайд 7: Яндекс Игры. TikTok-кампания -->
+                <div
+                  class="advertising-preview__slide swiper-slide slide-advertising"
+                >
+                  <div class="slide-advertising__content">
+                    <div class="slide-advertising__body">
+                      <div class="slide-advertising__image">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              ./assets/img/advertising-preview/07-600.webp
+                            "
+                            type="image/webp"
+                          />
+                          <source
+                            media="(max-width: 1200px)"
+                            srcset="
+                              ./assets/img/advertising-preview/07-1200.webp
+                            "
+                            type="image/webp"
+                          />
+                          <img
+                            alt="Яндекс Игры. TikTok-кампания"
+                            src="./assets/img/advertising-preview/07.webp"
+                          />
+                        </picture>
+                        <div
+                          class="slide-advertising__play-btn modal_window1"
+                        ></div>
+                        <video
+                          src="./video/InDrive_Car.mp4"
+                          width="700px"
+                          height="500px"
+                          muted
+                          loop
+                          autoplay
+                        ></video>
+                      </div>
+                      <div class="slide-advertising__header">
+                        <h2 data-lang="text47">
+                          <span>
+                            Indrive.
+                            <sup>(07)</sup>
+                          </span>
+                          <span>Реклама</span>
+                        </h2>
+                      </div>
+                      <div class="slide-advertising__description">
+                        <p class="slide-advertising__text" data-lang="text48">
+                          Промо креатив для международного сервиса такси.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Слайд 8: inDrive. Реклама -->
+                <div
+                  class="advertising-preview__slide swiper-slide slide-advertising"
+                >
+                  <div class="slide-advertising__content">
+                    <div class="slide-advertising__body">
+                      <div class="slide-advertising__image">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              ./assets/img/advertising-preview/07-600.webp
+                            "
+                            type="image/webp"
+                          />
+                          <source
+                            media="(max-width: 1200px)"
+                            srcset="
+                              ./assets/img/advertising-preview/07-1200.webp
+                            "
+                            type="image/webp"
+                          />
+                          <img
+                            alt="Яндекс Игры. TikTok-кампания"
+                            src="./assets/img/advertising-preview/08.webp"
+                          />
+                        </picture>
+                        <div
+                          class="slide-advertising__play-btn modal_window1"
+                        ></div>
+                        <video
+                          src="./video/MAIN_Alfa_only_TSUM_20_cashback_8 1.mp4"
+                          width="700px"
+                          height="500px"
+                          muted
+                          loop
+                          autoplay
+                        ></video>
+                      </div>
+                      <div class="slide-advertising__header">
+                        <h2 data-lang="text49">
+                          <span>
+                            Альфа-Банк.
+                            <sup>(08)</sup>
+                          </span>
+                          <span>Кэшбек до 20%</span>
+                        </h2>
+                      </div>
+                      <div class="slide-advertising__description">
+                        <p class="slide-advertising__text" data-lang="text50">
+                          О том, как просто настроить кэшбек.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Слайд 9: inDrive. Реклама -->
+              </div>
+              <div class="advertising-preview__controls">
+                <div class="slider-pagination">
+                  <div
+                    class="swiper-pagination swiper-pagination--primary"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- /.advertising-preview -->
+        <section
+          class="motion-preview section-border-top section-border-top--primary"
+        >
+          <div class="motion-preview__content">
+            <div class="motion-preview__small-container">
+              <div class="motion-preview__list">
+                <div class="motion-preview__item item-01">
+                  <div class="client-info">
+                    <div class="client-card">
+                      <div class="client-card__content">
+                        <div class="client-card__header">
+                          <h3 class="client-card__title">
+                            TENCENT
+                            <sup>(02)</sup>
+                          </h3>
+                          <a
+                            data-lang="text51"
+                            href="#"
+                            class="button button-sm button-secondary"
+                            >Смотреть ролик!</a
+                          >
+                        </div>
+                        <p class="client-card__description" data-lang="text52">
+                          Персонажи шоурила, в котором собрано всё самое крутое
+                          из наших работ для PUBG в одном динамичном ролике.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="motion-preview__image image-soax">
+                    <div class="soax-lottie" data-animation="pubg_group"></div>
+                  </div>
+                </div>
+                <div class="motion-preview__item item-02">
+                  <div class="client-info">
+                    <div class="client-card">
+                      <div class="client-card__content">
+                        <div class="client-card__header">
+                          <h3 class="client-card__title">
+                            SOAX
+                            <sup>(02)</sup>
+                          </h3>
+                          <a
+                            data-lang="text100"
+                            href="#"
+                            class="button button-sm button-secondary"
+                            >Смотреть ролик!</a
+                          >
+                        </div>
+                        <p class="client-card__description" data-lang="text53">
+                          Персонажи из наших роликов о том, как работает
+                          прокси-сервис, и почему он такой удобный.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="motion-preview__image image-soax">
+                    <div class="soax-lottie" data-animation="genie"></div>
+                  </div>
+                </div>
+                <div class="motion-preview__item item-03">
+                  <div class="client-info">
+                    <div class="client-card">
+                      <div class="client-card__content">
+                        <div class="client-card__header">
+                          <h3 class="client-card__title" data-lang="alfa">
+                            Альфа-Банк
+                            <sup>(02)</sup>
+                          </h3>
+                        </div>
+                        <p class="client-card__description" data-lang="text54">
+                          Интерактивные сервисы приложении банка, которые
+                          рассказывают о сервисах и вовлекают пользователей.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="motion-preview__footer">
+            <div class="motion-preview__small-container">
+              <ul class="motion-preview__tags">
+                <li class="motion-preview__tag" data-lang="text101">
+                  Моушн-дизайн
+                </li>
+                <li class="motion-preview__tag" data-lang="text102">
+                  Рекламные ролики
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!-- /.motion-preview -->
+        <section class="marquee_wrapper">
+          <div class="marquee_wrapper-container">
+            <div class="marquee_wrapper-track">
+              <div class="marquee_wrapper-inner">
+                <ul class="marquee_wrapper-card">
+                  <li>
+                    <img src="./assets/img/alfaBanks/game1.png" alt="Image" />
+                  </li>
+                  <li>
+                    <img src="./assets/img/alfaBanks/game2.png" alt="Image" />
+                  </li>
+                  <li>
+                    <img src="./assets/img/alfaBanks/game3.png" alt="Image" />
+                  </li>
+                  <li>
+                    <img src="./assets/img/alfaBanks/game4.png" alt="Image" />
+                  </li>
+                  <li>
+                    <img src="./assets/img/alfaBanks/game5.png" alt="Image" />
+                  </li>
+                  <li>
+                    <img src="./assets/img/alfaBanks/game6.png" alt="Image" />
+                  </li>
+                  <li>
+                    <img src="./assets/img/alfaBanks/game7.png" alt="Image" />
+                  </li>
+                  <li>
+                    <img src="./assets/img/alfaBanks/game1.png" alt="Image" />
+                  </li>
+                  <li>
+                    <img src="./assets/img/alfaBanks/game2.png" alt="Image" />
+                  </li>
+                  <li>
+                    <img src="./assets/img/alfaBanks/game3.png" alt="Image" />
+                  </li>
+                  <li>
+                    <img src="./assets/img/alfaBanks/game4.png" alt="Image" />
+                  </li>
+                  <li>
+                    <img src="./assets/img/alfaBanks/game5.png" alt="Image" />
+                  </li>
+                  <li>
+                    <img src="./assets/img/alfaBanks/game6.png" alt="Image" />
+                  </li>
+                  <li>
+                    <img src="./assets/img/alfaBanks/game7.png" alt="Image" />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div
+          class="index-sections index-sections--primary header-change-theme mb-0"
+        >
+          <div class="index-sections-start"></div>
+          <section class="how-work section-inner-border">
+            <div class="how-work__small-container">
+              <div class="how-work__content content-inner-border">
+                <div class="how-work__header">
+                  <h2 class="how-work__title title-h1">
+                    <span data-lang="text55">Как мы работаем?</span>
+                  </h2>
+                  <div class="how-work__header-bottom">
+                    <div class="section-num section-num--white">
+                      <span class="section-num__number">05</span>
+                      <div class="section-num-icon"></div>
+                    </div>
+                    <div class="how-work__description" data-lang="text56">
+                      Как всё происходит:
+                      <br />
+                      от «хочу» до «вау!»
+                    </div>
+                  </div>
+                </div>
+                <div class="how-work__body">
+                  <div
+                    class="how-work__steps soax-lottie pointer-events-none"
+                    data-animation="dino-in-block"
+                  ></div>
+                </div>
+                <div class="how-work__alert">
+                  <div class="how-work__alert-content">
+                    <div class="how-work__alert-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="36"
+                        height="36"
+                        viewbox="0 0 36 36"
+                        fill="none"
+                      >
+                        <circle
+                          cx="18"
+                          cy="18"
+                          r="17"
+                          stroke="#FFFDE9"
+                          stroke-width="2"
+                        ></circle>
+                        <path
+                          d="M15.664 30V25.808H19.984V30H15.664ZM16.752 24.112C16.3253 21.552 16.0053 19.184 15.792 17.008C15.6 14.832 15.504 12.8373 15.504 11.024C15.504 10.5973 15.504 10.192 15.504 9.808C15.5253 9.424 15.5787 9.072 15.664 8.752H20.08C20.1227 9.11467 20.1547 9.49867 20.176 9.904C20.1973 10.288 20.208 10.6933 20.208 11.12C20.208 12.8907 20.1013 14.864 19.888 17.04C19.696 19.1947 19.3867 21.552 18.96 24.112H16.752Z"
+                          fill="#FFFDE9"
+                        ></path>
+                      </svg>
+                    </div>
+                    <p class="how-work__alert-text" data-lang="text65">
+                      Сроки и стоимость зависят от сложности задачи и объема
+                      креативов на выходе.
+                      <br />
+                      <br />
+                      Но у нас есть один секрет: чем больше объём задач, тем
+                      комфортнее будет стоимость.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="border_botom"></div>
+          </section>
+          <section class="team section-inner-border" id="about">
+            <div class="team__small-container">
+              <div class="team__content content-inner-border">
+                <div class="team__header">
+                  <h2 class="team__title title-h1" data-lang="text67">
+                    <span>наш секрет прост - классная команда</span>
+                  </h2>
+                  <div class="team__header-bottom">
+                    <div class="section-num section-num--white">
+                      <span class="section-num__number">06</span>
+                      <div class="section-num-icon"></div>
+                    </div>
+                    <div class="team__description" data-lang="text68">
+                      Собрали тех, кто любит своё дело и умеет делать круто.
+                      Креаторы, моушн-дизайнеры, 3D-артисты, иллюстраторы: такие
+                      разные, но на одной волне.
+                      <br />
+                      <br />
+                      Общаемся легко, думаем глубоко, собираем проекты по
+                      миллиметру.
+                      <br />
+                      И да, на позитивных вайбах, всегда!
+                    </div>
+                  </div>
+                  <div class="team__header-welcome">
+                    <span data-lang="text70">знакомьтесь!</span>
+                  </div>
+                </div>
+                <div class="team__body">
+                  <div data-fls-slider="" class="team__slider swiper">
+                    <div class="team__wrapper swiper-wrapper">
+                      <!-- Слайд 1 -->
+                      <div class="team__slide swiper-slide team-slide">
+                        <div class="team-slide__list">
+                          <div class="team-slide__item">
+                            <div class="team-slide__image">
+                              <picture>
+                                <source
+                                  media="(max-width: 600px)"
+                                  srcset="./assets/img/team/01-600.webp"
+                                  type="image/webp"
+                                />
+                                <source
+                                  media="(max-width: 1200px)"
+                                  srcset="./assets/img/team/01-1200.webp"
+                                  type="image/webp"
+                                />
+                                <img
+                                  alt="Image"
+                                  src="./assets/img/team/01.webp"
+                                />
+                              </picture>
+                            </div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span data-lang="text71">Антон</span>
+                                <p>founder</p>
+                              </h6>
+                              <div class="team-slide__subtext">
+                                <span>
+                                  Работаем
+                                  <br />
+                                  дальше!
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="team-slide__item">
+                            <div class="team-slide__image">
+                              <picture>
+                                <source
+                                  media="(max-width: 600px)"
+                                  srcset="./assets/img/team/02-600.webp"
+                                  type="image/webp"
+                                />
+                                <source
+                                  media="(max-width: 1200px)"
+                                  srcset="./assets/img/team/02-1200.webp"
+                                  type="image/webp"
+                                />
+                                <img
+                                  alt="Image"
+                                  src="./assets/img/team/02.webp"
+                                />
+                              </picture>
+                            </div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span data-lang="text72">Паша</span>
+                                <p>hr bp</p>
+                              </h6>
+                              <div class="team-slide__subtext">
+                                <span>
+                                  Находим
+                                  <br />
+                                  таланты!
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Слайд 2 -->
+                      <div class="team__slide swiper-slide team-slide">
+                        <div class="team-slide__list">
+                          <div class="team-slide__item">
+                            <div class="team-slide__image">
+                              <picture>
+                                <source
+                                  media="(max-width: 600px)"
+                                  srcset="./assets/img/team/03-600.webp"
+                                  type="image/webp"
+                                />
+                                <source
+                                  media="(max-width: 1200px)"
+                                  srcset="./assets/img/team/03-1200.webp"
+                                  type="image/webp"
+                                />
+                                <img
+                                  alt="Image"
+                                  src="./assets/img/team/03.webp"
+                                />
+                              </picture>
+                            </div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span data-lang="text73">Маша</span>
+                                <p>ceo</p>
+                              </h6>
+                              <div class="team-slide__subtext">
+                                <span>
+                                  Ведем
+                                  <br />
+                                  команду!
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="team-slide__item">
+                            <div class="team-slide__image">
+                              <picture>
+                                <source
+                                  media="(max-width: 600px)"
+                                  srcset="./assets/img/team/04-600.webp"
+                                  type="image/webp"
+                                />
+                                <source
+                                  media="(max-width: 1200px)"
+                                  srcset="./assets/img/team/04-1200.webp"
+                                  type="image/webp"
+                                />
+                                <img
+                                  alt="Image"
+                                  src="./assets/img/team/04.webp"
+                                />
+                              </picture>
+                            </div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span data-lang="text74">Надя</span>
+                                <p>project manager</p>
+                              </h6>
+                              <div class="team-slide__subtext">
+                                <span>
+                                  Организуем
+                                  <br />
+                                  процессы!
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Слайд 3 -->
+                      <div class="team__slide swiper-slide team-slide">
+                        <div class="team-slide__list">
+                          <div class="team-slide__item">
+                            <div class="team-slide__image">
+                              <picture>
+                                <source
+                                  media="(max-width: 600px)"
+                                  srcset="./assets/img/team/05-600.webp"
+                                  type="image/webp"
+                                />
+                                <source
+                                  media="(max-width: 1200px)"
+                                  srcset="./assets/img/team/05-1200.webp"
+                                  type="image/webp"
+                                />
+                                <img
+                                  alt="Image"
+                                  src="./assets/img/team/05.webp"
+                                />
+                              </picture>
+                            </div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span data-lang="text75">Марина</span>
+                                <p>art director</p>
+                              </h6>
+                              <div class="team-slide__subtext">
+                                <span>
+                                  Создаем
+                                  <br />
+                                  красоту!
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="team-slide__item">
+                            <div class="team-slide__image">
+                              <picture>
+                                <source
+                                  media="(max-width: 600px)"
+                                  srcset="./assets/img/team/06-600.webp"
+                                  type="image/webp"
+                                />
+                                <source
+                                  media="(max-width: 1200px)"
+                                  srcset="./assets/img/team/06-1200.webp"
+                                  type="image/webp"
+                                />
+                                <img
+                                  alt="Image"
+                                  src="./assets/img/team/06.webp"
+                                />
+                              </picture>
+                            </div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span data-lang="text76">Ника</span>
+                                <p>3d designer</p>
+                              </h6>
+                              <div class="team-slide__subtext">
+                                <span>
+                                  Оживляем
+                                  <br />
+                                  идеи!
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Слайд 4 -->
+                      <div class="team__slide swiper-slide team-slide">
+                        <div class="team-slide__list list_posleft">
+                          <div class="team-slide__item">
+                            <div class="team-slide__image">
+                              <picture>
+                                <source
+                                  media="(max-width: 600px)"
+                                  srcset="./assets/img/team/07-600.webp"
+                                  type="image/webp"
+                                />
+                                <source
+                                  media="(max-width: 1200px)"
+                                  srcset="./assets/img/team/07-1200.webp"
+                                  type="image/webp"
+                                />
+                                <img
+                                  alt="Image"
+                                  src="./assets/img/team/07.webp"
+                                />
+                              </picture>
+                            </div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span data-lang="text77">Алик</span>
+                                <p>motion designer</p>
+                              </h6>
+                              <div class="team-slide__subtext">
+                                <span>
+                                  Движем
+                                  <br />
+                                  картинки!
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="team-slide__item">
+                            <div class="team-slide__image">
+                              <picture>
+                                <source
+                                  media="(max-width: 600px)"
+                                  srcset="./assets/img/team/08-600.webp"
+                                  type="image/webp"
+                                />
+                                <source
+                                  media="(max-width: 1200px)"
+                                  srcset="./assets/img/team/08-1200.webp"
+                                  type="image/webp"
+                                />
+                                <img
+                                  alt="Image"
+                                  src="./assets/img/team/08.webp"
+                                />
+                              </picture>
+                            </div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span data-lang="text78">Илья</span>
+                                <p>3d designer</p>
+                              </h6>
+                              <div class="team-slide__subtext">
+                                <span>
+                                  Моделируем
+                                  <br />
+                                  будущее!
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Слайд 5 -->
+                      <div class="team__slide swiper-slide team-slide">
+                        <div class="team-slide__list">
+                          <div class="team-slide__item">
+                            <div class="team-slide__image">
+                              <picture>
+                                <source
+                                  media="(max-width: 600px)"
+                                  srcset="./assets/img/team/09-600.webp"
+                                  type="image/webp"
+                                />
+                                <source
+                                  media="(max-width: 1200px)"
+                                  srcset="./assets/img/team/09-1200.webp"
+                                  type="image/webp"
+                                />
+                                <img
+                                  alt="Image"
+                                  src="./assets/img/team/09.webp"
+                                />
+                              </picture>
+                            </div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span data-lang="text79">Женя</span>
+                                <p>Graphic Designer</p>
+                              </h6>
+                              <div class="team-slide__subtext">
+                                <span>
+                                  Создаем
+                                  <br />
+                                  графику!
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="team-slide__item">
+                            <div class="team-slide__image">
+                              <picture>
+                                <source
+                                  media="(max-width: 600px)"
+                                  srcset="./assets/img/team/10-600.webp"
+                                  type="image/webp"
+                                />
+                                <source
+                                  media="(max-width: 1200px)"
+                                  srcset="./assets/img/team/10-1200.webp"
+                                  type="image/webp"
+                                />
+                                <img
+                                  alt="Image"
+                                  src="./assets/img/team/10.webp"
+                                />
+                              </picture>
+                            </div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span data-lang="text81">Настя</span>
+                                <p>Graphic Designer</p>
+                              </h6>
+                              <div class="team-slide__subtext">
+                                <span>
+                                  Рисуем
+                                  <br />
+                                  идеи!
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Слайд 6 -->
+                      <div class="team__slide swiper-slide team-slide">
+                        <div class="team-slide__list">
+                          <div class="team-slide__item">
+                            <div class="team-slide__image">
+                              <picture>
+                                <source
+                                  media="(max-width: 600px)"
+                                  srcset="./assets/img/team/11-600.webp"
+                                  type="image/webp"
+                                />
+                                <source
+                                  media="(max-width: 1200px)"
+                                  srcset="./assets/img/team/11-1200.webp"
+                                  type="image/webp"
+                                />
+                                <img
+                                  alt="Image"
+                                  src="./assets/img/team/11.webp"
+                                />
+                              </picture>
+                            </div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span data-lang="text80">Лада</span>
+                                <p>Project Manager</p>
+                              </h6>
+                              <div class="team-slide__subtext">
+                                <span>
+                                  Управляем
+                                  <br />
+                                  проектами!
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="team-slide__item">
+                            <div class="team-slide__image">
+                              <picture>
+                                <source
+                                  media="(max-width: 600px)"
+                                  srcset="./assets/img/team/12-600.webp"
+                                  type="image/webp"
+                                />
+                                <source
+                                  media="(max-width: 1200px)"
+                                  srcset="./assets/img/team/12-1200.webp"
+                                  type="image/webp"
+                                />
+                                <img
+                                  alt="Image"
+                                  src="./assets/img/team/12.webp"
+                                />
+                              </picture>
+                            </div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span data-lang="text82">Алина</span>
+                                <p>Project Associate</p>
+                              </h6>
+                              <div class="team-slide__subtext">
+                                <span>
+                                  Помогаем
+                                  <br />
+                                  команде!
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="slider-navigation">
+                      <button type="button" class="swiper-button-prev">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="32"
+                          height="32"
+                          viewbox="0 0 32 32"
+                          fill="none"
+                        >
+                          <path
+                            d="M30 16L2 16M2 16L16 30M2 16L16 2"
+                            stroke="#1F2FA9"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </button>
+                      <button type="button" class="swiper-button-next">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="32"
+                          height="32"
+                          viewbox="0 0 32 32"
+                          fill="none"
+                        >
+                          <path
+                            d="M2 16L30 16M30 16L16 2M30 16L16 30"
+                            stroke="#1F2FA9"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- /.team -->
+          <section class="reviews">
+            <div class="reviews__small-container">
+              <div class="reviews__content">
+                <div class="reviews__header">
+                  <h2 class="reviews__title title-h1" data-lang="text83">
+                    А что говорят
+                    <br />
+                    о нас?
+                  </h2>
+                  <div class="reviews__header-bottom">
+                    <div class="section-num section-num--white">
+                      <span class="section-num__number">07</span>
+                      <div class="section-num-icon"></div>
+                    </div>
+                    <div class="reviews__description">
+                      <p class="reviews__text" data-lang="text84">
+                        За время работы мы собрали целую коллекцию историй и
+                        отзывов. И каждая — напоминание о том, что мы всё делаем
+                        не зря. Вот что о нас говорят те, с кем мы работали.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="clear"></div>
+                <div class="reviews__body">
+                  <div class="reviews__image">
+                    <picture>
+                      <source
+                        media="(max-width: 600px)"
+                        srcset="./assets/img/reviews-600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(max-width: 1200px)"
+                        srcset="./assets/img/reviews-1200.webp"
+                        type="image/webp"
+                      />
+                    </picture>
+
+                    <div class="reviews__border">
+                      <div class="center">
+                        <div class="reviews__item">
+                          <div class="cell">
+                            <button type="button" data-tab="#tabs1">
+                              <div class="parthers icon">
+                                <img
+                                  src="./assets/img/revies/btnpartners.png"
+                                  alt="Image"
+                                />
+                              </div>
+                            </button>
+
+                            <button type="button" data-tab="#tabs2">
+                              <div class="games icon icon2">
+                                <img
+                                  src="./assets/img/revies/btnGame.png"
+                                  class="pos_img"
+                                  alt="Image"
+                                />
+                              </div>
+                            </button>
+
+                            <button
+                              type="button"
+                              class="reviews__button_active" data-tab="#tabs3"
+                            >
+                              <div class="alfa_bank icon icon3">
+                                <img
+                                  src="./assets/img/revies/btnalfa.png"
+                                  class="pos_alfa"
+                                  alt="Image"
+                                />
+                              </div>
+                            </button>
+                          </div>
+                          <div class="cell">
+                            <button type="button" data-tab="#tabs4">
+                              <div class="azrion icon1">
+                                <img
+                                  src="./assets/img/revies/btnbedease.png"
+                                  alt="Image"
+                                />
+                              </div>
+                            </button>
+
+                            <button type="button" data-tab="#tabs5">
+                              <div class="it icon1">
+                                <img
+                                  src="./assets/img/revies/btnit.png"
+                                  alt="Image"
+                                />
+                              </div>
+                            </button>
+
+                            <button type="button" data-tab="#tabs6">
+                              <div class="bedease icon1 icon4">
+                                <img
+                                  src="./assets/img/revies/btnazerion.png"
+                                  class="img_arizon"
+                                  alt="Image"
+                                />
+                              </div>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="item_rebiews__white pos_top"></div>
+                        <div class="item_rebiews__blue"></div>
+                        <div class="item_rebiews__white pos_bottom"></div>
+
+                        <div id="tabs3" class="reviews__contents reviews__contents_text1 reviews__contents_active bg_item"
+                        >
+                        <div class="reviews_block">
+                          <div class="cell">
+                            <p>
+                              «Работаем с ребятами уже несколько лет и всегда
+                              остаёмся довольны.
+                            </p>
+                            <br />
+                            <p class="text_blue">
+                              Они реально слушают наши пожелания и всегда готовы
+                              подстроиться, если что-то меняется в гайдах или
+                              появляются новые задачи — даже не нужно
+                              напоминать.
+                            </p>
+                          </div>
+                          <div class="cell">
+                            <p>
+                              Делают у нас всё: от простых статичных картинок и
+                              3D-рендеров до моушен-роликов. Всегда чётко и в
+                              срок, без сюрпризов.
+                            </p>
+                            <br />
+                            <p>
+                              У нас стиль работы непростой: быстрые сроки, много
+                              задач одновременно и сложные согласования. Но
+                              ребята справляются с этим потоком легко, одно из
+                              немногих агентств, которым можно доверить такую
+                              динамику»
+                            </p>
+                          </div>
+                          </div>
+                        </div>
+                        <div id="tabs4" class="reviews__contents bg_item1">
+                          <div class="reviews_block">
+                          <div class="cell">
+                            <p class="text">
+                              <span>«Мне нравится продакшн. Их ролики выглядят живо.</span>
+                            </p>
+                            <br>
+                            <p>
+                              Они как-то умеют сделать анимации гармонично, как
+                              мне кажется.
+                            </p>
+                            <br>
+                            <p>Все двигается, все на своих местах»</p>
+                          </div>
+                          <div class="cell">
+                            <p class="text">
+                              <span>«Они делают очень профессионально.</span>
+                            </p>
+                            <br>
+                            <p>
+                              Это хороший, качественный моушн. За всё время
+                              работы с ними я только один раз вносила свои
+                              правки и то по какой-то мелочи.
+                            </p>
+                            <br>
+                            <p>
+                              В общем-то, мне больше нечего сказать, <span>я всем
+                              довольна»</span>
+                            </p>
+                          </div>
+                          </div>
+                        </div>
+                        <div id="tabs2" class="reviews__contents bg_item reviews__contents_text1">
+                          <div class="reviews_block">
+                          <div class="cell">
+                            <p class="text">
+                              «Работали с ребятами по роликам для консольных
+                              игр. Всем довольны.
+                            </p>
+                            <br>
+                            <p class="text">
+                              <span class="text_blue"
+                                >Качество роликов отличное, сроки адекватные,
+                                цены демократичные, процесс позитивный.</span
+                              >
+                              Спасибо за это!
+                            </p>
+                            <br>
+                            <p>Будем продолжать сотрудничать!»</p>
+                          </div>
+                          </div>
+                        </div>
+                        <div id="tabs5" class="reviews__contents bg_item1">
+                          <div class="reviews_block">
+                          <div class="cell">
+                            <p>
+                              «Нам нужно было подготовить 3 моушн-видео на одну
+                              тему, но с разными посылами.
+                            </p>
+                            <br>
+                            <p>
+                              Команда на основе брифа оперативно продумала идеи
+                              ролика, описала детально план ролика текстом,
+                              добавила визуалы для лучшего понимания идеи,
+                              собрала ролики.
+                            </p>
+                            <br>
+                            <p>
+                              3 моушн-видео с ресайзами на нескольких языках
+                              были готовы достаточно быстро:
+                              
+                                от идеи до реализации 2-3 недели.<span> Отличная
+                                скорость»</span
+                              >
+                            </p>
+                          </div>
+                          <div class="cell">
+                            <p>
+                              «Понравилось, что команда довольно самостоятельна:
+                              ребята свободно предлагают свои идеи по части
+                              креативов и идеи ролика, подбирают звуковое
+                              сопровождение и материалы.
+                            </p>
+                            <br>
+                            <p>
+                              Хорошо работают с брендбуком и быстро дают
+                              обратную связь.
+                            </p>
+                            <br>
+                            <p><span>
+                              Результат видео полностью получился таким, каким
+                              его запланировали»
+                              </span>
+                            </p>
+                          </div>
+                          </div>
+                        </div>
+                        <div id="tabs1" class="reviews__contents bg_item reviews__contents_text1">
+                          <div class="reviews_block">
+                          <div class="cell">
+                            <p>
+                              «Поскольку мы работаем с мобильными
+                              UA-видеокреативами уже несколько лет, я должен
+                              сказать, что я очень доволен работой, проделанной
+                              Appyland.
+                            </p>
+                            <br>
+                            <p class="text_blue">
+                              Они постоянно создают высококачественные,
+                              эффективные креативы, которые помогли нам охватить
+                              нашу целевую аудиторию.
+                            </p>
+                          </div>
+                          <div class="cell">
+                            <p>
+                              Я обнаружил, что их команда невероятно отзывчива и
+                              готова помочь, когда дело касается внесения
+                              изменений, предоставления обратной связи и
+                              обеспечения соответствия всех материалов нашим
+                              стандартам качества.
+                            </p>
+                            <br>
+                            <p>
+                              Их упорный труд и преданность делу создания лучших
+                              креативов играют важнейшую роль в нашем успехе в
+                              привлечении мобильных пользователей.
+                              <span class="text_blue"
+                                >Настоятельно рекомендуем!»</span
+                              >
+                            </p>
+                          </div>
+                        </div>
+                        <div id="tabs6" class="reviews__contents">
+                          <div class="reviews_block">
+                          <div class="cell">
+                            <p class="text_white">
+                              «Команда Appyland надежная и профессиональная.
+                            </p>
+                            <br>
+                            <p>
+                              Они могут создавать большие объёмы видео в сжатые
+                              сроки, не жертвуя качеством конечного продукта.
+                              Они отлично общаются и держат нас в курсе событий
+                              на протяжении всего производства.
+                            </p>
+                            <br>
+                            <p>
+                              Appyland — креативный партнер, которому можно
+                              доверять.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                     <div id="tabs6" class="reviews__contents bg_item1">
+                          <div class="reviews_block">
+                          <div class="cell">
+                           <p><span>«Команда Appyland надежная и профессиональная.</span></p>
+                          <br>
+                           <p>Они могут создавать большие объёмы видео в сжатые сроки, не жертвуя качеством конечного продукта. Они отлично общаются и держат нас в курсе событий на протяжении всего производства.</p>
+                            <br>
+                           <p><span>Appyland is a creative partner you can trust»</span></p>  
+                        </div>
+                          <div class="cell">
+                            
+                          </div>
+                          </div>
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- /.reviews -->
+        </div>
+      </main>
+      <footer data-fls-footer="" class="footer" id="footer">
+        <div class="footer__small-container">
+          <div class="footer__content">
+            <div class="footer__header">
+              <h2 class="footer__title title-h1" data-lang="text85">
+                Хотите обсудить
+                <br />
+                проект?
+              </h2>
+              <div class="footer__header-top">
+                <div class="section-num section-num--primary">
+                  <span class="section-num__number">08</span>
+                  <div class="section-num-icon"></div>
+                </div>
+                <div class="footer__description">
+                  <p class="footer__text" data-lang="text86">Напишите нам!</p>
+                </div>
+              </div>
+              <div class="footer__header-bottom">
+                <div class="footer__mail">
+                  <a
+                    data-sticky="12"
+                    class="button sticky_w"
+                    href="mailto:masha@appyland.ru?subject=Обсудить%20проект"
+                  >
+                    <div class="button_text sticky_t">masha@appyland.ru</div>
+                  </a>
+                </div>
+                <div class="footer__socials">
+                  <ul>
+                    <li>
+                      <a href="https://t.me/Mininymph">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="106"
+                          height="106"
+                          viewbox="0 0 106 106"
+                          fill="none"
+                        >
+                          <g clip-path="url(#clip0_1926_3978)">
+                            <path
+                              d="M56.392 106H49.82C49.4766 105.928 49.1352 105.82 48.7876 105.792C41.5054 105.237 34.6026 103.303 28.2108 99.782C13.6358 91.7515 4.53256 79.589 1.10876 63.2714C0.5618 60.6617 0.3604 57.9799 0 55.332C0 53.778 0 52.222 0 50.668C0.09752 49.7988 0.20352 48.9275 0.29256 48.0562C1.18296 39.2476 3.94532 31.0792 8.94004 23.761C17.7635 10.8332 29.9238 3.08036 45.4274 0.67204C47.3057 0.37948 49.2031 0.22048 51.092 0C52.364 0 53.636 0 54.908 0C55.3214 0.07632 55.7348 0.1696 56.1503 0.22684C58.9084 0.59996 61.7005 0.79712 64.4183 1.35892C84.9442 5.60952 101.705 23.0635 105.116 43.6635C105.455 45.7072 105.707 47.7678 106 49.82V56.18C105.712 58.2364 105.474 60.3013 105.124 62.345C101.431 83.9478 83.9605 101.423 62.3513 105.137C60.3734 105.476 58.3784 105.714 56.3899 106H56.392ZM77.6429 36.4513C77.681 32.4084 76.4239 31.2679 73.3774 31.9929C71.2256 32.506 69.095 33.2225 67.0556 34.0832C52.3852 40.2715 37.7381 46.5192 23.0889 52.7604C22.4444 53.036 21.8212 53.3922 21.2445 53.795C19.4446 55.0522 19.5528 56.5552 21.535 57.4753C22.5229 57.9332 23.5723 58.2703 24.6174 58.5883C26.7438 59.2349 28.8914 59.8158 31.022 60.4518C34.2083 61.4016 37.0428 60.6829 39.75 58.8491C46.445 54.3123 53.1866 49.8433 59.9176 45.3595C60.6214 44.891 61.3464 44.4373 62.1118 44.0896C62.3895 43.9646 62.9598 44.0451 63.1336 44.2529C63.3053 44.4585 63.2481 44.9928 63.1018 45.2896C62.9046 45.6881 62.5527 46.021 62.222 46.3368C57.9396 50.4433 53.6424 54.5349 49.3642 58.6477C48.1431 59.8222 46.8965 60.9839 45.7941 62.2623C44.5179 63.742 44.6302 65.0119 46.0316 66.3581C46.6379 66.9411 47.3354 67.4414 48.0328 67.9163C52.824 71.1726 57.6089 74.4374 62.4361 77.6365C63.5406 78.3679 64.7554 79.0251 66.0126 79.4194C68.2322 80.1169 69.7247 79.3898 70.6469 77.2549C71.1324 76.1334 71.48 74.9208 71.6878 73.7145C73.2545 64.6388 74.8042 55.561 76.284 46.4704C76.8733 42.8516 77.274 39.2009 77.6408 36.4534L77.6429 36.4513Z"
+                              fill="#1F2FA9"
+                            ></path>
+                            <path
+                              d="M77.6427 36.4509C77.276 39.1963 76.8753 42.8469 76.2859 46.4679C74.8062 55.5585 73.2565 64.6363 71.6898 73.712C71.482 74.9183 71.1343 76.1309 70.6489 77.2524C69.7267 79.3873 68.2321 80.1144 66.0145 79.4169C64.7574 79.0226 63.5426 78.3675 62.4381 77.634C57.6109 74.4349 52.826 71.1701 48.0348 67.9138C47.3373 67.4389 46.6399 66.9386 46.0335 66.3556C44.6322 65.0094 44.522 63.7395 45.7961 62.2598C46.9006 60.9793 48.1451 59.8175 49.3662 58.6452C53.6443 54.5345 57.9416 50.4408 62.224 46.3343C62.5526 46.0185 62.9066 45.6835 63.1038 45.2871C63.2501 44.9903 63.3052 44.456 63.1356 44.2504C62.9617 44.0426 62.3915 43.9599 62.1137 44.0871C61.3484 44.4348 60.6234 44.8885 59.9195 45.357C53.1885 49.8429 46.4491 54.3119 39.752 58.8466C37.0447 60.6804 34.2124 61.3991 31.0239 60.4493C28.8933 59.8154 26.7458 59.2324 24.6194 58.5858C23.5743 58.2678 22.5249 57.9307 21.5369 57.4728C19.5526 56.5527 19.4466 55.0518 21.2465 53.7925C21.821 53.3897 22.4443 53.0335 23.0909 52.7579C37.7401 46.5167 52.3872 40.269 67.0576 34.0807C69.0991 33.22 71.2276 32.5035 73.3794 31.9904C76.4259 31.2654 77.683 32.4059 77.6449 36.4488L77.6427 36.4509Z"
+                              fill="#FFFDE9"
+                            ></path>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_1926_3978">
+                              <rect
+                                width="106"
+                                height="106"
+                                fill="white"
+                              ></rect>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://wa.me/79161555373">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="106"
+                          height="106"
+                          viewbox="0 0 106 106"
+                          fill="none"
+                        >
+                          <g clip-path="url(#clip0_1926_3981)">
+                            <path
+                              d="M52.7794 106C24.0718 105.989 0.0106359 81.839 3.51855e-06 53.0372C-0.0106289 24.0919 24.0771 0 53.0186 0C82.0558 0 106.064 24.145 106 53.2871C105.942 82.2058 81.9016 106.011 52.7741 106H52.7794ZM23.0883 82.5886C24.7257 82.2165 25.5657 82.1048 26.3418 81.8337C30.3503 80.4143 34.3055 78.8461 38.3565 77.565C39.542 77.1876 41.1262 77.1982 42.2586 77.6766C48.4201 80.2761 54.6401 80.9194 61.2003 79.3724C78.1324 75.3855 88.5947 55.9823 79.504 38.3758C72.5185 24.8361 55.9532 19.5414 42.0513 26.1013C28.4099 32.5389 22.1793 48.8164 28.1547 62.7176C28.9415 64.5462 28.7554 65.9603 28.0909 67.7305C26.3684 72.3501 24.9224 77.0706 23.0883 82.5833V82.5886Z"
+                              fill="#1F2FA9"
+                            ></path>
+                            <path
+                              d="M23.0884 82.5889C24.9225 77.071 26.3685 72.3504 28.0909 67.7362C28.7555 65.9606 28.9362 64.5466 28.1547 62.7232C22.1793 48.822 28.4099 32.5393 42.0513 26.107C55.9532 19.5471 72.5185 24.8418 79.504 38.3815C88.5895 55.9879 78.1272 75.3911 61.2003 79.3781C54.6401 80.925 48.4201 80.2818 42.2586 77.6823C41.1263 77.2039 39.5421 77.1932 38.3565 77.5707C34.3056 78.8518 30.3503 80.42 26.3419 81.8394C25.5657 82.1158 24.7258 82.2221 23.0884 82.5942V82.5889ZM31.892 73.7644C33.7049 73.1584 35.018 72.9033 36.1397 72.3079C39.4145 70.5589 42.2905 70.9736 45.576 72.7491C50.2702 75.2848 55.5439 75.2476 60.5624 73.7325C76.0751 69.0439 82.1196 51.9637 72.9545 38.5888C67.1811 30.163 56.9633 26.5854 47.1549 29.9929C33.3327 34.7985 27.655 49.9915 34.1514 62.4574C35.0711 64.2223 35.1137 65.6789 34.2524 67.4438C33.3487 69.3044 32.7798 71.3244 31.8814 73.7698L31.892 73.7644Z"
+                              fill="#FFFDE9"
+                            ></path>
+                            <path
+                              d="M31.8918 73.7696C32.785 71.3296 33.3538 69.3042 34.2629 67.4436C35.1241 65.6787 35.0816 64.2169 34.1619 62.4573C27.6601 49.9914 33.3379 34.7984 47.1653 29.9928C56.9684 26.5799 67.1915 30.1629 72.9649 38.5887C82.1301 51.9636 76.0855 69.0437 60.5728 73.7324C55.5543 75.2528 50.2806 75.29 45.5864 72.749C42.301 70.9734 39.4249 70.5588 36.1501 72.3077C35.0231 72.9084 33.7153 73.1583 31.9025 73.7643L31.8918 73.7696ZM60.2857 66.2529C62.2527 65.8382 64.2782 65.583 66.1814 64.9664C68.7704 64.1265 69.6795 61.6811 68.5471 59.2358C66.9682 55.823 63.2681 55.0149 60.4878 57.6942C59.3129 58.8265 58.3772 58.9594 57.0163 58.3534C53.0663 56.5885 50.3178 53.5637 48.1754 49.9382C47.261 48.3913 47.1547 46.9772 48.8506 45.5419C50.4348 44.197 51.0302 41.9324 49.6002 40.2951C48.3987 38.9183 46.4795 37.7381 44.6986 37.3979C42.503 36.9779 41.7162 39.1415 41.0623 40.9117C37.006 51.8945 47.8564 66.0721 60.2911 66.2529H60.2857Z"
+                              fill="#1F2FA9"
+                            ></path>
+                            <path
+                              d="M60.2857 66.2526C47.8511 66.0719 36.9954 51.8889 41.057 40.9115C41.7109 39.1413 42.4977 36.9777 44.6933 37.3976C46.4742 37.7379 48.3934 38.918 49.5948 40.2948C51.0249 41.9375 50.4295 44.2021 48.8452 45.5417C47.1494 46.9823 47.2557 48.3963 48.1701 49.938C50.3125 53.5581 53.061 56.5882 57.0109 58.3531C58.3719 58.9591 59.3076 58.8262 60.4824 57.6939C63.2628 55.0147 66.9629 55.8227 68.5418 59.2356C69.6742 61.6809 68.7651 64.1262 66.1761 64.9662C64.2729 65.5828 62.2527 65.838 60.2804 66.2526H60.2857Z"
+                              fill="#FFFDE9"
+                            ></path>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_1926_3981">
+                              <rect
+                                width="106"
+                                height="106"
+                                fill="white"
+                              ></rect>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer__bottom">
+              <div
+                class="footer__bottom-left soax-lottie"
+                data-animation="dino_en"
+                data-lottie-loaded="true"
+              >
+                <!-- <picture>
+									<source media="(max-width: 600px)" srcset="./assets/img/ui-dino/dino-03-600.webp" type="image/webp">
+									<source media="(max-width: 1200px)" srcset="./assets/img/ui-dino/dino-03-1200.webp" type="image/webp">
+									<img alt="Image" src="./assets/img/ui-dino/dino-03.webp">
+								</picture> -->
+              </div>
+              <div class="footer__bottom-right">
+                <p class="footer__text">
+                  <span>APPYLAND.RU. ©2025</span>
+                  <span>ALL RIGHTS RESERVED</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
