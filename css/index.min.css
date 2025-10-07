@@ -2106,12 +2106,7 @@ body {
 .motion-preview__tag {
 	color: #1f2fa9;
 }
-.motion-preview__tag {
-	line-height: 1.1;
-	font-weight: 300;
-	text-transform: uppercase;
-	border-radius: 1.875rem;
-}
+.motion-preview__tag { line-height: 1.1; font-weight: 500; font-family: 'Coolvetica'; text-transform: uppercase; border-radius: 1.875rem; }
 .motion-preview__tag {
 	padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.5rem, 1vw, 1.25rem);
 	border: 0.125rem solid #1f2fa9;

@@ -1478,7 +1478,8 @@ body {
 }
 .hero__label {
 	line-height: 1.2;
-	font-weight: 300;
+    font-weight: 500; /* Book */
+    font-family: 'Coolvetica';
 	text-transform: uppercase;
 	color: #1f2fa9;
 }
@@ -1490,7 +1491,7 @@ body {
 	border: 0.125rem solid #1f2fa9;
 }
 .hero__tagline {
-	font-weight: 300;
+    font-weight: 500; /* Book */
 	color: #1f2fa9;
 	border-radius: 1.25rem;
 	padding: 0rem 1.25rem 0.25rem 1.25rem;
@@ -2212,7 +2213,8 @@ body {
 }
 .motion-preview__tag {
 	line-height: 1.1;
-	font-weight: 300;
+    font-weight: 500; /* Book */
+    font-family: 'Coolvetica';
 	text-transform: uppercase;
 	border-radius: 1.875rem;
 }
