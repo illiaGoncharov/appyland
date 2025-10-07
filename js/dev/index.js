@@ -7593,10 +7593,10 @@ var require_index_min = __commonJS({
 				if (lottieContainers.length) {
 					lottieContainers.forEach(async container => {
 						const animationName = container.getAttribute('data-animation')
-						try {
-							const response = await fetch(
-								`/assets/animations/${animationName}.json`
-							)
+					try {
+						const response = await fetch(
+							`./assets/animations/${animationName}.json`
+						)
 							if (response.ok) {
 								const animationData = await response.json()
 								container.setAttribute('data-lottie-loaded', 'true')
