@@ -2,18 +2,18 @@
 
 ## 1. GitHub Pages
 
-### Автоматический деплой настроен через GitHub Actions
-
-После каждого push в `main` сайт автоматически деплоится на:
-**https://illiagoncharov.github.io/appyland/**
-
 ### Включение GitHub Pages (один раз)
 
 1. Зайди в настройки репозитория: https://github.com/illiaGoncharov/appyland/settings/pages
-2. В разделе **Source** выбери: `GitHub Actions`
-3. Сохрани
+2. В разделе **Build and deployment**:
+   - **Source:** выбери `Deploy from a branch`
+   - **Branch:** выбери `main` и папку `/ (root)`
+3. Нажми **Save**
 
-После первого push с workflow файлом деплой запустится автоматически.
+После этого сайт автоматически задеплоится на:
+**https://illiagoncharov.github.io/appyland/**
+
+При каждом push в `main` сайт будет автоматически обновляться.
 
 ---
 
