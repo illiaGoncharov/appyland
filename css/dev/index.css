@@ -1222,8 +1222,8 @@ body {
 }
 .footer__header-top .footer__text {
 	line-height: 1.1;
-	font-weight: 300;
-	font-family: 'HelveticaNeue';
+    font-weight: 500; /* Book */
+    font-family: 'Coolvetica';
 	color: #1f2fa9;
 }
 .footer__header-bottom {
@@ -1289,7 +1289,8 @@ body {
 	mix-blend-mode: darken;
 }
 .footer__bottom-right .footer__text {
-	font-family: 'CoolveticaBk';
+    font-family: 'Coolvetica';
+    font-weight: 500; /* Book */
 }
 .footer__bottom-right .footer__text {
 	line-height: 1.2;
@@ -2315,8 +2316,8 @@ body {
 }
 .team__header .team__header-welcome span {
 	line-height: 1.1;
-	font-weight: 300;
-	font-family: 'HelveticaNeue';
+    font-weight: 500; /* Book */
+    font-family: 'Coolvetica';
 	text-transform: uppercase;
 	background-color: #fefe79;
 	border-radius: 2.875rem;
@@ -2332,8 +2333,8 @@ body {
 }
 .team__header .team__header-bottom .team__description {
 	line-height: 1.1;
-	font-weight: 300;
-	font-family: 'HelveticaNeue';
+    font-weight: 500; /* Book */
+    font-family: 'Coolvetica';
 	max-width: 37.125rem;
 }
 .team__slider .slider-navigation {
@@ -2378,8 +2379,8 @@ body {
 }
 .team__slide .team-slide__content .team-slide__title p {
 	line-height: 1.1;
-	font-weight: 300;
-	font-family: 'HelveticaNeue';
+    font-weight: 500; /* Book */
+    font-family: 'Coolvetica';
 	color: #fffde9;
 }
 .team__slide .team-slide__content .team-slide__title span {
@@ -2387,8 +2388,8 @@ body {
 	display: flex;
 	align-items: center;
 	text-transform: uppercase;
-	font-weight: 300;
-	font-family: 'CoolveticaBk';
+    font-weight: 500; /* Book */
+    font-family: 'Coolvetica';
 	color: #fffde9;
 }
 .team__slide .team-slide__content .team-slide__title span::after {
@@ -2408,9 +2409,9 @@ body {
 }
 .team__slide .team-slide__content .team-slide__subtext {
 	line-height: 1.1;
-	font-weight: 300;
-	text-align: center;
-	font-family: 'HelveticaNeue';
+    font-weight: 500; /* Book */
+    text-align: center;
+    font-family: 'Coolvetica';
 	color: #fffde9;
 	background: url('../assets/img/team/star.svg') 0 0 no-repeat;
 	width: 12.5rem;
@@ -4644,7 +4645,7 @@ background-color: #1F2FA9;
 /* Пропорции букв. Важно: aspect-ratio задаёт ширину относительно высоты */
 .hero__logo-letter.letter-a { aspect-ratio: 929 / 1000; } /* A: 929×1000 */
 .hero__logo-letter.letter-p { aspect-ratio: 1 / 1; }     /* P (обычная квадратная) */
-.hero__logo-letter.letter-y { aspect-ratio: 1 / 1; }     /* Y: 800×800 */
+.hero__logo-letter.letter-y { aspect-ratio: 810 / 936; }  /* Y_0_1: 810×936 */
 .hero__logo-letter.letter-l { aspect-ratio: 1 / 1; }     /* L: 1200×1200 */
 .hero__logo-letter.letter-n { aspect-ratio: 1 / 1; }     /* N: 800×800 */
 .hero__logo-letter.letter-d { aspect-ratio: 1 / 1; }     /* D: 800×800 */

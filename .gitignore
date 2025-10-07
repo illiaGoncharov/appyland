@@ -37,6 +37,3 @@ video/
 # GIF анимации (могут быть большими)
 assets/img/video-gif/
 
-# Временные архивы и переносы
-assets/_unused/
-

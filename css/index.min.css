@@ -1378,7 +1378,7 @@ body {
 .hero__logo-letter.letter-a{ aspect-ratio:929/1000; }
 /* по умолчанию P квадратная */
 .hero__logo-letter.letter-p{ aspect-ratio:1/1; }
-.hero__logo-letter.letter-y{ aspect-ratio:1/1; }
+.hero__logo-letter.letter-y{ aspect-ratio:810/936; }
 .hero__logo-letter.letter-l{ aspect-ratio:1/1; }
 .hero__logo-letter.letter-n{ aspect-ratio:1/1; }
 .hero__logo-letter.letter-d{ aspect-ratio:1/1; }
