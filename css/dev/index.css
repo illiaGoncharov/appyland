@@ -466,7 +466,8 @@ body {
 	-ms-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	border: 0.125rem solid #fffde9;
-	font-weight: 300;
+    font-weight: 500; /* Book для CTA */
+    font-family: 'Coolvetica';
 }
 
 .wrapper {
@@ -1874,7 +1875,8 @@ body {
 }
 .portfolio__tag {
 	line-height: 1.1;
-	font-weight: 300;
+    font-weight: 500; /* Book */
+    font-family: 'Coolvetica';
 	text-transform: uppercase;
 	border-radius: 1.875rem;
 }
@@ -1949,7 +1951,8 @@ body {
 }
 .video-portfolio__tag {
 	line-height: 1.1;
-	font-weight: 300;
+    font-weight: 500; /* Book */
+    font-family: 'Coolvetica';
 	text-transform: uppercase;
 	border-radius: 1.875rem;
 }

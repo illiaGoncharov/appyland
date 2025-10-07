@@ -408,7 +408,8 @@ body {
 	-ms-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	border: 0.125rem solid #fffde9;
-	font-weight: 300;
+	font-weight: 500;
+	font-family: 'Coolvetica';
 }
 
 .wrapper {
@@ -1787,12 +1788,7 @@ body {
 .portfolio__tag {
 	color: #1f2fa9;
 }
-.portfolio__tag {
-	line-height: 1.1;
-	font-weight: 300;
-	text-transform: uppercase;
-	border-radius: 1.875rem;
-}
+.portfolio__tag { line-height: 1.1; font-weight: 500; font-family: 'Coolvetica'; text-transform: uppercase; border-radius: 1.875rem; }
 .portfolio__tag {
 	padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.5rem, 1vw, 1.25rem);
 	border: 0.125rem solid #1f2fa9;
@@ -1862,12 +1858,7 @@ body {
 .video-portfolio__tag {
 	color: #1f2fa9;
 }
-.video-portfolio__tag {
-	line-height: 1.1;
-	font-weight: 300;
-	text-transform: uppercase;
-	border-radius: 1.875rem;
-}
+.video-portfolio__tag { line-height: 1.1; font-weight: 500; font-family: 'Coolvetica'; text-transform: uppercase; border-radius: 1.875rem; }
 .video-portfolio__tag {
 	padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.5rem, 1vw, 1.25rem);
 	border: 0.125rem solid #1f2fa9;
