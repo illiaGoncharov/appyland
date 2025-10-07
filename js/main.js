@@ -766,7 +766,7 @@ btnPlaySlider.forEach(btn => {
     // Функция возвращает коэффициент ширины к высоте для конкретной буквы
     const getRatio = (index, el) => {
       if (el.classList.contains('letter-a')) return 0.929; // agrass_2 рендер
-      if (el.classList.contains('letter-p')) return index === 1 ? 0.745 : 1; // первая P — узкая pballon_01
+      if (el.classList.contains('letter-p')) return index === 1 ? 0.745 : 1; // первая P — узкая, вторая квадрат
       return 1; // остальные квадратные рендеры
     };
 

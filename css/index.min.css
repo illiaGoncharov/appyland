@@ -1357,10 +1357,7 @@ body {
 	-o-transform: scale(1.1) rotateY(15deg) rotateX(5deg) translateZ(20px);
 	filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
 }
-.hero__logo-letter .letter-lottie {
-	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-	transform-style: preserve-3d;
-}
+.hero__logo-letter .letter-lottie { transition: all .4s cubic-bezier(.25,.46,.45,.94); transform-style: preserve-3d; will-change: transform; transform: translateZ(0); }
 .hero__logo-letter:hover .letter-lottie {
 	transform: translateZ(10px);
 }
@@ -1380,13 +1377,14 @@ body {
 
 /* Пропорции букв логотипа */
 .hero__logo-letter.letter-a{ aspect-ratio:929/1000; }
+/* по умолчанию P квадратная */
 .hero__logo-letter.letter-p{ aspect-ratio:1/1; }
 .hero__logo-letter.letter-y{ aspect-ratio:1/1; }
 .hero__logo-letter.letter-l{ aspect-ratio:1/1; }
 .hero__logo-letter.letter-n{ aspect-ratio:1/1; }
 .hero__logo-letter.letter-d{ aspect-ratio:1/1; }
 
-/* Первый символ P имеет другое соотношение (pballon_01 745×1000) */
+/* первая P — pballon_01 745×1000 */
 .hero__logo > .hero__logo-letter:nth-child(2){ aspect-ratio:745/1000; }
 
 /* Плавные переходы между состояниями */

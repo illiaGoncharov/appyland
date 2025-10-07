@@ -1420,6 +1420,8 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+    will-change: transform;
+    transform: translateZ(0);
 }
 .hero__logo-letter:hover .letter-lottie {
 	transform: translateZ(10px);
@@ -4625,8 +4627,9 @@ background-color: #1F2FA9;
 .hero__logo-letter.letter-n { aspect-ratio: 1 / 1; }     /* N: 800×800 */
 .hero__logo-letter.letter-d { aspect-ratio: 1 / 1; }     /* D: 800×800 */
 
-/* Первый символ P в слове (рендер pballon_01: 745×1000) уже с нужной пропорцией */
+/* Первая P — pballon_01 (745×1000), вторая — квадратная */
 .hero__logo > .hero__logo-letter:nth-child(2) { aspect-ratio: 745 / 1000; }
+.hero__logo > .hero__logo-letter:nth-child(3) { aspect-ratio: 1 / 1; }
 
 @media screen and (max-width: 750px) {
 	.reviews__border {
