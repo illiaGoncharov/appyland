@@ -30058,9 +30058,11 @@ var require_index_min = __commonJS({
 							animationData,
 						})
 
-						// Добавляем интерактивность к буквам с 3D эффектом
-						const letterElement = container.closest('.hero__logo-letter')
+					// Добавляем интерактивность к буквам с 3D эффектом
+					const letterElement = container.closest('.hero__logo-letter')
 
+					// Проверяем, что элемент найден
+					if (letterElement) {
 						container.addEventListener('mouseenter', () => {
 							// Запускаем анимацию и добавляем 3D класс
 							animation.play()
@@ -30082,6 +30084,7 @@ var require_index_min = __commonJS({
 								letterElement.classList.remove('is-3d-active')
 							}, 1000)
 						})
+					}
 						animation.goToAndStop(0, true)
 						if (container.classList.contains('soax-lottie')) {
 							if (container.classList.contains('anim-one')) {
