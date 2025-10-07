@@ -30043,12 +30043,12 @@ var require_index_min = __commonJS({
 						animationData = JSON.parse(
 							container.getAttribute('data-lottie-data')
 						)
-					} else {
-						const response = await fetch(
-							`/assets/animations/${animationName}.json`
-						)
-						animationData = await response.json()
-					}
+				} else {
+					const response = await fetch(
+						`./assets/animations/${animationName}.json`
+					)
+					animationData = await response.json()
+				}
 					if (lottie && animationData) {
 						const animation = lottie.loadAnimation({
 							container,
@@ -30175,9 +30175,9 @@ var require_index_min = __commonJS({
 				heroLogo.style.display = 'none'
 			}
 
-			// Загружаем и инициализируем Lottie анимацию letters
-			try {
-				const response = await fetch('/assets/animations/letters.json')
+		// Загружаем и инициализируем Lottie анимацию letters
+		try {
+			const response = await fetch('./assets/animations/letters.json')
 				if (response.ok) {
 					const animationData = await response.json()
 
