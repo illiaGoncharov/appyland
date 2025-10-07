@@ -64,9 +64,8 @@
       };
     </script>
     <script>
-      // Для демо на GitHub Pages подменяем пути к видео на GitHub Releases,
-      // чтобы не ломать прод (на сервере остаются относительные ./video/*.mp4)
-      (function () {
+      // Для демо на GitHub Pages подменяем пути к видео на GitHub Releases
+      document.addEventListener('DOMContentLoaded', function () {
         try {
           var isGitHubPages = location.hostname.endsWith('github.io');
           if (!isGitHubPages) return;
@@ -82,13 +81,12 @@
             var filename = src.split('/').pop();
             var url = toReleaseUrl(filename);
             video.setAttribute('src', url);
-            // Перезагружаем источник, чтобы браузер подтянул новый URL
             try { video.load(); } catch (_) {}
           });
         } catch (e) {
           console.warn('Video release remap failed', e);
         }
-      })();
+      });
     </script>
     <script type="module" crossorigin="" src="./js/dev/index.js"></script>
     <script type="module" crossorigin="" src="./js/main.js"></script>

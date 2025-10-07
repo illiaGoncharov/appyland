@@ -44,28 +44,28 @@
 @font-face {
 	font-family: "HelveticaNeue";
 	font-display: swap;
-	src: url('../assets/fonts/HelveticaNeue-Regular.woff2') format('woff2');
+src: url('../../assets/fonts/HelveticaNeue-Regular.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 }
 @font-face {
 	font-family: HelveticaNeue;
 	font-display: swap;
-	src: url('../assets/fonts/HelveticaNeue-Medium.woff2') format('woff2');
+src: url('../../assets/fonts/HelveticaNeue-Medium.woff2') format('woff2');
 	font-weight: 500;
 	font-style: normal;
 }
 @font-face {
 	font-family: CoolveticaBk;
 	font-display: swap;
-	src: url('../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
+src: url('../../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 }
 @font-face {
 	font-family: Coolvetica;
 	font-display: swap;
-	src: url('../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
+src: url('../../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 }
@@ -73,14 +73,14 @@
 @font-face {
     font-family: Coolvetica;
     font-display: swap;
-    src: url('../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
+src: url('../../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
 }
 @font-face {
 	font-family: Coolvetica;
 	font-display: swap;
-	src: url('../assets/fonts/Coolvetica-Light.woff2') format('woff2');
+src: url('../../assets/fonts/Coolvetica-Light.woff2') format('woff2');
 	font-weight: 300;
 	font-style: normal;
 }
@@ -88,7 +88,7 @@
 @font-face {
     font-family: CoolveticaBk;
     font-display: swap;
-    src: url('../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
+src: url('../../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
 }
@@ -1206,7 +1206,7 @@ body {
 	left: 0;
 	right: 0;
 	transform: translateY(-50%);
-	background: url('../assets/img/footer-top.webp') top center/contain repeat-x;
+background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 	-webkit-transform: translateY(-50%);
 	-moz-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
@@ -1416,7 +1416,7 @@ body {
 	cursor: pointer;
 	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	display: flex;
-	align-items: center;
+	align-items: flex-end; /* все буквы опираются на общую базовую линию */
 	justify-content: center;
 	width: auto;
 	height: auto;
@@ -1432,19 +1432,19 @@ body {
 	filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
 }
 .hero__logo-letter .letter-lottie {
-	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-	transform-style: preserve-3d;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     will-change: transform;
-    transform: translateZ(0);
+    transform-origin: bottom center;
+    /* Поправка позиции + индивидуальный масштаб из низа для выравнивания каповой высоты */
+    transform: translateY(var(--letter-offset, 0px)) translateZ(0) scale(var(--letter-scale, 1));
 }
-.hero__logo-letter:hover .letter-lottie {
-	transform: translateZ(10px);
-}
+.hero__logo-letter:hover .letter-lottie { transform: translateY(var(--letter-offset, 0px)) translateZ(10px) scale(var(--letter-scale, 1)); }
 
 /* Дополнительные 3D эффекты для активного состояния */
 .hero__logo-letter.is-3d-active {
@@ -1457,9 +1457,7 @@ body {
 	z-index: 10;
 }
 
-.hero__logo-letter.is-3d-active .letter-lottie {
-	transform: translateZ(15px);
-}
+.hero__logo-letter.is-3d-active .letter-lottie { transform: translateY(var(--letter-offset, 0px)) translateZ(15px) scale(var(--letter-scale, 1)); }
 
 /* Плавные переходы между состояниями */
 .hero__logo-letter,
@@ -2413,7 +2411,7 @@ body {
     text-align: center;
     font-family: 'Coolvetica';
 	color: #fffde9;
-	background: url('../assets/img/team/star.svg') 0 0 no-repeat;
+background: url('../../assets/img/team/star.svg') 0 0 no-repeat;
 	width: 12.5rem;
 	height: 12.5rem;
 	position: absolute;
@@ -3937,9 +3935,9 @@ body {
 		align-items: center;
 		justify-content: center;
 		margin-top: 3.125rem;
-		position: relative;
-		background: url('../assets/img/stars-mob.webp') 0 0/100% no-repeat;
-	}
+	position: relative;
+	background: url('../../assets/img/stars-mob.webp') 0 0/100% no-repeat;
+}
 	.about__mascot svg {
 		margin-right: -3.125rem;
 		max-width: 20.75rem;
@@ -4414,7 +4412,7 @@ body {
 }
 
 .team-slide__subtext {
-background: url('../assets/img/team/star.svg') no-repeat center !important;
+background: url('../../assets/img/team/star.svg') no-repeat center !important;
 }
 
 .footer {
@@ -4645,7 +4643,7 @@ background-color: #1F2FA9;
 /* Пропорции букв. Важно: aspect-ratio задаёт ширину относительно высоты */
 .hero__logo-letter.letter-a { aspect-ratio: 929 / 1000; } /* A: 929×1000 */
 .hero__logo-letter.letter-p { aspect-ratio: 1 / 1; }     /* P (обычная квадратная) */
-.hero__logo-letter.letter-y { aspect-ratio: 810 / 936; }  /* Y_0_1: 810×936 */
+.hero__logo-letter.letter-y { aspect-ratio: 810 / 936; --letter-offset: 1px; --letter-scale: 0.98; }  /* Y_0_1: визуально выровнена по высоте */
 .hero__logo-letter.letter-l { aspect-ratio: 1 / 1; }     /* L: 1200×1200 */
 .hero__logo-letter.letter-n { aspect-ratio: 1 / 1; }     /* N: 800×800 */
 .hero__logo-letter.letter-d { aspect-ratio: 1 / 1; }     /* D: 800×800 */
