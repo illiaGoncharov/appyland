@@ -1228,9 +1228,7 @@ body {
 	object-fit: cover;
 	mix-blend-mode: darken;
 }
-.footer__bottom-right .footer__text {
-	font-family: 'CoolveticaBk';
-}
+.footer__bottom-right .footer__text { font-family: 'Coolvetica'; font-weight: 500; }
 .footer__bottom-right .footer__text {
 	line-height: 1.2;
 	text-align: left;
@@ -1928,25 +1926,11 @@ body {
 	gap: 1.5rem;
 	flex: 1 1 auto;
 }
-.video-portfolio__slider .slide-video__header {
-	line-height: 1.1;
-	font-weight: 300;
-	font-family: 'Coolvetica';
-	text-transform: uppercase;
-	position: relative;
-}
+.video-portfolio__slider .slide-video__header { line-height: 1.1; font-weight: 500; font-family: 'Coolvetica'; text-transform: uppercase; position: relative; }
 .video-portfolio__slider .slide-video__header {
 	position: relative;
 }
-.video-portfolio__slider .slide-video__header sup {
-	line-height: 1.1;
-	font-weight: 300;
-	font-family: 'Coolvetica';
-	text-transform: uppercase;
-	position: absolute;
-	top: -0.5rem;
-	right: 0.5rem;
-}
+.video-portfolio__slider .slide-video__header sup { line-height: 1.1; font-weight: 500; font-family: 'Coolvetica'; text-transform: uppercase; position: absolute; top: -0.5rem; right: 0.5rem; }
 .video-portfolio__slider .slide-video__content {
 	display: flex;
 	flex-direction: column;
@@ -2002,30 +1986,14 @@ body {
 	margin-bottom: 0.5rem;
 	font-weight: 300;
 }
-.slide-advertising__header h2 {
-	color: #fff;
-	line-height: 1.2;
-	font-weight: 300;
-	margin: 10px 0 0;
-	font-size: 2em !important;
-	font-family: 'CoolveticaBk';
-}
+.slide-advertising__header h2 { color:#fff; line-height:1.2; font-weight:500; margin:10px 0 0; font-size:2em !important; font-family:'Coolvetica'; }
 .slide-advertising__header h2 span {
 	position: relative;
 }
 .slide-advertising__header h2 span:last-child {
 	display: block;
 }
-.slide-advertising__header h2 sup {
-	line-height: 1.1;
-	font-weight: 300;
-	font-family: 'CoolveticaBk';
-	text-transform: uppercase;
-	position: absolute;
-	top: -5px;
-	right: -31px;
-	font-size: 16px;
-}
+.slide-advertising__header h2 sup { line-height:1.1; font-weight:500; font-family:'Coolvetica'; text-transform:uppercase; position:absolute; top:-5px; right:-31px; font-size:16px; }
 .slide-advertising__body {
 	display: flex;
 	flex-direction: column;

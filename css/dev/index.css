@@ -1085,7 +1085,8 @@ body {
 }
 .header__cta {
 	letter-spacing: 0.03125rem;
-	font-family: 'CoolveticaBk';
+	font-family: 'Coolvetica';
+	font-weight: 500; /* Book */
 }
 .header--white .header__cta {
 	color: #fffde9;
@@ -1984,23 +1985,23 @@ body {
 	flex: 1 1 auto;
 }
 .video-portfolio__slider .slide-video__header {
-	line-height: 1.1;
-	font-weight: 300;
-	font-family: 'Coolvetica';
-	text-transform: uppercase;
-	position: relative;
+    line-height: 1.1;
+    font-weight: 500; /* Coolvetica Book */
+    font-family: 'Coolvetica';
+    text-transform: uppercase;
+    position: relative;
 }
 .video-portfolio__slider .slide-video__header {
 	position: relative;
 }
 .video-portfolio__slider .slide-video__header sup {
-	line-height: 1.1;
-	font-weight: 300;
-	font-family: 'Coolvetica';
-	text-transform: uppercase;
-	position: absolute;
-	top: -0.5rem;
-	right: 0.5rem;
+    line-height: 1.1;
+    font-weight: 500; /* Book */
+    font-family: 'Coolvetica';
+    text-transform: uppercase;
+    position: absolute;
+    top: -0.5rem;
+    right: 0.5rem;
 }
 .video-portfolio__slider .slide-video__content {
 	display: flex;
@@ -2058,12 +2059,12 @@ body {
 	font-weight: 300;
 }
 .slide-advertising__header h2 {
-	color: #fff;
-	line-height: 1.2;
-	font-weight: 300;
-	margin: 10px 0 0;
-	font-size: 2em !important;
-	font-family: 'CoolveticaBk';
+    color: #fff;
+    line-height: 1.2;
+    font-weight: 500; /* Book */
+    margin: 10px 0 0;
+    font-size: 2em !important;
+    font-family: 'Coolvetica';
 }
 .slide-advertising__header h2 span {
 	position: relative;
@@ -2072,14 +2073,14 @@ body {
 	display: block;
 }
 .slide-advertising__header h2 sup {
-	line-height: 1.1;
-	font-weight: 300;
-	font-family: 'CoolveticaBk';
-	text-transform: uppercase;
-	position: absolute;
-	top: -5px;
-	right: -31px;
-	font-size: 16px;
+    line-height: 1.1;
+    font-weight: 500; /* Book */
+    font-family: 'Coolvetica';
+    text-transform: uppercase;
+    position: absolute;
+    top: -5px;
+    right: -31px;
+    font-size: 16px;
 }
 .slide-advertising__body {
 	display: flex;
