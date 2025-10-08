@@ -101,12 +101,17 @@ src: url('../../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
 	margin-top: -250px;
 }
 
+/* Контейнер слайдера с адаптивной шириной */
 .advertising-preview__content .swiper {
-	width: 1670px;
+	max-width: 1670px;
+	width: 100%;
+	margin: 0;
 }
 
+/* Фиксированная ширина карточки 312px */
 .advertising-preview__content .swiper-slide {
-	width: 311px !important;
+	width: 312px !important;
+	flex-shrink: 0;
 }
 
 .modal {
@@ -1017,22 +1022,37 @@ body {
 
 .swiper-button-prev,
 .swiper-button-next {
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 	background-color: #fffde9;
-	border-radius: 50%;
+	border: none;
+	cursor: pointer;
+	padding: 1rem;
+	width: auto;
+	height: auto;
+	flex-shrink: 0;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	min-width: 3rem;
-	min-height: 3rem;
+	border-radius: 50%;
 }
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-	transform: scale(1.1);
+.swiper-button-prev:hover:not(.swiper-button-disabled),
+.swiper-button-next:hover:not(.swiper-button-disabled) {
+	transform: scale(1.05);
+	background-color: #f5f3dd;
 }
-.swiper-button-prev:hover svg path,
-.swiper-button-next:hover svg path {
-	stroke: #0f1a7a;
+.swiper-button-prev:active:not(.swiper-button-disabled),
+.swiper-button-next:active:not(.swiper-button-disabled) {
+	transform: scale(0.98);
+}
+.swiper-button-prev svg,
+.swiper-button-next svg {
+	display: block;
+	width: 32px;
+	height: 32px;
+}
+.swiper-button-prev svg path,
+.swiper-button-next svg path {
+	stroke: #1f2fa9;
 }
 .swiper-button-prev.swiper-button-disabled,
 .swiper-button-next.swiper-button-disabled {
@@ -1222,8 +1242,8 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 }
 .footer__header-top .footer__text {
 	line-height: 1.1;
-    font-weight: 500; /* Book */
-    font-family: 'Coolvetica';
+    font-weight: 300; /* Book */
+    font-family: 'HelveticaNeue';
 	color: #1f2fa9;
 }
 .footer__header-bottom {
@@ -1367,7 +1387,7 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 	line-height: 1.3;
 	font-weight: 300;
 	color: #fffde9;
-	max-width: 30.5rem;
+	max-width: 435px;
 }
 
 .client-card__header {
@@ -2005,7 +2025,7 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 }
 .video-portfolio__slider .slide-video__header {
     line-height: 1.1;
-    font-weight: 500; /* Coolvetica Book */
+    font-weight: 300; /* Coolvetica Book */
     font-family: 'Coolvetica';
     text-transform: uppercase;
     position: relative;
@@ -2030,12 +2050,15 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 }
 .video-portfolio__controls {
 	display: flex;
+	align-items: baseline;
 	gap: 1.5rem;
 	position: relative;
 	z-index: 10;
 }
 .advertising-preview {
 	background-color: #fffde9;
+	overflow: visible;
+	position: relative;
 }
 .advertising-preview__slide {
 	height: auto;
@@ -2043,16 +2066,21 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 .advertising-preview__small-container {
 	position: relative;
 	width: 100%;
+	overflow: visible;
 }
 .advertising-preview__content {
 	display: grid;
 	align-items: center;
 	gap: 1.5rem;
 	justify-content: center;
+	overflow: visible;
+	position: relative;
 }
 .advertising-preview__slider {
 	padding: 0.3125rem 0.625rem;
 	margin: -0.3125rem;
+	overflow: visible;
+	position: relative;
 }
 .slide-advertising__content {
 	display: flex;
@@ -2080,10 +2108,11 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 .slide-advertising__header h2 {
     color: #fff;
     line-height: 1.2;
-    font-weight: 500; /* Book */
+    font-weight: 300; /* Book */
     margin: 10px 0 0;
     font-size: 2em !important;
     font-family: 'Coolvetica';
+    text-transform: uppercase;
 }
 .slide-advertising__header h2 span {
 	position: relative;
@@ -2172,11 +2201,54 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 1.5rem;
+	gap: 1rem;
 	margin-top: 2.5rem;
 	position: relative;
-	z-index: 10;
-	height: 30px;
+	z-index: 1000;
+	overflow: visible;
+	padding: 1rem;
+	pointer-events: auto;
+}
+
+.advertising-preview__arrow {
+	background-color: #1f2fa9;
+	border: none;
+	cursor: pointer;
+	padding: 1rem;
+	width: auto;
+	height: auto;
+	transition: all 0.2s ease;
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	position: relative;
+	z-index: 1001;
+	pointer-events: auto !important;
+}
+
+.advertising-preview__arrow:hover:not(.swiper-button-disabled) {
+	transform: scale(1.05);
+	background-color: #172261;
+}
+
+.advertising-preview__arrow:active:not(.swiper-button-disabled) {
+	transform: scale(0.98);
+}
+
+.advertising-preview__arrow.swiper-button-disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+.advertising-preview__arrow svg {
+	display: block;
+	width: 32px;
+	height: 32px;
+}
+.advertising-preview__arrow svg path {
+	stroke: #fffde9;
 }
 .motion-preview__footer {
 	position: absolute;
@@ -2331,7 +2403,7 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 }
 .team__header .team__header-bottom .team__description {
 	line-height: 1.1;
-    font-weight: 500; /* Book */
+    font-weight: 300; /* Book */
     font-family: 'Coolvetica';
 	max-width: 37.125rem;
 }
@@ -4261,24 +4333,29 @@ background: url('../../assets/img/team/star.svg') 0 0 no-repeat;
 	}
 }
 
+/* Адаптивность через брейкпоинты Swiper, убраны жёсткие ширины */
 @media screen and (max-width: 1700px) {
 	.advertising-preview__content .swiper {
-		width: 982px;
+		max-width: 100%;
+		padding: 0 2rem;
 	}
 }
 
 @media screen and (max-width: 1030px) {
 	.advertising-preview__content .swiper {
-		width: 639px !important;
+		padding: 0 1.5rem;
 	}
 	.advertising-preview__controls {
-		margin-top: 0.5rem;
+		margin-top: 2rem;
 	}
 }
 
 @media screen and (max-width: 680px) {
 	.advertising-preview__content .swiper {
-		width: 331px !important;
+		padding: 0 1rem;
+	}
+	.advertising-preview__controls {
+		margin-top: 1.5rem;
 	}
 }
 

@@ -6573,6 +6573,7 @@ var require_index_min = __commonJS({
 			createSlider() {
 				const modules = [Navigation, Pagination]
 				if (this.isDesktop) modules.push(EffectCreative)
+				const rootEl = document.querySelector('.video-portfolio__slider')
 				const base = {
 					modules,
 					spaceBetween: 0,
@@ -6581,11 +6582,12 @@ var require_index_min = __commonJS({
 					observer: true,
 					observeParents: true,
 					navigation: {
-						prevEl: '.swiper-button-prev',
-						nextEl: '.swiper-button-next',
+						// Привязываем кнопки только внутри собственного контейнера
+						prevEl: rootEl ? rootEl.querySelector('.swiper-button-prev') : '.video-portfolio__controls .swiper-button-prev',
+						nextEl: rootEl ? rootEl.querySelector('.swiper-button-next') : '.video-portfolio__controls .swiper-button-next',
 					},
 					pagination: {
-						el: '.swiper-pagination',
+						el: rootEl ? rootEl.querySelector('.swiper-pagination') : '.video-portfolio__controls .swiper-pagination',
 						clickable: true,
 					},
 					on: {
@@ -6793,92 +6795,124 @@ var require_index_min = __commonJS({
 				this.setupPlayButtons()
 			}
 
-			createSlider() {
-				const modules = [Navigation, Pagination, Autoplay]
-				const config = {
-					modules,
-					speed: 600,
-					allowTouchMove: true,
-					observer: true,
-					observeParents: true,
-					pagination: {
-						el: '.swiper-pagination',
-						clickable: true,
-					},
-				}
-				if (this.isDesktop) {
-					this.slider = new Swiper('.advertising-preview__slider', {
-						...config,
-						loop: true,
-						spaceBetween: 24,
-						slidesPerView: 5,
-						// initialSlide: 4,
-						// slidesPerGroup: 3,
-					})
+		createSlider() {
+			const modules = [Navigation, Pagination, Autoplay]
+			const sliderAdv = document.querySelector('.advertising-preview__slider')
+			const advControls = document.querySelector('.advertising-preview__controls')
+			const prevBtn = advControls ? advControls.querySelector('.swiper-button-prev') : null
+			const nextBtn = advControls ? advControls.querySelector('.swiper-button-next') : null
+			
+			console.log('advertising-preview init:', { sliderAdv: !!sliderAdv, advControls: !!advControls, prevBtn: !!prevBtn, nextBtn: !!nextBtn })
+			
+			if (!sliderAdv) {
+				console.warn('advertising-preview__slider not found')
+				return
+			}
+			
+			// Уничтожаем существующий инстанс
+			if (sliderAdv.swiper) {
+				console.log('Destroying existing swiper instance')
+				try { sliderAdv.swiper.destroy(true, true) } catch (_) {}
+			}
+			
+			const config = {
+				modules,
+				speed: 600,
+				allowTouchMove: !this.isDesktop,
+				observer: true,
+				observeParents: true,
+				navigation: (prevBtn && nextBtn) ? {
+					prevEl: prevBtn,
+					nextEl: nextBtn,
+				} : false,
+			}
+			
+		if (this.isDesktop) {
+			if (sliderAdv.swiper) {
+				sliderAdv.swiper.destroy(true, true)
+			}
+			
+			const advSwiper = new Swiper(sliderAdv, {
+				modules,
+				loop: true,
+				slidesPerView: 'auto',
+				slidesPerGroup: 1,
+				spaceBetween: 17,
+				slidesOffsetBefore: 17,
+				speed: 400,
+				allowTouchMove: false,
+				centeredSlides: false,
+				loopedSlides: 8,
+				normalizeSlideIndex: true,
+				navigation: {
+					prevEl: prevBtn,
+					nextEl: nextBtn,
+				},
+			})
+			
+			this.slider = advSwiper
 				} else {
-					this.slider = new Swiper('.advertising-preview__slider', {
+					const advSwiper = new Swiper('.advertising-preview__slider', {
 						...config,
 						spaceBetween: 16,
-
-						loop: true,
+						slidesPerGroup: 1,
+						loop: false,
+						speed: 500,
+						effect: 'slide',
+						centeredSlides: false,
+						watchOverflow: true,
 						breakpoints: {
-							320: {
-								slidesPerView: 1,
-							},
-							480: {
-								slidesPerView: 1,
-							},
-							625: {
-								slidesPerView: 2,
-							},
-							1700: {
-								slidesPerView: 3,
-							},
+							320: { slidesPerView: 'auto' },
+							480: { slidesPerView: 'auto' },
+							625: { slidesPerView: 'auto' },
+							1700: { slidesPerView: 'auto' },
 						},
 					})
+					// Обработчики навигации не дублируем вручную
+					this.slider = advSwiper
 				}
 			}
 			createSlider1() {
 				const modules = [Navigation, Pagination, Autoplay]
+				const sliderAdv1 = document.querySelector('.slider_video')
+				const advControls1 = sliderAdv1 ? sliderAdv1.parentElement.querySelector('.advertising-preview__controls') : null
 				const config = {
 					modules,
 					speed: 600,
 					allowTouchMove: true,
 					observer: true,
 					observeParents: true,
-					pagination: {
-						el: '.swiper-pagination',
-						clickable: true,
-					},
+					navigation: advControls1
+						? {
+							prevEl: advControls1.querySelector('.advertising-preview__arrow--prev'),
+							nextEl: advControls1.querySelector('.advertising-preview__arrow--next'),
+						}
+						: undefined,
 				}
+				// Не инициализируем, если целевой элемент совпадает с advertising-preview
+				if (!sliderAdv1 || sliderAdv1.classList.contains('advertising-preview__slider')) return
+				if (sliderAdv1.swiper) return
 				if (this.isDesktop) {
 					this.slider = new Swiper('.slider_video', {
 						...config,
 						loop: true,
-						spaceBetween: 24,
+						spaceBetween: 17,
 						slidesPerView: 3,
+						slidesPerGroup: 1,
 						// initialSlide: 4,
 						// slidesPerGroup: 3,
 					})
 				} else {
 					this.slider = new Swiper('.slider_video', {
 						...config,
-						spaceBetween: 16,
-
+						spaceBetween: 17,
+						slidesPerGroup: 1,
 						loop: true,
 						breakpoints: {
-							320: {
-								slidesPerView: 1,
-							},
-							480: {
-								slidesPerView: 1,
-							},
-							625: {
-								slidesPerView: 2,
-							},
-							1700: {
-								slidesPerView: 3,
-							},
+							320: { slidesPerView: 1 },
+							480: { slidesPerView: 1 },
+							625: { slidesPerView: 2 },
+							1700: { slidesPerView: 3 },
 						},
 					})
 				}

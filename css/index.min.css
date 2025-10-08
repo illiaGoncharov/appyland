@@ -2320,9 +2320,10 @@ background: url('../../assets/img/team/star.svg') 0 0 no-repeat;
 	.index-sections {
 		margin-bottom: 11.25rem;
 	}
-	.title-h1 {
-		font-size: 6rem;
-	}
+.title-h1 {
+	font-size: 6rem;
+	font-weight: 700;
+}
 	.section-num__number {
 		font-size: 1.5rem;
 	}
