@@ -50,9 +50,9 @@
       type="font/woff2"
       crossorigin="anonymous"
     />
-    <link rel="shortcut icon" href="assets/img/favicon.ico" />
+    <link rel="icon" type="image/png" href="assets/img/fav.png" />
 
-    <title>Home Page</title>
+    <title>Appy Land</title>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- GSAP для TweenLite-совместимости (исправляет ошибку TweenLite is not defined) -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -64,22 +64,60 @@
       };
     </script>
     <script>
-      // Для демо на GitHub Pages подменяем пути к видео на GitHub Releases
-      document.addEventListener('DOMContentLoaded', function () {
+      // Авто-подмена путей к видео на ассеты последнего GitHub Release, если локальные недоступны
+      // Также проставляем атрибуты для стабильного автоплея на мобильных (iOS Safari требует playsinline)
+      document.addEventListener('DOMContentLoaded', async function () {
         try {
-          var isGitHubPages = location.hostname.endsWith('github.io');
-          if (!isGitHubPages) return;
-          var RELEASE_TAG = 'videos-2025-10-07-01'; // при обновлении релиза поменяй тег
+          // 1) Глобально улучшаем поведение всех <video>
+          var allVideos = Array.prototype.slice.call(document.querySelectorAll('video[src]'));
+          allVideos.forEach(function (v) {
+            // Всегда включаем inline-воспроизведение на мобильных
+            v.setAttribute('playsinline', '');
+            v.setAttribute('webkit-playsinline', '');
+            // Если не задано, включаем preload метаданных (баланс между UX и трафиком)
+            if (!v.hasAttribute('preload')) v.setAttribute('preload', 'metadata');
+            // Для автоплея на мобильных без звука — гарантия наличия muted
+            if (!v.hasAttribute('muted')) {
+              v.muted = true;
+              v.setAttribute('muted', '');
+            }
+          });
+
+          // 2) Собираем видео, у которых путь указывает на локальную папку ./video/
+          var localVideos = Array.prototype.slice.call(document.querySelectorAll('video[src^="./video/"]'));
+          if (!localVideos.length) return; // нечего подменять
+
+          // 3) Проверяем, доступны ли локальные файлы на текущем хосте
+          //    Это важно для GitHub Pages с кастомным доменом: папки ./video/ там нет
+          var testSrc = localVideos[0].getAttribute('src');
+          var localOk = false;
+          try {
+            var headResp = await fetch(testSrc, { method: 'HEAD' });
+            localOk = !!headResp && headResp.ok;
+          } catch (_) {}
+          if (localOk) return; // локальные файлы доступны — подмена не нужна
+
+          // 4) Тянем тег последнего релиза через публичный GitHub API и подменяем пути
           var REPO = 'illiaGoncharov/appyland';
-          var toReleaseUrl = function (filename) {
-            return 'https://github.com/' + REPO + '/releases/download/' + RELEASE_TAG + '/' + encodeURIComponent(filename);
-          };
-          var videos = document.querySelectorAll('video[src^="./video/"]');
-          videos.forEach(function (video) {
+          var apiUrl = 'https://api.github.com/repos/' + REPO + '/releases/latest';
+          var release;
+          try {
+            var resp = await fetch(apiUrl, { headers: { 'Accept': 'application/vnd.github+json' } });
+            if (!resp.ok) throw new Error('GitHub API HTTP ' + resp.status);
+            release = await resp.json();
+          } catch (apiErr) {
+            console.warn('GitHub latest release fetch failed', apiErr);
+            return; // без тега релиза корректная подмена невозможна
+          }
+
+          var tag = release && release.tag_name ? release.tag_name : null;
+          if (!tag) return;
+
+          localVideos.forEach(function (video) {
             var src = video.getAttribute('src');
             if (!src) return;
             var filename = src.split('/').pop();
-            var url = toReleaseUrl(filename);
+            var url = 'https://github.com/' + REPO + '/releases/download/' + encodeURIComponent(tag) + '/' + encodeURIComponent(filename);
             video.setAttribute('src', url);
             try { video.load(); } catch (_) {}
           });
@@ -2321,17 +2359,18 @@
                               <picture>
                                 <source
                                   media="(max-width: 600px)"
-                                  srcset="./assets/img/team/01-600.webp"
+                                  srcset="./assets/img/team/anton-600.webp"
                                   type="image/webp"
                                 />
                                 <source
                                   media="(max-width: 1200px)"
-                                  srcset="./assets/img/team/01-1200.webp"
+                                  srcset="./assets/img/team/anton-1200.webp"
                                   type="image/webp"
                                 />
                                 <img
                                   alt="Image"
-                                  src="./assets/img/team/01.webp"
+                                  src="./assets/img/team/anton.webp"
+                                  onerror="this.onerror=null;this.src='./assets/img/team/01.webp'"
                                 />
                               </picture>
                             </div>
@@ -2341,11 +2380,7 @@
                                 <p>founder</p>
                               </h6>
                               <div class="team-slide__subtext">
-                                <span>
-                                  Работаем
-                                  <br />
-                                  дальше!
-                                </span>
+                                <span>Работаем <br /> дальше!</span>
                               </div>
                             </div>
                           </div>
@@ -2354,17 +2389,18 @@
                               <picture>
                                 <source
                                   media="(max-width: 600px)"
-                                  srcset="./assets/img/team/02-600.webp"
+                                  srcset="./assets/img/team/pasha-600.webp"
                                   type="image/webp"
                                 />
                                 <source
                                   media="(max-width: 1200px)"
-                                  srcset="./assets/img/team/02-1200.webp"
+                                  srcset="./assets/img/team/pasha-1200.webp"
                                   type="image/webp"
                                 />
                                 <img
                                   alt="Image"
-                                  src="./assets/img/team/02.webp"
+                                  src="./assets/img/team/pasha.webp"
+                                  onerror="this.onerror=null;this.src='./assets/img/team/02.webp'"
                                 />
                               </picture>
                             </div>
@@ -2374,11 +2410,7 @@
                                 <p>hr bp</p>
                               </h6>
                               <div class="team-slide__subtext">
-                                <span>
-                                  Находим
-                                  <br />
-                                  таланты!
-                                </span>
+                                <span>Ищем <br /> лучших!</span>
                               </div>
                             </div>
                           </div>
@@ -2392,17 +2424,18 @@
                               <picture>
                                 <source
                                   media="(max-width: 600px)"
-                                  srcset="./assets/img/team/03-600.webp"
+                                  srcset="./assets/img/team/masha-600.webp"
                                   type="image/webp"
                                 />
                                 <source
                                   media="(max-width: 1200px)"
-                                  srcset="./assets/img/team/03-1200.webp"
+                                  srcset="./assets/img/team/masha-1200.webp"
                                   type="image/webp"
                                 />
                                 <img
                                   alt="Image"
-                                  src="./assets/img/team/03.webp"
+                                  src="./assets/img/team/masha.webp"
+                                  onerror="this.onerror=null;this.src='./assets/img/team/03.webp'"
                                 />
                               </picture>
                             </div>
@@ -2412,11 +2445,7 @@
                                 <p>ceo</p>
                               </h6>
                               <div class="team-slide__subtext">
-                                <span>
-                                  Ведем
-                                  <br />
-                                  команду!
-                                </span>
+                                <span>Всё <br /> по таймингу!</span>
                               </div>
                             </div>
                           </div>
@@ -2425,17 +2454,18 @@
                               <picture>
                                 <source
                                   media="(max-width: 600px)"
-                                  srcset="./assets/img/team/04-600.webp"
+                                  srcset="./assets/img/team/nadya-600.webp"
                                   type="image/webp"
                                 />
                                 <source
                                   media="(max-width: 1200px)"
-                                  srcset="./assets/img/team/04-1200.webp"
+                                  srcset="./assets/img/team/nadya-1200.webp"
                                   type="image/webp"
                                 />
                                 <img
                                   alt="Image"
-                                  src="./assets/img/team/04.webp"
+                                  src="./assets/img/team/nadya.webp"
+                                  onerror="this.onerror=null;this.src='./assets/img/team/04.webp'"
                                 />
                               </picture>
                             </div>
@@ -2445,11 +2475,7 @@
                                 <p>project manager</p>
                               </h6>
                               <div class="team-slide__subtext">
-                                <span>
-                                  Организуем
-                                  <br />
-                                  процессы!
-                                </span>
+                                <span>У нас <br /> новая <br /> задача!</span>
                               </div>
                             </div>
                           </div>
@@ -2463,17 +2489,18 @@
                               <picture>
                                 <source
                                   media="(max-width: 600px)"
-                                  srcset="./assets/img/team/05-600.webp"
+                                  srcset="./assets/img/team/marina-600.webp"
                                   type="image/webp"
                                 />
                                 <source
                                   media="(max-width: 1200px)"
-                                  srcset="./assets/img/team/05-1200.webp"
+                                  srcset="./assets/img/team/marina-1200.webp"
                                   type="image/webp"
                                 />
                                 <img
                                   alt="Image"
-                                  src="./assets/img/team/05.webp"
+                                  src="./assets/img/team/marina.webp"
+                                  onerror="this.onerror=null;this.src='./assets/img/team/05.webp'"
                                 />
                               </picture>
                             </div>
@@ -2483,11 +2510,7 @@
                                 <p>art director</p>
                               </h6>
                               <div class="team-slide__subtext">
-                                <span>
-                                  Создаем
-                                  <br />
-                                  красоту!
-                                </span>
+                                <span>Давай <br /> сделаем <br /> ярче!</span>
                               </div>
                             </div>
                           </div>
@@ -2496,17 +2519,18 @@
                               <picture>
                                 <source
                                   media="(max-width: 600px)"
-                                  srcset="./assets/img/team/06-600.webp"
+                                  srcset="./assets/img/team/nika-600.webp"
                                   type="image/webp"
                                 />
                                 <source
                                   media="(max-width: 1200px)"
-                                  srcset="./assets/img/team/06-1200.webp"
+                                  srcset="./assets/img/team/nika-1200.webp"
                                   type="image/webp"
                                 />
                                 <img
                                   alt="Image"
-                                  src="./assets/img/team/06.webp"
+                                  src="./assets/img/team/nika.webp"
+                                  onerror="this.onerror=null;this.src='./assets/img/team/06.webp'"
                                 />
                               </picture>
                             </div>
@@ -2516,11 +2540,7 @@
                                 <p>3d designer</p>
                               </h6>
                               <div class="team-slide__subtext">
-                                <span>
-                                  Оживляем
-                                  <br />
-                                  идеи!
-                                </span>
+                                <span>Моделю <br /> динозавра!</span>
                               </div>
                             </div>
                           </div>
@@ -2534,17 +2554,18 @@
                               <picture>
                                 <source
                                   media="(max-width: 600px)"
-                                  srcset="./assets/img/team/07-600.webp"
+                                  srcset="./assets/img/team/alik-600.webp"
                                   type="image/webp"
                                 />
                                 <source
                                   media="(max-width: 1200px)"
-                                  srcset="./assets/img/team/07-1200.webp"
+                                  srcset="./assets/img/team/alik-1200.webp"
                                   type="image/webp"
                                 />
                                 <img
                                   alt="Image"
-                                  src="./assets/img/team/07.webp"
+                                  src="./assets/img/team/alik.webp"
+                                  onerror="this.onerror=null;this.src='./assets/img/team/07.webp'"
                                 />
                               </picture>
                             </div>
@@ -2554,11 +2575,7 @@
                                 <p>motion designer</p>
                               </h6>
                               <div class="team-slide__subtext">
-                                <span>
-                                  Движем
-                                  <br />
-                                  картинки!
-                                </span>
+                                <span>Доброе <br /> утро, <br /> коллеги!</span>
                               </div>
                             </div>
                           </div>
@@ -2567,17 +2584,18 @@
                               <picture>
                                 <source
                                   media="(max-width: 600px)"
-                                  srcset="./assets/img/team/08-600.webp"
+                                  srcset="./assets/img/team/ilya-600.webp"
                                   type="image/webp"
                                 />
                                 <source
                                   media="(max-width: 1200px)"
-                                  srcset="./assets/img/team/08-1200.webp"
+                                  srcset="./assets/img/team/ilya-1200.webp"
                                   type="image/webp"
                                 />
                                 <img
                                   alt="Image"
-                                  src="./assets/img/team/08.webp"
+                                  src="./assets/img/team/ilya.webp"
+                                  onerror="this.onerror=null;this.src='./assets/img/team/08.webp'"
                                 />
                               </picture>
                             </div>
@@ -2587,11 +2605,7 @@
                                 <p>3d designer</p>
                               </h6>
                               <div class="team-slide__subtext">
-                                <span>
-                                  Моделируем
-                                  <br />
-                                  будущее!
-                                </span>
+                                <span>Жду тз!</span>
                               </div>
                             </div>
                           </div>
@@ -2605,17 +2619,18 @@
                               <picture>
                                 <source
                                   media="(max-width: 600px)"
-                                  srcset="./assets/img/team/09-600.webp"
+                                  srcset="./assets/img/team/zhenya-600.webp"
                                   type="image/webp"
                                 />
                                 <source
                                   media="(max-width: 1200px)"
-                                  srcset="./assets/img/team/09-1200.webp"
+                                  srcset="./assets/img/team/zhenya-1200.webp"
                                   type="image/webp"
                                 />
                                 <img
                                   alt="Image"
-                                  src="./assets/img/team/09.webp"
+                                  src="./assets/img/team/zhenya.webp"
+                                  onerror="this.onerror=null;this.src='./assets/img/team/09.webp'"
                                 />
                               </picture>
                             </div>
@@ -2625,11 +2640,7 @@
                                 <p>Graphic Designer</p>
                               </h6>
                               <div class="team-slide__subtext">
-                                <span>
-                                  Создаем
-                                  <br />
-                                  графику!
-                                </span>
+                                <span>Опять <br /> правки...</span>
                               </div>
                             </div>
                           </div>
@@ -2638,17 +2649,18 @@
                               <picture>
                                 <source
                                   media="(max-width: 600px)"
-                                  srcset="./assets/img/team/10-600.webp"
+                                  srcset="./assets/img/team/nastya-600.webp"
                                   type="image/webp"
                                 />
                                 <source
                                   media="(max-width: 1200px)"
-                                  srcset="./assets/img/team/10-1200.webp"
+                                  srcset="./assets/img/team/nastya-1200.webp"
                                   type="image/webp"
                                 />
                                 <img
                                   alt="Image"
-                                  src="./assets/img/team/10.webp"
+                                  src="./assets/img/team/nastya.webp"
+                                  onerror="this.onerror=null;this.src='./assets/img/team/10.webp'"
                                 />
                               </picture>
                             </div>
@@ -2658,11 +2670,7 @@
                                 <p>Graphic Designer</p>
                               </h6>
                               <div class="team-slide__subtext">
-                                <span>
-                                  Рисуем
-                                  <br />
-                                  идеи!
-                                </span>
+                                <span>Да где же <br /> этот файл?!</span>
                               </div>
                             </div>
                           </div>
@@ -2676,17 +2684,18 @@
                               <picture>
                                 <source
                                   media="(max-width: 600px)"
-                                  srcset="./assets/img/team/11-600.webp"
+                                  srcset="./assets/img/team/lada-600.webp"
                                   type="image/webp"
                                 />
                                 <source
                                   media="(max-width: 1200px)"
-                                  srcset="./assets/img/team/11-1200.webp"
+                                  srcset="./assets/img/team/lada-1200.webp"
                                   type="image/webp"
                                 />
                                 <img
                                   alt="Image"
-                                  src="./assets/img/team/11.webp"
+                                  src="./assets/img/team/lada.webp"
+                                  onerror="this.onerror=null;this.src='./assets/img/team/11.webp'"
                                 />
                               </picture>
                             </div>
@@ -2697,9 +2706,7 @@
                               </h6>
                               <div class="team-slide__subtext">
                                 <span>
-                                  Управляем
-                                  <br />
-                                  проектами!
+                                  Сроки <br /> под контролем!
                                 </span>
                               </div>
                             </div>
@@ -2709,17 +2716,18 @@
                               <picture>
                                 <source
                                   media="(max-width: 600px)"
-                                  srcset="./assets/img/team/12-600.webp"
+                                  srcset="./assets/img/team/alina-600.webp"
                                   type="image/webp"
                                 />
                                 <source
                                   media="(max-width: 1200px)"
-                                  srcset="./assets/img/team/12-1200.webp"
+                                  srcset="./assets/img/team/alina-1200.webp"
                                   type="image/webp"
                                 />
                                 <img
                                   alt="Image"
-                                  src="./assets/img/team/12.webp"
+                                  src="./assets/img/team/alina.webp"
+                                  onerror="this.onerror=null;this.src='./assets/img/team/12.webp'"
                                 />
                               </picture>
                             </div>
@@ -2729,12 +2737,148 @@
                                 <p>Project Associate</p>
                               </h6>
                               <div class="team-slide__subtext">
-                                <span>
-                                  Помогаем
-                                  <br />
-                                  команде!
-                                </span>
+                                <span>Мы <br> все успеем!</span>
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Слайд 7 (плейсхолдеры) -->
+                      <div class="team__slide swiper-slide team-slide">
+                        <div class="team-slide__list">
+                          <div class="team-slide__item">
+                            <div class="team-slide__image placeholder"></div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span>Слава</span>
+                                <p>motion designer</p>
+                              </h6>
+                              <div class="team-slide__subtext"><span>Оживлю <br> картинку</span></div>
+                            </div>
+                          </div>
+                          <div class="team-slide__item">
+                            <div class="team-slide__image placeholder"></div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span>Серёжа</span>
+                                <p>3d designer</p>
+                              </h6>
+                              <div class="team-slide__subtext"><span>Будет<br> объёмно</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Слайд 8 (плейсхолдеры) -->
+                      <div class="team__slide swiper-slide team-slide">
+                        <div class="team-slide__list">
+                          <div class="team-slide__item">
+                            <div class="team-slide__image placeholder"></div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span>Надя</span>
+                                <p>project manager</p>
+                              </h6>
+                              <div class="team-slide__subtext"><span>Всё готово!</span></div>
+                            </div>
+                          </div>
+                          <div class="team-slide__item">
+                            <div class="team-slide__image placeholder"></div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span>Надя</span>
+                                <p>motion designer</p>
+                              </h6>
+                              <div class="team-slide__subtext"><span>Добавим <br> ритма!</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Слайд 9 (плейсхолдеры) -->
+                      <div class="team__slide swiper-slide team-slide">
+                        <div class="team-slide__list">
+                          <div class="team-slide__item">
+                            <div class="team-slide__image placeholder"></div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span>Катя</span>
+                                <p>graphic designer</p>
+                              </h6>
+                              <div class="team-slide__subtext"><span>Вижу <br>и двигаю</span></div>
+                            </div>
+                          </div>
+                          <div class="team-slide__item">
+                            <div class="team-slide__image placeholder"></div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span>Катя</span>
+                                <p>graphic designer</p>
+                              </h6>
+                              <div class="team-slide__subtext"><span>Детали <br>решают всё</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Слайд 10 (плейсхолдеры) -->
+                      <div class="team__slide swiper-slide team-slide">
+                        <div class="team-slide__list">
+                          <div class="team-slide__item">
+                            <div class="team-slide__image placeholder"></div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span>Дима</span>
+                                <p>3d designer</p>
+                              </h6>
+                              <div class="team-slide__subtext"><span>Соберу <br> мир в 3D</span></div>
+                            </div>
+                          </div>
+                          <div class="team-slide__item">
+                            <div class="team-slide__image placeholder"></div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span>Даша</span>
+                                <p>project manager</p>
+                              </h6>
+                              <div class="team-slide__subtext"><span>В работе</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Слайд 11 (плейсхолдеры) -->
+                      <div class="team__slide swiper-slide team-slide">
+                        <div class="team-slide__list">
+                          <div class="team-slide__item">
+                            <div class="team-slide__image placeholder"></div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span>Влада</span>
+                                <p>graphic designer</p>
+                              </h6>
+                              <div class="team-slide__subtext"><span>Классный <br>визуал!</span></div>
+                            </div>
+                          </div>
+                          <div class="team-slide__item">
+                            <div class="team-slide__image placeholder"></div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span>Аня</span>
+                                <p>graphic designer</p>
+                              </h6>
+                              <div class="team-slide__subtext"><span>Давайте <br>сделаем <br>красиво!</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Слайд 12 (плейсхолдер) -->
+                      <div class="team__slide swiper-slide team-slide">
+                        <div class="team-slide__list">
+                          <div class="team-slide__item">
+                            <div class="team-slide__image placeholder"></div>
+                            <div class="team-slide__content">
+                              <h6 class="team-slide__title">
+                                <span>Алиса</span>
+                                <p>project manager</p>
+                              </h6>
+                              <div class="team-slide__subtext"><span>Всё <br>по плану</span></div>
                             </div>
                           </div>
                         </div>

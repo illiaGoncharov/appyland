@@ -7061,6 +7061,8 @@ var require_index_min = __commonJS({
 					allowTouchMove: true,
 					observer: true,
 					observeParents: true,
+					/* Шагаем по 4 слайда (8 карточек), как в макете */
+					slidesPerGroup: 4,
 					navigation: {
 						prevEl: '.swiper-button-prev',
 						nextEl: '.swiper-button-next',
@@ -7077,6 +7079,8 @@ var require_index_min = __commonJS({
 					this.slider = new Swiper('.team__slider', {
 						...config,
 						slidesPerView: 2,
+						/* На мобиле шаг — 2 слайда (4 карточки) */
+						slidesPerGroup: 2,
 						spaceBetween: 10,
 					})
 				}

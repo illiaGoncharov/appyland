@@ -244,10 +244,12 @@ body {
 }
 
 body {
-	min-width: 20rem;
-	color: #000;
-	font-family: 'Coolvetica';
-	font-size: 1rem;
+    min-width: 20rem;
+    color: #000;
+    /* По умолчанию используем Coolvetica Light, чтобы избежать лишней жирности */
+    font-family: 'Coolvetica';
+    font-weight: 300;
+    font-size: 1rem;
 }
 [data-fls-scrolllock] body {
 	overflow: hidden;
@@ -1123,7 +1125,8 @@ body {
 .header__cta {
 	letter-spacing: 0.03125rem;
 	font-family: 'Coolvetica';
-	font-weight: 500; /* Book */
+    /* CTA — Regular, чтобы Coolvetica не выглядела толще */
+    font-weight: 400;
 }
 .header--white .header__cta {
 	color: #fffde9;
@@ -2025,7 +2028,8 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 }
 .video-portfolio__slider .slide-video__header {
     line-height: 1.1;
-    font-weight: 300; /* Coolvetica Book */
+    /* Light вместо Book для соответствия макету */
+    font-weight: 300;
     font-family: 'Coolvetica';
     text-transform: uppercase;
     position: relative;
@@ -2035,7 +2039,8 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 }
 .video-portfolio__slider .slide-video__header sup {
     line-height: 1.1;
-    font-weight: 500; /* Book */
+    /* Небольшой акцент — Regular */
+    font-weight: 400;
     font-family: 'Coolvetica';
     text-transform: uppercase;
     position: absolute;
@@ -2385,9 +2390,10 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 	justify-content: center;
 }
 .team__header .team__header-welcome span {
-	line-height: 1.1;
-    font-weight: 500; /* Book */
-    font-family: 'Coolvetica';
+    line-height: 1.1;
+    /* Кнопка в стиле макета: HelveticaNeue */
+    font-weight: 500;
+    font-family: 'HelveticaNeue';
 	text-transform: uppercase;
 	background-color: #fefe79;
 	border-radius: 2.875rem;
@@ -2395,6 +2401,8 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 	text-align: center;
 	margin-left: auto;
 	display: inline-flex;
+    padding: 0.5rem 1.5rem;
+    letter-spacing: 0.02em;
 }
 .team__header .team__header-bottom {
 	display: flex;
@@ -2402,10 +2410,11 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 	align-items: flex-start;
 }
 .team__header .team__header-bottom .team__description {
-	line-height: 1.1;
-    font-weight: 300; /* Book */
-    font-family: 'Coolvetica';
-	max-width: 37.125rem;
+    line-height: 1.4;
+    /* По макету — HelveticaNeue */
+    font-weight: 400;
+    font-family: 'HelveticaNeue';
+    max-width: 37.125rem;
 }
 .team__slider .slider-navigation {
 	display: flex;
@@ -2434,6 +2443,15 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 	height: 100%;
 	object-fit: cover;
 }
+/* Плейсхолдер для временных карточек без фото */
+.team-slide__image.placeholder {
+    background: #d9e0ff; /* мягкий бледно-синий, соответствует палитре */
+    border-radius: 1rem;
+    width: 100%;
+    /* Не квадрат, а вытягиваемый под контейнер как и обычные img */
+    min-height: 280px;
+    display: block;
+}
 .team__slide .team-slide__content {
 	position: relative;
 }
@@ -2448,19 +2466,19 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 	border-radius: 1.875rem;
 }
 .team__slide .team-slide__content .team-slide__title p {
-	line-height: 1.1;
-    font-weight: 500; /* Book */
+    line-height: 1.1;
+    font-weight: 400; /* Regular */
     font-family: 'Coolvetica';
-	color: #fffde9;
+    color: #fffde9;
 }
 .team__slide .team-slide__content .team-slide__title span {
-	position: relative;
-	display: flex;
-	align-items: center;
-	text-transform: uppercase;
-    font-weight: 500; /* Book */
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 300; /* Light */
     font-family: 'Coolvetica';
-	color: #fffde9;
+    color: #fffde9;
 }
 .team__slide .team-slide__content .team-slide__title span::after {
 	content: '';
@@ -2478,11 +2496,11 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 	background-image: url("data:image/svg+xml,%3Csvg width='79' height='16' viewBox='0 0 79 16' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%0A%3E%3Cpath d='M78.7071 8.70711C79.0976 8.31658 79.0976 7.68342 78.7071 7.29289L72.3431 0.928932C71.9526 0.538408 71.3195 0.538408 70.9289 0.928932C70.5384 1.31946 70.5384 1.95262 70.9289 2.34315L76.5858 8L70.9289 13.6569C70.5384 14.0474 70.5384 14.6805 70.9289 15.0711C71.3195 15.4616 71.9526 15.4616 72.3431 15.0711L78.7071 8.70711ZM0 8L0 9H78V8V7H0L0 8Z' fill='%23FFFDE9' %3E%3C/path%3E%3C/svg%3E");
 }
 .team__slide .team-slide__content .team-slide__subtext {
-	line-height: 1.1;
-    font-weight: 500; /* Book */
+    line-height: 1.1;
+    font-weight: 300; /* Light */
     text-align: center;
     font-family: 'Coolvetica';
-	color: #fffde9;
+    color: #fffde9;
 background: url('../../assets/img/team/star.svg') 0 0 no-repeat;
 	width: 12.5rem;
 	height: 12.5rem;
@@ -4393,7 +4411,8 @@ background: url('../../assets/img/team/star.svg') 0 0 no-repeat;
 
 .marquee_wrapper-card {
 	display: inline-block;
-	animation: marquee 20s linear infinite; /* Применяет анимацию */
+	/* Замедлили с 20s до 50s, чтобы читаемо было */
+	animation: marquee 50s linear infinite;
 	width: 3350px;
 }
 
