@@ -30198,72 +30198,79 @@ var require_index_min = __commonJS({
 			)
 		}
 
-		// Функция анимации падающих букв
-		async function initLettersFallAnimation() {
-			const lettersContainer = document.querySelector('.letters_fall_animation')
-			const heroLogo = document.querySelector('.hero__logo')
-			const heroMascotMob = document.querySelector('.hero__mascot-mob')
+	// Функция анимации падающих букв с preloader-синхронизацией
+	async function initLettersFallAnimation() {
+		const lettersContainer = document.querySelector('.letters_fall_animation')
+		const heroLogo = document.querySelector('.hero__logo')
+		const heroMascotMob = document.querySelector('.hero__mascot-mob')
 
-			if (!lettersContainer || !isMobileDevice()) return
-
-			// Сначала скрываем статичное изображение
-			if (heroMascotMob) {
-				heroMascotMob.style.opacity = '0'
-			}
-
-			// Скрываем логотип с Lottie анимациями
-			if (heroLogo) {
-				heroLogo.style.display = 'none'
-			}
-
-		// Загружаем и инициализируем Lottie анимацию letters
-		try {
-			const response = await fetch('./assets/animations/letters.json')
-				if (response.ok) {
-					const animationData = await response.json()
-
-					if (lottie && animationData) {
-						const animation = lottie.loadAnimation({
-							container: lettersContainer,
-							renderer: 'svg',
-							loop: false,
-							autoplay: false,
-							animationData,
-						})
-
-						// Показываем контейнер и запускаем анимацию
-						lettersContainer.classList.add('active')
-						animation.play()
-
-						// Ждем завершения анимации
-						animation.addEventListener('complete', () => {
-							// Останавливаем анимацию
-							animation.stop()
-
-							// Скрываем анимацию букв
-							lettersContainer.classList.remove('active')
-
-							// Ждем полного исчезновения анимации (время transition)
-							setTimeout(() => {
-								// Убеждаемся, что контейнер полностью скрыт
-								lettersContainer.style.display = 'none'
-
-								// Показываем статичное изображение hero-image в исходном месте
-								if (heroMascotMob) {
-									heroMascotMob.style.opacity = '1'
-								}
-							}, 500) // Увеличиваем задержку до 500ms для полного исчезновения
-						})
-					}
-				}
-			} catch (error) {
-				console.warn('Failed to load letters animation:', error)
-				// Fallback: показываем статичное изображение сразу
-				if (heroMascotMob) {
-					heroMascotMob.style.opacity = '1'
-				}
-			}
+		if (!lettersContainer || !isMobileDevice()) {
+			// На десктопе сразу показываем страницу
+			document.documentElement.setAttribute('data-fls-preloader-loaded', '')
+			return
 		}
+
+		// Сначала скрываем статичное изображение
+		if (heroMascotMob) {
+			heroMascotMob.style.opacity = '0'
+		}
+
+		// Скрываем логотип с Lottie анимациями
+		if (heroLogo) {
+			heroLogo.style.display = 'none'
+		}
+
+	// Загружаем и инициализируем Lottie анимацию letters
+	try {
+		const response = await fetch('./assets/animations/letters.json')
+			if (response.ok) {
+				const animationData = await response.json()
+
+				if (lottie && animationData) {
+					const animation = lottie.loadAnimation({
+						container: lettersContainer,
+						renderer: 'svg',
+						loop: false,
+						autoplay: false,
+						animationData,
+					})
+
+					// Показываем контейнер и запускаем анимацию
+					lettersContainer.classList.add('active')
+					animation.play()
+
+					// Ждем завершения анимации
+					animation.addEventListener('complete', () => {
+						// Останавливаем анимацию
+						animation.stop()
+
+						// Скрываем анимацию букв
+						lettersContainer.classList.remove('active')
+
+						// Ждем полного исчезновения анимации (время transition)
+						setTimeout(() => {
+							// Убеждаемся, что контейнер полностью скрыт
+							lettersContainer.style.display = 'none'
+
+							// Показываем статичное изображение hero-image в исходном месте
+							if (heroMascotMob) {
+								heroMascotMob.style.opacity = '1'
+							}
+							// Показываем страницу после завершения анимации
+							document.documentElement.setAttribute('data-fls-preloader-loaded', '')
+						}, 500) // Увеличиваем задержку до 500ms для полного исчезновения
+					})
+				}
+			}
+		} catch (error) {
+			console.warn('Failed to load letters animation:', error)
+			// Fallback: показываем статичное изображение и страницу сразу
+			if (heroMascotMob) {
+				heroMascotMob.style.opacity = '1'
+			}
+			document.documentElement.setAttribute('data-fls-preloader-loaded', '')
+		}
+	}
 
 		document.addEventListener('DOMContentLoaded', () => {
 			initScrollButtons()
