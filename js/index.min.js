@@ -6798,7 +6798,7 @@ var require_index_min = __commonJS({
 		createSlider() {
 			const modules = [Navigation, Pagination, Autoplay]
 			const sliderAdv = document.querySelector('.advertising-preview__slider')
-			const advControls = document.querySelector('.advertising-preview__controls')
+			const advControls = sliderAdv ? sliderAdv.querySelector('.advertising-preview__controls') : null
 			const prevBtn = advControls ? advControls.querySelector('.swiper-button-prev') : null
 			const nextBtn = advControls ? advControls.querySelector('.swiper-button-next') : null
 			
@@ -6818,7 +6818,7 @@ var require_index_min = __commonJS({
 			const config = {
 				modules,
 				speed: 600,
-				allowTouchMove: !this.isDesktop,
+				allowTouchMove: true,
 				observer: true,
 				observeParents: true,
 				navigation: (prevBtn && nextBtn) ? {
@@ -6836,11 +6836,11 @@ var require_index_min = __commonJS({
 				modules,
 				loop: true,
 				slidesPerView: 'auto',
-				slidesPerGroup: 1,
+				slidesPerGroup: 3,
 				spaceBetween: 17,
 				slidesOffsetBefore: 17,
-				speed: 400,
-				allowTouchMove: false,
+				speed: 600,
+				allowTouchMove: true,
 				centeredSlides: false,
 				loopedSlides: 8,
 				normalizeSlideIndex: true,
@@ -7615,7 +7615,7 @@ var require_index_min = __commonJS({
 				let counter = 0
 				let progress = 0
 				htmlDocument.setAttribute('data-fls-preloader-loading', '')
-				// htmlDocument.setAttribute('data-fls-scrolllock', '') - убрано для исправления блокировки скролла
+				htmlDocument.setAttribute('data-fls-scrolllock', '')
 				if (preloaderImages.length) {
 					preloaderImages.forEach(preloaderImage => {
 						const imgClone = document.createElement('img')
@@ -7665,7 +7665,7 @@ var require_index_min = __commonJS({
 			function addLoadedClass() {
 				htmlDocument.setAttribute('data-fls-preloader-loaded', '')
 				htmlDocument.removeAttribute('data-fls-preloader-loading')
-				// htmlDocument.removeAttribute('data-fls-scrolllock') - убрано, так как не устанавливаем
+				htmlDocument.removeAttribute('data-fls-scrolllock')
 			}
 		}
 		document.addEventListener('DOMContentLoaded', preloader)
