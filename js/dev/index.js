@@ -30198,15 +30198,14 @@ var require_index_min = __commonJS({
 			)
 		}
 
-	// Функция анимации падающих букв с preloader-синхронизацией
+	// Функция анимации падающих букв (без блокировки страницы)
 	async function initLettersFallAnimation() {
 		const lettersContainer = document.querySelector('.letters_fall_animation')
 		const heroLogo = document.querySelector('.hero__logo')
 		const heroMascotMob = document.querySelector('.hero__mascot-mob')
 
+		// Если не мобильный или нет контейнера — просто выходим
 		if (!lettersContainer || !isMobileDevice()) {
-			// На десктопе сразу показываем страницу
-			document.documentElement.setAttribute('data-fls-preloader-loaded', '')
 			return
 		}
 
@@ -30256,19 +30255,16 @@ var require_index_min = __commonJS({
 							if (heroMascotMob) {
 								heroMascotMob.style.opacity = '1'
 							}
-							// Показываем страницу после завершения анимации
-							document.documentElement.setAttribute('data-fls-preloader-loaded', '')
-						}, 500) // Увеличиваем задержку до 500ms для полного исчезновения
+						}, 300)
 					})
 				}
 			}
 		} catch (error) {
 			console.warn('Failed to load letters animation:', error)
-			// Fallback: показываем статичное изображение и страницу сразу
+			// Fallback: показываем статичное изображение сразу
 			if (heroMascotMob) {
 				heroMascotMob.style.opacity = '1'
 			}
-			document.documentElement.setAttribute('data-fls-preloader-loaded', '')
 		}
 	}
 
