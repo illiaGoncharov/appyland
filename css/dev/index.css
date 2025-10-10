@@ -473,7 +473,7 @@ body {
 	-ms-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	border: 0.125rem solid #fffde9;
-    font-weight: 500; /* Book для CTA */
+    font-weight: 500;
     font-family: 'Coolvetica';
 }
 
@@ -1245,7 +1245,7 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 }
 .footer__header-top .footer__text {
 	line-height: 1.1;
-    font-weight: 300; /* Book */
+    font-weight: 300;
     font-family: 'HelveticaNeue';
 	color: #1f2fa9;
 }
@@ -1914,7 +1914,7 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 }
 .portfolio__tag {
 	line-height: 1.1;
-    font-weight: 500; /* Book */
+    font-weight: 500;
     font-family: 'Coolvetica';
 	text-transform: uppercase;
 	border-radius: 1.875rem;
@@ -1990,7 +1990,7 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 }
 .video-portfolio__tag {
 	line-height: 1.1;
-    font-weight: 500; /* Book */
+    font-weight: 500;
     font-family: 'Coolvetica';
 	text-transform: uppercase;
 	border-radius: 1.875rem;
@@ -2130,7 +2130,7 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 .slide-advertising__header h2 {
     color: #fff;
     line-height: 1.2;
-    font-weight: 300; /* Book */
+    font-weight: 300;
     margin: 10px 0 0;
     font-size: 2em !important;
     font-family: 'Coolvetica';
@@ -2144,7 +2144,7 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 }
 .slide-advertising__header h2 sup {
     line-height: 1.1;
-    font-weight: 500; /* Book */
+    font-weight: 500;
     font-family: 'Coolvetica';
     text-transform: uppercase;
     position: absolute;
@@ -2309,7 +2309,7 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 }
 .motion-preview__tag {
 	line-height: 1.1;
-    font-weight: 500; /* Book */
+    font-weight: 500;
     font-family: 'Coolvetica';
 	text-transform: uppercase;
 	border-radius: 1.875rem;
@@ -4388,36 +4388,23 @@ background: url('../../assets/img/team/star.svg') 0 0 no-repeat;
 	}
 }
 
-@media screen and (max-width: 680px) {
-	.advertising-preview__content .swiper {
-		padding: 0 1rem;
-	}
-	.advertising-preview__controls {
-		margin-top: 1.5rem;
-	}
-	/* Плашка your/hAPPY/design на мобайле: поднимаем выше, сокращаем ширину кремового */
-	.hero__tagline {
-		margin-top: -1rem;
-		max-width: 85%;
-		margin-left: auto;
-		margin-right: auto;
-	}
-}
-
+/* Advertising preview */
 .advertising-preview__content .swiper-wrapper {
 	padding-top: 10px;
 }
-
 .advertising-preview__content .pos_text {
 	top: -5px;
 	right: 122px;
 }
-
 .advertising-preview__content .pos_text1 {
 	top: -5px;
 	right: 69px;
 }
+.advertising-preview__content video {
+	display: none;
+}
 
+/* Marquee (бегущая строка Альфа-Банк) */
 .marquee_wrapper-inner {
 	overflow: hidden;
 	white-space: nowrap;
@@ -4430,40 +4417,33 @@ background: url('../../assets/img/team/star.svg') 0 0 no-repeat;
 	display: grid;
 	justify-content: center;
 }
-
 .marquee_wrapper-card li {
 	float: left;
 	margin-left: 10px;
 }
-
 .marquee_wrapper-card {
 	display: inline-block;
-	/* Замедлили с 20s до 50s, чтобы читаемо было */
 	animation: marquee 50s linear infinite;
 	width: 3350px;
 }
-
 @keyframes marquee {
-	0% {
-		transform: translateX(0%);
-	} /* Начинаем с правой стороны */
-	100% {
-		transform: translateX(-50%);
-	} /* Заканчиваем слева */
+	0% { transform: translateX(0%); }
+	100% { transform: translateX(-50%); }
 }
 
-.footer__header-bottom .footer__socials ul {
-	position: relative;
-	z-index: 100;
-}
-
+/* Footer z-index */
+.footer__header-bottom .footer__socials ul,
 .footer__header-bottom .footer__mail a {
 	position: relative;
 	z-index: 100;
 }
 
-.advertising-preview__content video {
-	display: none;
+/* Media queries — объединённые */
+@media screen and (max-width: 1200px) {
+	.services__items .section-num {
+		left: 35px;
+		top: -39px;
+	}
 }
 
 @media screen and (max-width: 992px) {
@@ -4484,30 +4464,34 @@ background: url('../../assets/img/team/star.svg') 0 0 no-repeat;
 	}
 }
 
-@media screen and (max-width: 410px) {
-	.team__header h2 span {
-		font-size: 29px;
-	}
-}
-@media screen and (max-width: 1200px) {
-	.services__items .section-num {
-		left: 35px;
-		top: -39px;
-	}
-}
-
 @media screen and (max-width: 680px) {
+	.advertising-preview__content .swiper {
+		padding: 0 1rem;
+	}
+	.advertising-preview__controls {
+		margin-top: 1.5rem;
+	}
+	.hero__tagline {
+		margin-top: -1rem;
+		max-width: 85%;
+		margin-left: auto;
+		margin-right: auto;
+	}
 	.section-num {
 		gap: 0px 3px;
 	}
-
 	.stats__title {
 		font-size: 36px !important;
 	}
-
 	.stats__header img {
 		width: 31px;
 		height: 31px;
+	}
+}
+
+@media screen and (max-width: 410px) {
+	.team__header h2 span {
+		font-size: 29px;
 	}
 }
 
@@ -4900,12 +4884,3 @@ background-color: #1F2FA9;
 	position: relative;
         left: -8px;
 }
-
-.team__slide .team-slide__item {
-	height: 245px;
-} */
-
-
-
-}
-
