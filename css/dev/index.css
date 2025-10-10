@@ -251,8 +251,8 @@ body {
     font-size: 1rem;
 }
 [data-fls-scrolllock] body {
-	overflow: hidden;
-	touch-action: none;
+	/* overflow: hidden; - убрано для исправления блокировки скролла */
+	/* touch-action: none; - убрано для исправления блокировки свайпов */
 	overscroll-behavior: none;
 }
 .page {

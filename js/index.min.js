@@ -7615,7 +7615,7 @@ var require_index_min = __commonJS({
 				let counter = 0
 				let progress = 0
 				htmlDocument.setAttribute('data-fls-preloader-loading', '')
-				htmlDocument.setAttribute('data-fls-scrolllock', '')
+				// htmlDocument.setAttribute('data-fls-scrolllock', '') - убрано для исправления блокировки скролла
 				if (preloaderImages.length) {
 					preloaderImages.forEach(preloaderImage => {
 						const imgClone = document.createElement('img')
@@ -7665,7 +7665,7 @@ var require_index_min = __commonJS({
 			function addLoadedClass() {
 				htmlDocument.setAttribute('data-fls-preloader-loaded', '')
 				htmlDocument.removeAttribute('data-fls-preloader-loading')
-				htmlDocument.removeAttribute('data-fls-scrolllock')
+				// htmlDocument.removeAttribute('data-fls-scrolllock') - убрано, так как не устанавливаем
 			}
 		}
 		document.addEventListener('DOMContentLoaded', preloader)
