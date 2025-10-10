@@ -6782,16 +6782,7 @@ var require_index_min = __commonJS({
 				}
 			}
 			init() {
-				const root = document.querySelector('.advertising-preview__slider')
-
 				this.createSlider()
-
-				this.createSlider1()
-				this.createSlider2()
-				this.createSlider3()
-
-				// this.createSlider1();
-
 				this.setupPlayButtons()
 			}
 
