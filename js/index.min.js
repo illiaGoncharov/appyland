@@ -6818,50 +6818,22 @@ var require_index_min = __commonJS({
 				} : false,
 			}
 			
-		if (this.isDesktop) {
-			if (sliderAdv.swiper) {
-				sliderAdv.swiper.destroy(true, true)
-			}
-			
-			const advSwiper = new Swiper(sliderAdv, {
-				modules,
-				loop: true,
-				slidesPerView: 'auto',
-				slidesPerGroup: 3,
-				spaceBetween: 17,
-				slidesOffsetBefore: 17,
-				speed: 600,
-				allowTouchMove: true,
-				centeredSlides: false,
-				loopedSlides: 8,
-				normalizeSlideIndex: true,
-				navigation: {
-					prevEl: prevBtn,
-					nextEl: nextBtn,
-				},
-			})
-			
-			this.slider = advSwiper
-				} else {
-					const advSwiper = new Swiper('.advertising-preview__slider', {
-						...config,
-						spaceBetween: 16,
-						slidesPerGroup: 1,
-						loop: false,
-						speed: 500,
-						effect: 'slide',
-						centeredSlides: false,
-						watchOverflow: true,
-						breakpoints: {
-							320: { slidesPerView: 'auto' },
-							480: { slidesPerView: 'auto' },
-							625: { slidesPerView: 'auto' },
-							1700: { slidesPerView: 'auto' },
-						},
-					})
-					// Обработчики навигации не дублируем вручную
-					this.slider = advSwiper
-				}
+		const advSwiper = new Swiper(sliderAdv, {
+			modules,
+			loop: true,
+			slidesPerView: this.isDesktop ? 3 : 'auto',
+			slidesPerGroup: 1,
+			spaceBetween: this.isDesktop ? 17 : 16,
+			speed: 600,
+			allowTouchMove: true,
+			centeredSlides: false,
+			loopFillGroupWithBlank: false,
+			navigation: {
+				prevEl: prevBtn,
+				nextEl: nextBtn,
+			},
+		})
+		this.slider = advSwiper
 			}
 			createSlider1() {
 				const modules = [Navigation, Pagination, Autoplay]
