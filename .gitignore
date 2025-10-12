@@ -37,3 +37,6 @@ video/
 # GIF анимации (могут быть большими)
 assets/img/video-gif/
 
+node_modules/
+dist/
+.DS_Store

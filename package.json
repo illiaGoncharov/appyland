@@ -1,0 +1,30 @@
+{
+  "name": "appyland",
+  "version": "1.0.0",
+  "description": "Официальный сайт студии Appyland",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/illiaGoncharov/appyland.git"
+  },
+  "keywords": [
+    "appyland",
+    "design",
+    "studio"
+  ],
+  "author": "Appyland Studio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/illiaGoncharov/appyland/issues"
+  },
+  "homepage": "https://github.com/illiaGoncharov/appyland#readme",
+  "devDependencies": {
+    "terser": "^5.44.0",
+    "vite": "^7.1.9"
+  }
+}
