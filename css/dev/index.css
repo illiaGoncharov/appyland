@@ -2,37 +2,30 @@
 
 /* Анимация падающих букв для мобильных устройств */
 .letters_fall_animation {
-	position: fixed;
+	position: absolute;
 	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	z-index: 9999;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 85vw;
+	max-width: 450px;
+	min-width: 280px;
+	height: auto;
+	z-index: 10; /* ниже header (400), но выше обычного контента */
 	pointer-events: none;
 	opacity: 0;
 	visibility: hidden;
-	transition: opacity 0.5s ease, visibility 0.5s ease;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.letters_fall_animation:not(.active) {
-	opacity: 0 !important;
-	visibility: hidden !important;
+	transition: opacity 0.3s ease;
 }
 
 .letters_fall_animation.active {
-	opacity: 1;
-	visibility: visible;
+	opacity: 1 !important;
+	visibility: visible !important;
 }
 
 .letters_fall_animation svg {
-	/* Убрали !important и object-fit: cover, чтобы сохранить пропорции анимации */
-	max-width: 90vw;
-	max-height: 60vh;
-	width: auto;
+	width: 100%;
 	height: auto;
+	display: block;
 }
 
 /* Скрытие анимации на десктопе */
@@ -1346,7 +1339,7 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	transition: all 0.8s 0.3s;
+	transition: opacity 1s ease, visibility 1s ease;
 	background-color: #fffde9;
 }
 
@@ -1358,18 +1351,21 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 	flex-direction: column;
 }
 
-/* Блок з лічильником */
+/* Блок з лічильником - плавная смена цифр */
 .fls-preloader__counter {
 	font-size: 10rem;
+	/* Нежная анимация для цифр без скачков */
+	transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Прогресбар */
 /* Лінія прогресбару */
 .fls-preloader__line span {
 	display: inline-block;
-	transition: width 0.2s ease;
+	transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 	height: 0.8rem;
 	background-color: #7a956b;
+	will-change: width;
 }
 
 [data-fls-preloader-loaded] .fls-preloader {
@@ -3850,28 +3846,63 @@ background: url('../../assets/img/team/star.svg') 0 0 no-repeat;
 	.client-card__header {
 		margin-bottom: 0.875rem;
 	}
+	/* Статичный динозавр больше не нужен - полагаемся только на анимацию букв */
 	.hero__mascot-mob {
-		position: relative;
-		min-height: 15rem;
-		opacity: 1;
-		transition: opacity 0.5s ease;
+		display: none !important;
+		opacity: 0;
 	}
-	.hero__mascot-mob svg {
-		position: absolute;
-		bottom: 0;
-		width: 100% !important;
-		height: min(50vmin, 25vmax) !important;
-		object-fit: cover;
-	}
+	
 	.hero__mascot {
 		display: none;
 	}
 	.hero__labels {
 		display: none;
 	}
-	.hero__logo {
-		display: none;
+	/* Резервируем место для анимации падающих букв */
+	.hero {
+		min-height: 80vh; /* полная высота экрана для анимации */
+		position: relative;
+		display: flex;
+		flex-direction: column;
 	}
+	
+	.hero__container {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		max-width: 100%; /* сохраняем ширину контейнера */
+	}
+	
+	.hero__content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end; /* прижимаем к низу */
+		align-items: center;
+		padding-bottom: 1.5rem; /* отступ снизу */
+		width: 100%;
+	}
+	
+	/* Контейнер для таблички по центру */
+	.hero__branding {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	/* Табличка "your hAPPY design" - адаптивная ширина для мобайла */
+	.hero__tagline {
+		margin-top: 0 !important;
+		width: max(280px, 85vw) !important; /* адаптивная ширина только для мобайла */
+		max-width: 95% !important; /* не больше 95% экрана */
+	}
+	
+	/* Скрываем логотип - он заменяется анимацией */
+	.hero__logo {
+		display: none !important;
+	}
+	
 	.hero__labels {
 		display: none !important;
 	}
@@ -4472,12 +4503,7 @@ background: url('../../assets/img/team/star.svg') 0 0 no-repeat;
 	.advertising-preview__controls {
 		margin-top: 1.5rem;
 	}
-	.hero__tagline {
-		margin-top: -1rem;
-		max-width: 85%;
-		margin-left: auto;
-		margin-right: auto;
-	}
+	/* Убрали переопределение .hero__tagline - оно конфликтовало с адаптивной шириной */
 	.section-num {
 		gap: 0px 3px;
 	}
@@ -4840,7 +4866,8 @@ background-color: #1F2FA9;
 }
 
 @media screen and (max-width: 400px) {
-.list_pos {
-	position: relative;
-	left: 10px;
+	.list_pos {
+		position: relative;
+		left: 10px;
+	}
 }

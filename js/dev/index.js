@@ -7576,16 +7576,16 @@ var require_index_min = __commonJS({
 						showPecentLoad ? (showPecentLoad.innerText = `${progress2}%`) : null
 						showLineLoad ? (showLineLoad.style.width = `${progress2}%`) : null
 					},
-					assetLoaded2 = function () {
-						assetsLoadedCount++
-						progress = Math.round((100 / totalAssets) * assetsLoadedCount)
-						const intervalId = setInterval(() => {
-							counter >= progress
-								? clearInterval(intervalId)
-								: setValueProgress2(++counter)
-							counter >= 100 ? addLoadedClass() : null
-						}, 10)
-					}
+				assetLoaded2 = function () {
+					assetsLoadedCount++
+					progress = Math.round((100 / totalAssets) * assetsLoadedCount)
+					const intervalId = setInterval(() => {
+						counter >= progress
+							? clearInterval(intervalId)
+							: setValueProgress2(++counter)
+						counter >= 100 ? addLoadedClass() : null
+					}, 30) // 30ms - золотая середина для плавных цифр без скачков
+				}
 				var setValueProgress = setValueProgress2,
 					assetLoaded = assetLoaded2
 				const preloaderTemplate = `
@@ -30086,33 +30086,48 @@ var require_index_min = __commonJS({
 							animationData,
 						})
 
-					// Добавляем интерактивность к буквам с 3D эффектом
-					const letterElement = container.closest('.hero__logo-letter')
+				// Добавляем интерактивность к буквам с 3D эффектом
+				const letterElement = container.closest('.hero__logo-letter')
 
-					// Проверяем, что элемент найден
-					if (letterElement) {
-						container.addEventListener('mouseenter', () => {
-							// Запускаем анимацию и добавляем 3D класс
-							animation.play()
-							letterElement.classList.add('is-3d-active')
-						})
+				// Проверяем, что элемент найден
+				if (letterElement) {
+					// Десктоп: hover события
+					container.addEventListener('mouseenter', () => {
+						// Запускаем анимацию и добавляем 3D класс
+						animation.play()
+						letterElement.classList.add('is-3d-active')
+					})
 
-						container.addEventListener('mouseleave', () => {
-							// Возвращаем в статичное состояние
+					container.addEventListener('mouseleave', () => {
+						// Возвращаем в статичное состояние
+						animation.goToAndStop(0, true)
+						letterElement.classList.remove('is-3d-active')
+					})
+
+					// Мобильные: touch события
+					container.addEventListener('touchstart', (e) => {
+						e.preventDefault() // предотвращаем скролл при тапе
+						animation.play()
+						letterElement.classList.add('is-3d-active')
+					})
+
+					container.addEventListener('touchend', () => {
+						// Убираем 3D состояние через время анимации
+						setTimeout(() => {
 							animation.goToAndStop(0, true)
 							letterElement.classList.remove('is-3d-active')
-						})
+						}, 1000)
+					})
 
-						container.addEventListener('click', () => {
-							// При клике также активируем 3D состояние
-							animation.play()
-							letterElement.classList.add('is-3d-active')
-							// Убираем 3D состояние через время анимации
-							setTimeout(() => {
-								letterElement.classList.remove('is-3d-active')
-							}, 1000)
-						})
-					}
+					// Клик как запасной вариант
+					container.addEventListener('click', () => {
+						animation.play()
+						letterElement.classList.add('is-3d-active')
+						setTimeout(() => {
+							letterElement.classList.remove('is-3d-active')
+						}, 1000)
+					})
+				}
 						animation.goToAndStop(0, true)
 						if (container.classList.contains('soax-lottie')) {
 							if (container.classList.contains('anim-one')) {
@@ -30192,22 +30207,16 @@ var require_index_min = __commonJS({
 	async function initLettersFallAnimation() {
 		const lettersContainer = document.querySelector('.letters_fall_animation')
 		const heroLogo = document.querySelector('.hero__logo')
-		const heroMascotMob = document.querySelector('.hero__mascot-mob')
 
-		// Если не мобильный или нет контейнера — просто выходим
-		if (!lettersContainer || !isMobileDevice()) {
-			return
-		}
+	// Если не мобильный или нет контейнера — просто выходим
+	if (!lettersContainer || !isMobileDevice()) {
+		return
+	}
 
-		// Сначала скрываем статичное изображение
-		if (heroMascotMob) {
-			heroMascotMob.style.opacity = '0'
-		}
-
-		// Скрываем логотип с Lottie анимациями
-		if (heroLogo) {
-			heroLogo.style.display = 'none'
-		}
+	// Скрываем интерактивный логотип с Lottie анимациями
+	if (heroLogo) {
+		heroLogo.style.display = 'none'
+	}
 
 	// Загружаем и инициализируем Lottie анимацию letters
 	try {
@@ -30224,45 +30233,57 @@ var require_index_min = __commonJS({
 						animationData,
 					})
 
-					// Показываем контейнер и запускаем анимацию
-					lettersContainer.classList.add('active')
-					animation.play()
+		// Показываем контейнер и запускаем анимацию
+		lettersContainer.classList.add('active')
+		animation.play()
 
-					// Ждем завершения анимации
-					animation.addEventListener('complete', () => {
-						// Останавливаем анимацию
-						animation.stop()
-
-						// Скрываем анимацию букв
-						lettersContainer.classList.remove('active')
-
-						// Ждем полного исчезновения анимации (время transition)
-						setTimeout(() => {
-							// Убеждаемся, что контейнер полностью скрыт
-							lettersContainer.style.display = 'none'
-
-							// Показываем статичное изображение hero-image в исходном месте
-							if (heroMascotMob) {
-								heroMascotMob.style.opacity = '1'
-							}
-						}, 300)
-					})
+	// Ждем завершения анимации
+	animation.addEventListener('complete', () => {
+		console.log('Animation complete! Freezing on last frame...')
+		
+		// Принудительно останавливаем на последнем кадре
+		animation.pause()
+		animation.goToAndStop(animation.totalFrames - 1, true)
+		
+		// Убираем transition и гарантируем видимость
+		lettersContainer.style.transition = 'none'
+		lettersContainer.style.opacity = '1'
+		lettersContainer.style.visibility = 'visible'
+		
+		// Проверяем что SVG внутри тоже видим
+		const svg = lettersContainer.querySelector('svg')
+		if (svg) {
+			svg.style.opacity = '1'
+			svg.style.visibility = 'visible'
+		}
+		
+		console.log('Animation frozen successfully! Position is absolute from start.')
+	})
 				}
 			}
 		} catch (error) {
 			console.warn('Failed to load letters animation:', error)
-			// Fallback: показываем статичное изображение сразу
-			if (heroMascotMob) {
-				heroMascotMob.style.opacity = '1'
-			}
+			// Статичный fallback больше не используем
 		}
 	}
 
-		document.addEventListener('DOMContentLoaded', () => {
-			initScrollButtons()
-			initLottieAnimations()
-			initLettersFallAnimation()
-		})
+	document.addEventListener('DOMContentLoaded', () => {
+		initScrollButtons()
+		initLottieAnimations()
+		
+		// Запускаем анимацию падения букв ПОСЛЕ окончания прелоадера
+		// Проверяем каждые 100мс готовность
+		const waitForPreloader = setInterval(() => {
+			const isLoaded = document.documentElement.hasAttribute('data-fls-preloader-loaded')
+			if (isLoaded || !document.querySelector('.fls-preloader')) {
+				clearInterval(waitForPreloader)
+				// Небольшая задержка для плавности
+				setTimeout(() => {
+					initLettersFallAnimation()
+				}, 300)
+			}
+		}, 100)
+	})
 		function initMarquees(root) {
 			if (!root) root = document
 			var SELECTOR = '[data-marquee]'
