@@ -10,11 +10,14 @@
 	max-width: 450px;
 	min-width: 280px;
 	height: auto;
+	max-height: 60vh; /* ограничиваем высоту контейнера */
 	z-index: 10; /* ниже header (400), но выше обычного контента */
 	pointer-events: none;
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.3s ease;
+	overflow: visible; /* SVG может выходить за границы, но контейнер останется маленьким */
+	will-change: transform; /* оптимизация для анимации */
 }
 
 .letters_fall_animation.active {
