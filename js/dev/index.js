@@ -6820,18 +6820,45 @@ var require_index_min = __commonJS({
 			
 		const advSwiper = new Swiper(sliderAdv, {
 			modules,
-			loop: true,
 			slidesPerView: this.isDesktop ? 3 : 'auto',
 			slidesPerGroup: 1,
 			spaceBetween: this.isDesktop ? 17 : 16,
 			speed: 600,
 			allowTouchMove: true,
-			centeredSlides: false,
-			loopFillGroupWithBlank: false,
 			navigation: {
 				prevEl: prevBtn,
 				nextEl: nextBtn,
 			},
+			on: {
+				// Когда доходим до конца — клонируем первые 3 слайда и добавляем в конец
+				reachEnd: () => {
+					const wrapper = sliderAdv.querySelector('.swiper-wrapper')
+					const slides = wrapper.querySelectorAll('.swiper-slide')
+					const cloneCount = this.isDesktop ? 3 : 1
+					
+					for (let i = 0; i < cloneCount; i++) {
+						const clone = slides[i].cloneNode(true)
+						wrapper.appendChild(clone)
+					}
+					
+					advSwiper.update()
+				},
+				// Когда доходим до начала при свайпе назад — клонируем последние 3 и вставляем в начало
+				reachBeginning: () => {
+					const wrapper = sliderAdv.querySelector('.swiper-wrapper')
+					const slides = wrapper.querySelectorAll('.swiper-slide')
+					const cloneCount = this.isDesktop ? 3 : 1
+					
+					for (let i = slides.length - 1; i >= slides.length - cloneCount; i--) {
+						const clone = slides[i].cloneNode(true)
+						wrapper.insertBefore(clone, slides[0])
+					}
+					
+					// Сдвигаем activeIndex чтобы не было скачка
+					advSwiper.slideTo(cloneCount, 0, false)
+					advSwiper.update()
+				}
+			}
 		})
 		this.slider = advSwiper
 			}
