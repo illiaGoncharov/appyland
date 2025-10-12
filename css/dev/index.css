@@ -3,14 +3,14 @@
 /* Анимация падающих букв для мобильных устройств */
 .letters_fall_animation {
 	position: absolute;
-	top: 0;
+	top: -20vh; /* начинается ниже, чтобы падать примерно до середины */
 	left: 50%;
 	transform: translateX(-50%);
 	width: 85vw;
 	max-width: 450px;
 	min-width: 280px;
 	height: auto;
-	max-height: 60vh; /* ограничиваем высоту контейнера */
+	max-height: 50vh; /* ограничиваем высоту контейнера */
 	z-index: 10; /* ниже header (400), но выше обычного контента */
 	pointer-events: none;
 	opacity: 0;
@@ -962,9 +962,19 @@ body {
 }
 .video-portfolio__slider .slide-video__video.is-playing .video-preview__image {
 	opacity: 0;
+	pointer-events: none;
 }
 .video-portfolio__slider .slide-video__video.is-playing .video-gif {
 	opacity: 1;
+}
+.video-portfolio__slider .slide-video__video.is-playing video {
+	opacity: 1;
+	transform: scale(1);
+	z-index: 3;
+}
+.video-portfolio__slider .slide-video__video.is-playing .video-preview__play {
+	opacity: 0;
+	pointer-events: none;
 }
 
 .swiper-pagination.swiper-pagination-lock {
