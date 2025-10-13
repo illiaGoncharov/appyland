@@ -6662,64 +6662,96 @@ var require_index_min = __commonJS({
 					}, 200)
 				})
 			}
-			setupVideoHover() {
-				const videoContainers = document.querySelectorAll('.slide-video__video')
-				if (!videoContainers.length) return
-				videoContainers.forEach(container => {
-					const previewSrc = container.dataset.preview
-					const gifSrc = container.dataset.gif
-					let gifImg = null
-					if (previewSrc) {
-						const previewImg = document.createElement('img')
-						previewImg.src = previewSrc
-						previewImg.className = 'video-preview__image'
-						container.appendChild(previewImg)
-					}
-					if (gifSrc) {
-						gifImg = document.createElement('img')
-						gifImg.src = gifSrc
-						gifImg.className = 'video-gif'
-						gifImg.style.display = 'none'
-						container.appendChild(gifImg)
-					}
-					const playButton = document.createElement('div')
-					playButton.className = 'video-preview__play'
-					playButton.innerHTML = `
+		setupVideoHover() {
+			const videoContainers = document.querySelectorAll('.slide-video__video')
+			if (!videoContainers.length) return
+			videoContainers.forEach(container => {
+				const previewSrc = container.dataset.preview
+				const gifSrc = container.dataset.gif
+				const video = container.querySelector('video')
+				let gifImg = null
+				if (previewSrc) {
+					const previewImg = document.createElement('img')
+					previewImg.src = previewSrc
+					previewImg.className = 'video-preview__image'
+					container.appendChild(previewImg)
+				}
+				if (gifSrc) {
+					gifImg = document.createElement('img')
+					gifImg.src = gifSrc
+					gifImg.className = 'video-gif'
+					gifImg.style.display = 'none'
+					container.appendChild(gifImg)
+				}
+				const playButton = document.createElement('div')
+				playButton.className = 'video-preview__play'
+				playButton.innerHTML = `
         <div class="play-button">
           <div class="play-button__outer">
             <div class="play-button__inner"></div>
           </div>
         </div>
       `
-					container.appendChild(playButton)
-					const restartGif = () => {
-						if (gifImg) {
-							const src = gifImg.src
-							gifImg.src = ''
-							gifImg.src = src
-							gifImg.style.display = 'block'
-						}
+				container.appendChild(playButton)
+				const restartGif = () => {
+					if (gifImg) {
+						const src = gifImg.src
+						gifImg.src = ''
+						gifImg.src = src
+						gifImg.style.display = 'block'
 					}
-					container.addEventListener('mouseenter', () => {
-						container.classList.add('is-playing')
-						restartGif()
-					})
-					container.addEventListener('mouseleave', () => {
+				}
+				
+				// Функция воспроизведения/паузы видео
+				const toggleVideo = async () => {
+					if (!video) return
+					
+					if (container.classList.contains('is-playing')) {
+						// Останавливаем видео
+						video.pause()
+						video.currentTime = 0
 						container.classList.remove('is-playing')
 						if (gifImg) gifImg.style.display = 'none'
-					})
-					playButton.addEventListener('click', e => {
-						e.preventDefault()
-						e.stopPropagation()
-						container.classList.toggle('is-playing')
-						if (container.classList.contains('is-playing')) {
-							restartGif()
-						} else if (gifImg) {
-							gifImg.style.display = 'none'
+					} else {
+						// Запускаем видео
+						container.classList.add('is-playing')
+						try {
+							await video.play()
+						} catch (err) {
+							console.warn('Video play failed:', err)
 						}
-					})
+						if (gifImg) restartGif()
+					}
+				}
+				
+				container.addEventListener('mouseenter', () => {
+					if (!container.classList.contains('is-playing')) {
+						restartGif()
+					}
 				})
-			}
+				container.addEventListener('mouseleave', () => {
+					// Убираем gif, но не останавливаем видео если оно играет
+					if (!container.classList.contains('is-playing') && gifImg) {
+						gifImg.style.display = 'none'
+					}
+				})
+				
+				// Клик на кнопку play или на весь контейнер
+				playButton.addEventListener('click', e => {
+					e.preventDefault()
+					e.stopPropagation()
+					toggleVideo()
+				})
+				
+				// Клик на контейнер тоже работает
+				container.addEventListener('click', e => {
+					if (e.target === playButton || playButton.contains(e.target)) return
+					e.preventDefault()
+					e.stopPropagation()
+					toggleVideo()
+				})
+			})
+		}
 			pauseAllVideos() {
 				const videos = document.querySelectorAll('.slide-video video')
 				videos.forEach(video => {
@@ -6786,82 +6818,109 @@ var require_index_min = __commonJS({
 				this.setupPlayButtons()
 			}
 
-		createSlider() {
-			const modules = [Navigation, Pagination, Autoplay]
-			const sliderAdv = document.querySelector('.advertising-preview__slider')
-			const advControls = sliderAdv ? sliderAdv.querySelector('.advertising-preview__controls') : null
-			const prevBtn = advControls ? advControls.querySelector('.swiper-button-prev') : null
-			const nextBtn = advControls ? advControls.querySelector('.swiper-button-next') : null
-			
-			console.log('advertising-preview init:', { sliderAdv: !!sliderAdv, advControls: !!advControls, prevBtn: !!prevBtn, nextBtn: !!nextBtn })
-			
-			if (!sliderAdv) {
-				console.warn('advertising-preview__slider not found')
-				return
-			}
-			
-			// Уничтожаем существующий инстанс
-			if (sliderAdv.swiper) {
-				console.log('Destroying existing swiper instance')
-				try { sliderAdv.swiper.destroy(true, true) } catch (_) {}
-			}
-			
-			const config = {
-				modules,
-				speed: 600,
-				allowTouchMove: true,
-				observer: true,
-				observeParents: true,
-				navigation: (prevBtn && nextBtn) ? {
-					prevEl: prevBtn,
-					nextEl: nextBtn,
-				} : false,
-			}
-			
+	createSlider() {
+		const modules = [Navigation, Pagination, Autoplay]
+		const sliderAdv = document.querySelector('.advertising-preview__slider')
+		const advControls = sliderAdv ? sliderAdv.querySelector('.advertising-preview__controls') : null
+		const prevBtn = advControls ? advControls.querySelector('.swiper-button-prev') : null
+		const nextBtn = advControls ? advControls.querySelector('.swiper-button-next') : null
+		
+		console.log('advertising-preview init:', { sliderAdv: !!sliderAdv, advControls: !!advControls, prevBtn: !!prevBtn, nextBtn: !!nextBtn })
+		
+		if (!sliderAdv) {
+			console.warn('advertising-preview__slider not found')
+			return
+		}
+		
+		// Уничтожаем существующий инстанс
+		if (sliderAdv.swiper) {
+			console.log('Destroying existing swiper instance')
+			try { sliderAdv.swiper.destroy(true, true) } catch (_) {}
+		}
+		
+		const isMobile = window.innerWidth < 1030 // Планшет и мобайл без стрелок
+		
+		// Swiper с фиксированной шириной слайдов из CSS
 		const advSwiper = new Swiper(sliderAdv, {
 			modules,
-			slidesPerView: this.isDesktop ? 3 : 'auto',
+			slidesPerView: 'auto',
 			slidesPerGroup: 1,
-			spaceBetween: this.isDesktop ? 17 : 16,
+			spaceBetween: 17,
 			speed: 600,
 			allowTouchMove: true,
-			navigation: {
-				prevEl: prevBtn,
-				nextEl: nextBtn,
-			},
-			on: {
-				// Когда доходим до конца — клонируем первые 3 слайда и добавляем в конец
-				reachEnd: () => {
-					const wrapper = sliderAdv.querySelector('.swiper-wrapper')
-					const slides = wrapper.querySelectorAll('.swiper-slide')
-					const cloneCount = this.isDesktop ? 3 : 1
-					
-					for (let i = 0; i < cloneCount; i++) {
-						const clone = slides[i].cloneNode(true)
-						wrapper.appendChild(clone)
-					}
-					
-					advSwiper.update()
+			loop: false,
+			centeredSlides: false,
+			navigation: false, // Стрелки только на десктопе через кастомную логику
+			watchOverflow: true, // Отключает свайпер если слайдов мало (но только на тех брейкпоинтах где 'auto')
+			breakpoints: {
+				// Мобилка: по 1 слайду, гарантированный свайп
+				320: {
+					slidesPerView: 'auto',
+					spaceBetween: 16,
+					centeredSlides: false,
+					allowTouchMove: true,
+					rewind: true,
 				},
-				// Когда доходим до начала при свайпе назад — клонируем последние 3 и вставляем в начало
-				reachBeginning: () => {
-					const wrapper = sliderAdv.querySelector('.swiper-wrapper')
-					const slides = wrapper.querySelectorAll('.swiper-slide')
-					const cloneCount = this.isDesktop ? 3 : 1
-					
-					for (let i = slides.length - 1; i >= slides.length - cloneCount; i--) {
-						const clone = slides[i].cloneNode(true)
-						wrapper.insertBefore(clone, slides[0])
-					}
-					
-					// Сдвигаем activeIndex чтобы не было скачка
-					advSwiper.slideTo(cloneCount, 0, false)
-					advSwiper.update()
+				// Планшет: 'auto' (несколько слайдов видно)
+				625: {
+					slidesPerView: 'auto',
+					spaceBetween: 16,
+					centeredSlides: false,
+					allowTouchMove: true,
+					rewind: true,
+				},
+				// Десктоп: 'auto' + стрелки (ничего не меняем)
+				1024: {
+					slidesPerView: 'auto',
+					spaceBetween: 17,
+					centeredSlides: false,
+					allowTouchMove: true,
+					rewind: true,
 				}
 			}
 		})
+		
+		// Функция обновления состояний кнопок (только для десктопа)
+		const updateNavButtons = () => {
+			if (!prevBtn || !nextBtn || isMobile) return
+			
+			// На десктопе: проверяем, можем ли мы прокручивать дальше
+			const isAtStart = advSwiper.isBeginning
+			const isAtEnd = advSwiper.isEnd
+			
+			// Добавляем/убираем класс disabled
+			prevBtn.classList.toggle('swiper-button-disabled', isAtStart)
+			nextBtn.classList.toggle('swiper-button-disabled', isAtEnd)
+		}
+		
+		// Кастомная навигация для десктопа: прокрутка до конца/начала
+		if (prevBtn && nextBtn && !isMobile) {
+			nextBtn.addEventListener('click', () => {
+				if (!nextBtn.classList.contains('swiper-button-disabled')) {
+					// Прокручиваем до последнего видимого слайда
+					advSwiper.slideTo(advSwiper.slides.length - 1, 600)
+				}
+			})
+			
+			prevBtn.addEventListener('click', () => {
+				if (!prevBtn.classList.contains('swiper-button-disabled')) {
+					advSwiper.slideTo(0, 600)
+				}
+			})
+		}
+		
+		// Обновляем состояния кнопок при любых изменениях
+		advSwiper.on('slideChange', updateNavButtons)
+		advSwiper.on('reachBeginning', updateNavButtons)
+		advSwiper.on('reachEnd', updateNavButtons)
+		advSwiper.on('fromEdge', updateNavButtons)
+		advSwiper.on('init', updateNavButtons)
+		
+		// Первичное обновление состояний
+		updateNavButtons()
+		
 		this.slider = advSwiper
-			}
+	}
 			createSlider1() {
 				const modules = [Navigation, Pagination, Autoplay]
 				const sliderAdv1 = document.querySelector('.slider_video')

@@ -103,10 +103,28 @@ src: url('../../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
 	margin: 0;
 }
 
-/* Фиксированная ширина карточки 312px */
+/* Фиксированная ширина слайдов как в макете */
 .advertising-preview__content .swiper-slide {
-	width: 312px !important;
+	width: 312px;
 	flex-shrink: 0;
+}
+
+/* На мобилке - адаптивная ширина */
+@media (max-width: 767px) {
+	.advertising-preview__content .swiper {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+	
+	.advertising-preview__content .swiper-slide {
+		width: calc(100vw - 4rem);
+		max-width: 340px;
+	}
+	
+	/* Скрываем стрелки на мобайле */
+	.advertising-preview__controls {
+		display: none !important;
+	}
 }
 
 .modal {
@@ -2111,8 +2129,13 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 .advertising-preview__slider {
 	padding: 0.3125rem 0.625rem;
 	margin: -0.3125rem;
-	overflow: visible;
+	overflow: hidden; /* Важно для работы Swiper! */
 	position: relative;
+}
+
+/* Разрешаем горизонтальный свайп */
+.advertising-preview__slider.swiper-initialized {
+	touch-action: pan-y pan-x;
 }
 .slide-advertising__content {
 	display: flex;
@@ -3323,9 +3346,9 @@ background: url('../../assets/img/team/star.svg') 0 0 no-repeat;
 			1.25rem
 		);
 	}
-	.slider_video .slide-advertising__image img {
+	/* .slider_video .slide-advertising__image img {
 		height: clamp(23.75rem, 21.9481981982rem + 9.009009009vw, 30rem);
-	}
+	} */
 	.slider_video .slide-advertising .slide-advertising__text {
 		font-size: clamp(0.875rem, 0.802927927925rem + 0.3603603604vw, 1.125rem);
 	}
@@ -4424,12 +4447,13 @@ background: url('../../assets/img/team/star.svg') 0 0 no-repeat;
 	}
 }
 
-@media screen and (max-width: 1030px) {
+/* Планшет: уменьшаем padding и скрываем стрелки */
+@media screen and (min-width: 768px) and (max-width: 1030px) {
 	.advertising-preview__content .swiper {
 		padding: 0 1.5rem;
 	}
 	.advertising-preview__controls {
-		margin-top: 2rem;
+		display: none; /* Скрываем стрелки на планшете */
 	}
 }
 
@@ -4510,12 +4534,6 @@ background: url('../../assets/img/team/star.svg') 0 0 no-repeat;
 }
 
 @media screen and (max-width: 680px) {
-	.advertising-preview__content .swiper {
-		padding: 0 1rem;
-	}
-	.advertising-preview__controls {
-		margin-top: 1.5rem;
-	}
 	/* Убрали переопределение .hero__tagline - оно конфликтовало с адаптивной шириной */
 	.section-num {
 		gap: 0px 3px;
@@ -4696,8 +4714,7 @@ background-color: #FFFDE9;
 	grid-gap: 0px 20px;
 	height: 400px;
 	position: relative;
-	left: 40px;
-	
+	left: 40px;	
 }
 
 .reviews__border .bg_item1 {
