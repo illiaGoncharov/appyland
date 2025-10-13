@@ -6665,17 +6665,22 @@ var require_index_min = __commonJS({
 		setupVideoHover() {
 			const videoContainers = document.querySelectorAll('.slide-video__video')
 			if (!videoContainers.length) return
-			videoContainers.forEach(container => {
-				const previewSrc = container.dataset.preview
-				const gifSrc = container.dataset.gif
+			videoContainers.forEach((container, index) => {
 				const video = container.querySelector('video')
+				const existingPreview = container.querySelector('.play_slide_video')
 				let gifImg = null
-				if (previewSrc) {
-					const previewImg = document.createElement('img')
-					previewImg.src = previewSrc
+				
+				// Используем существующий preview из HTML или создаём из data-preview
+				let previewImg = existingPreview
+				if (!previewImg && container.dataset.preview) {
+					previewImg = document.createElement('img')
+					previewImg.src = container.dataset.preview
 					previewImg.className = 'video-preview__image'
 					container.appendChild(previewImg)
 				}
+				
+				// GIF если указан
+				const gifSrc = container.dataset.gif
 				if (gifSrc) {
 					gifImg = document.createElement('img')
 					gifImg.src = gifSrc
@@ -6683,16 +6688,21 @@ var require_index_min = __commonJS({
 					gifImg.style.display = 'none'
 					container.appendChild(gifImg)
 				}
-				const playButton = document.createElement('div')
-				playButton.className = 'video-preview__play'
-				playButton.innerHTML = `
+				
+				// Ищем существующую кнопку play или создаём новую
+				let playButton = container.querySelector('.video-preview__play')
+				if (!playButton) {
+					playButton = document.createElement('div')
+					playButton.className = 'video-preview__play'
+					playButton.innerHTML = `
         <div class="play-button">
           <div class="play-button__outer">
             <div class="play-button__inner"></div>
           </div>
         </div>
       `
-				container.appendChild(playButton)
+					container.appendChild(playButton)
+				}
 				const restartGif = () => {
 					if (gifImg) {
 						const src = gifImg.src
@@ -6712,9 +6722,15 @@ var require_index_min = __commonJS({
 						video.currentTime = 0
 						container.classList.remove('is-playing')
 						if (gifImg) gifImg.style.display = 'none'
+						// Показываем preview и кнопку
+						if (previewImg) previewImg.style.opacity = '1'
+						if (playButton) playButton.style.opacity = '0.9'
 					} else {
 						// Запускаем видео
 						container.classList.add('is-playing')
+						// Скрываем preview и кнопку
+						if (previewImg) previewImg.style.opacity = '0'
+						if (playButton) playButton.style.opacity = '0'
 						try {
 							await video.play()
 						} catch (err) {

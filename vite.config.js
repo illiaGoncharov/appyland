@@ -2,8 +2,11 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-	// Базовый путь для продакшна (GitHub Pages)
-	base: process.env.NODE_ENV === 'production' ? '/appyland/' : '/',
+	// Базовый путь:
+	// - По умолчанию: / (корень)
+	// - Для GitHub Pages используй: npm run build:gh
+	// - Для обычного хостинга: npm run build:hosting
+	base: '/',
 	
 	build: {
 		outDir: 'dist',
@@ -36,14 +39,22 @@ export default defineConfig({
 					if (/\.(png|jpe?g|svg|gif|webp|avif)$/.test(assetInfo.name)) {
 						return 'assets/img/[name]-[hash][extname]'
 					}
+					// Видео файлы
+					if (/\.(mp4|webm|ogg|mov)$/.test(assetInfo.name)) {
+						return 'assets/[name]-[hash][extname]'
+					}
+					// JSON файлы (анимации)
+					if (assetInfo.name.endsWith('.json')) {
+						return 'assets/[name]-[hash][extname]'
+					}
 					// Остальное
 					return 'assets/[name]-[hash][extname]'
 				}
 			}
 		},
 		
-		// Размер чанков
-		chunkSizeWarningLimit: 1000,
+		// Размер чанков (увеличен для больших видео)
+		chunkSizeWarningLimit: 5000,
 	},
 	
 	// Dev server

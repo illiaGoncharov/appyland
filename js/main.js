@@ -210,33 +210,70 @@ const slider = document.querySelector(".advertising-preview__content .swiper")
 const btnPlaySlider = document.querySelectorAll(".modal_window1")
 const modalVideo = document.querySelector(".modal_container video")
 const modalClose = document.querySelector(".modal__close")
+const modal = document.querySelector(".modal")
 const imgSlider = document.querySelector(".slider_video .slide-advertising__image img")
-// modalController({
-//     modal: ".modal2",
-//     btnOpen: ".modal_window2",
-//     btnClose: ".modal__close"
-// })
-modalClose.addEventListener("click", function(e) {
-  e.target.previousElementSibling.firstElementChild.src =""
-  console.log( e.target.previousElementSibling.src);
-  
-})
-btnPlaySlider.forEach(btn => {
-  btn.addEventListener("click", function(event) {
-    let target = event.target
-    if(target) {
-    btn.style.display ="none"
-    
-      btn.previousElementSibling.children[2].style.display ="none"
 
-    console.log(btn.previousElementSibling);
-    
-     target.nextElementSibling.style.display ="block"
-      
+// Функция закрытия модалки
+function closeVideoModal() {
+  if (modal && modalVideo) {
+    modal.classList.remove('modal_animate')
+    modalVideo.pause()
+    modalVideo.currentTime = 0
+  }
+}
+
+// Обработчик закрытия модалки по кнопке
+if (modalClose) {
+  modalClose.addEventListener("click", closeVideoModal)
+}
+
+// Закрытие по клику на фон модалки
+if (modal) {
+  modal.addEventListener("click", function(e) {
+    // Закрываем только если кликнули на сам фон, а не на content внутри
+    if (e.target === modal) {
+      closeVideoModal()
     }
-   
   })
+}
+
+// Закрытие по Escape
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape" && modal && modal.classList.contains('modal_animate')) {
+    closeVideoModal()
+  }
 })
+
+// Обработчик открытия видео в модалке
+if (btnPlaySlider.length > 0 && modalVideo && modal) {
+  btnPlaySlider.forEach((btn, index) => {
+    btn.addEventListener("click", function(event) {
+      event.preventDefault()
+      
+      // Находим video элемент рядом с кнопкой (nextElementSibling)
+      const videoElement = btn.nextElementSibling
+      
+      if (videoElement && videoElement.tagName === 'VIDEO') {
+        const videoSrc = videoElement.getAttribute('src')
+        
+        if (videoSrc) {
+          // Устанавливаем src в модальное видео
+          modalVideo.setAttribute('src', videoSrc)
+          
+          // Открываем модалку
+          modal.classList.add('modal_animate')
+          
+          // Запускаем видео после небольшой задержки
+          setTimeout(() => {
+            modalVideo.play().catch(err => {
+              console.warn('Video autoplay failed:', err)
+            })
+          }, 300)
+        }
+      }
+    })
+  })
+}
  const resizableSwiper = (
     breakpoint,
     swiperClass,

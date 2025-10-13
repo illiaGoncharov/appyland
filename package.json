@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:gh": "vite build --base=/appyland/",
+    "build:hosting": "vite build --base=/",
     "preview": "vite preview"
   },
   "repository": {
