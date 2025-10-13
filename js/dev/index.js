@@ -6563,13 +6563,13 @@ var require_index_min = __commonJS({
 					this.createSlider()
 				}
 			}
-			init() {
-				const root = document.querySelector('.video-portfolio__slider')
-				if (!root) return
-				this.createSlider()
-				this.setupCustomCursor()
-				this.setupVideoHover()
-			}
+		init() {
+			const root = document.querySelector('.video-portfolio__slider')
+			if (!root) return
+			this.createSlider()
+			// this.setupCustomCursor() // Отключен кастомный курсор
+			this.setupVideoHover()
+		}
 			createSlider() {
 				const modules = [Navigation, Pagination]
 				if (this.isDesktop) modules.push(EffectCreative)
@@ -6829,30 +6829,27 @@ var require_index_min = __commonJS({
 					//  this.createSlider1();
 				}
 			}
-			init() {
-				this.createSlider()
+		init() {
+			this.createSlider()
+			// Вызываем setupPlayButtons после того как DOM обновится
+			setTimeout(() => {
 				this.setupPlayButtons()
-			}
+			}, 100)
+		}
 
 	createSlider() {
 		const modules = [Navigation, Pagination, Autoplay]
 		const sliderAdv = document.querySelector('.advertising-preview__slider')
 		const advControls = sliderAdv ? sliderAdv.querySelector('.advertising-preview__controls') : null
-		const prevBtn = advControls ? advControls.querySelector('.swiper-button-prev') : null
-		const nextBtn = advControls ? advControls.querySelector('.swiper-button-next') : null
-		
-		console.log('advertising-preview init:', { sliderAdv: !!sliderAdv, advControls: !!advControls, prevBtn: !!prevBtn, nextBtn: !!nextBtn })
-		
-		if (!sliderAdv) {
-			console.warn('advertising-preview__slider not found')
-			return
-		}
-		
-		// Уничтожаем существующий инстанс
-		if (sliderAdv.swiper) {
-			console.log('Destroying existing swiper instance')
-			try { sliderAdv.swiper.destroy(true, true) } catch (_) {}
-		}
+	const prevBtn = advControls ? advControls.querySelector('.swiper-button-prev') : null
+	const nextBtn = advControls ? advControls.querySelector('.swiper-button-next') : null
+	
+	if (!sliderAdv) return
+	
+	// Уничтожаем существующий инстанс
+	if (sliderAdv.swiper) {
+		try { sliderAdv.swiper.destroy(true, true) } catch (_) {}
+	}
 		
 		const isMobile = window.innerWidth < 1030 // Планшет и мобайл без стрелок
 		
@@ -7072,25 +7069,69 @@ var require_index_min = __commonJS({
 					})
 				}
 			}
-			setupPlayButtons() {
-				const playButtons = document.querySelectorAll(
-					'.slide-advertising__play-btn'
-				)
-				playButtons.forEach(button => {
-					button.addEventListener('click', e => {
-						e.preventDefault()
-						e.stopPropagation()
-						const slide2 = button.closest('.slide-advertising')
-						const isActive = slide2.classList.contains('is-playing')
-						document.querySelectorAll('.slide-advertising').forEach(s => {
-							s.classList.remove('is-playing')
-						})
-						if (!isActive) {
-							slide2.classList.add('is-playing')
+	setupPlayButtons() {
+		// Применяем ту же логику, что и для video-portfolio
+		const videoContainers = document.querySelectorAll('.slide-advertising__image')
+		if (!videoContainers.length) return
+		
+		videoContainers.forEach((container) => {
+			const video = container.querySelector('video')
+			const playButton = container.querySelector('.slide-advertising__play-btn')
+			const previewPicture = container.querySelector('picture')
+			
+			if (!video || !playButton) return
+			
+		const toggleVideo = async () => {
+			if (container.classList.contains('is-playing')) {
+				// Останавливаем
+				video.pause()
+				video.currentTime = 0
+				container.classList.remove('is-playing')
+				if (previewPicture) previewPicture.style.opacity = '1'
+				if (playButton) playButton.style.opacity = '1'
+			} else {
+					// Останавливаем все другие видео
+					document.querySelectorAll('.slide-advertising__image').forEach(c => {
+						const v = c.querySelector('video')
+						if (v && c !== container) {
+							v.pause()
+							v.currentTime = 0
+							c.classList.remove('is-playing')
+							const pic = c.querySelector('picture')
+							const btn = c.querySelector('.slide-advertising__play-btn')
+							if (pic) pic.style.opacity = '1'
+							if (btn) btn.style.opacity = '1'
 						}
 					})
-				})
+					
+				// Запускаем текущее
+				container.classList.add('is-playing')
+				if (previewPicture) previewPicture.style.opacity = '0'
+				if (playButton) playButton.style.opacity = '0'
+				try {
+					await video.play()
+				} catch (err) {
+					console.warn('Video play failed:', err)
+				}
 			}
+		}
+			
+			// Клик на кнопку
+			playButton.addEventListener('click', e => {
+				e.preventDefault()
+				e.stopPropagation()
+				toggleVideo()
+			})
+			
+			// Клик на контейнер
+			container.addEventListener('click', e => {
+				if (e.target === playButton || playButton.contains(e.target)) return
+				e.preventDefault()
+				e.stopPropagation()
+				toggleVideo()
+			})
+		})
+	}
 		}
 		if (window.innerWidth < 1700) {
 		}
@@ -7636,16 +7677,20 @@ var require_index_min = __commonJS({
 			}
 		}
 		window.addEventListener('load', pageNavigation)
-		function preloader() {
-			const preloaderImages = document.querySelectorAll('img')
-			const lottieContainers = document.querySelectorAll(
-				'.letter-lottie[data-animation], .soax-lottie[data-animation]'
-			)
-			const htmlDocument = document.documentElement
-			const isPreloaded =
-				localStorage.getItem(location.href) &&
-				document.querySelector('[data-fls-preloader="true"]')
-			const totalAssets = preloaderImages.length + lottieContainers.length
+	function preloader() {
+		const preloaderImages = document.querySelectorAll('img')
+		const isMobile = window.innerWidth <= 768
+		
+		// На мобильных загружаем только критичные анимации (логотип)
+		const lottieContainers = isMobile 
+			? document.querySelectorAll('.letter-lottie[data-animation]')
+			: document.querySelectorAll('.letter-lottie[data-animation], .soax-lottie[data-animation]')
+		
+		const htmlDocument = document.documentElement
+		const isPreloaded =
+			localStorage.getItem(location.href) &&
+			document.querySelector('[data-fls-preloader="true"]')
+		const totalAssets = preloaderImages.length + lottieContainers.length
 			if (totalAssets && !isPreloaded) {
 				let setValueProgress2 = function (progress2) {
 						showPecentLoad ? (showPecentLoad.innerText = `${progress2}%`) : null
@@ -30133,33 +30178,43 @@ var require_index_min = __commonJS({
 		}
 		var lottieExports = /* @__PURE__ */ requireLottie()
 		const lottie = /* @__PURE__ */ getDefaultExportFromCjs(lottieExports)
-		async function initLottieAnimations() {
-			const lottieContainers = document.querySelectorAll(
-				'.letter-lottie[data-animation], .soax-lottie[data-animation]'
-			)
-			if (!lottieContainers.length) return
-			for (const container of lottieContainers) {
-				const animationName = container.getAttribute('data-animation')
-				try {
-					let animationData
-					if (container.hasAttribute('data-lottie-loaded')) {
-						animationData = JSON.parse(
-							container.getAttribute('data-lottie-data')
-						)
-				} else {
-					const response = await fetch(
-						`./assets/animations/${animationName}.json`
+	async function initLottieAnimations() {
+		const lottieContainers = document.querySelectorAll(
+			'.letter-lottie[data-animation], .soax-lottie[data-animation]'
+		)
+		if (!lottieContainers.length) return
+		
+		const isMobile = window.innerWidth <= 768
+		const loadedAnimations = new Set()
+		
+		// Функция для загрузки одной анимации
+		async function loadSingleAnimation(container) {
+			const animationName = container.getAttribute('data-animation')
+			
+			// Пропускаем, если уже загружена
+			if (loadedAnimations.has(container)) return
+			loadedAnimations.add(container)
+			
+			try {
+				let animationData
+				if (container.hasAttribute('data-lottie-loaded')) {
+					animationData = JSON.parse(
+						container.getAttribute('data-lottie-data')
 					)
-					animationData = await response.json()
-				}
-					if (lottie && animationData) {
-						const animation = lottie.loadAnimation({
-							container,
-							renderer: 'svg',
-							loop: false,
-							autoplay: false,
-							animationData,
-						})
+			} else {
+				const response = await fetch(
+					`./assets/animations/${animationName}.json`
+				)
+				animationData = await response.json()
+			}
+				if (lottie && animationData) {
+					const animation = lottie.loadAnimation({
+						container,
+						renderer: 'svg',
+						loop: false,
+						autoplay: false,
+						animationData,
+					})
 
 				// Добавляем интерактивность к буквам с 3D эффектом
 				const letterElement = container.closest('.hero__logo-letter')
@@ -30230,12 +30285,47 @@ var require_index_min = __commonJS({
 								animation.play()
 							})
 						}
-					}
-				} catch (error) {
-					console.warn(`Failed to load animation ${animationName}:`, error)
 				}
+			} catch (error) {
+				console.warn(`Failed to load animation ${animationName}:`, error)
 			}
 		}
+		
+		// На мобильных устройствах используем ленивую загрузку
+		if (isMobile) {
+			const observerOptions = {
+				root: null,
+				rootMargin: '100px', // Загружаем за 100px до появления в viewport
+				threshold: 0.1
+			}
+			
+			const animationObserver = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						loadSingleAnimation(entry.target)
+						animationObserver.unobserve(entry.target)
+					}
+				})
+			}, observerOptions)
+			
+			// Наблюдаем за всеми контейнерами анимаций
+			lottieContainers.forEach(container => {
+				animationObserver.observe(container)
+			})
+			
+			// На мобильных загружаем только критичные анимации сразу (логотип)
+			for (const container of lottieContainers) {
+				if (container.classList.contains('letter-lottie')) {
+					await loadSingleAnimation(container)
+				}
+			}
+		} else {
+			// На десктопе загружаем все анимации сразу
+			for (const container of lottieContainers) {
+				await loadSingleAnimation(container)
+			}
+		}
+	}
 		function initScrollButtons() {
 			const scrollButtons = document.querySelectorAll('.scroll-button[data-go]')
 			if (!scrollButtons.length) return
