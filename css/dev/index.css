@@ -187,12 +187,14 @@ src: url('../../assets/fonts/Coolvetica-Regular.woff2') format('woff2');
 	width: 100%;
 }
 
-.modal_container video {
+.modal_container video,
+.modal_container iframe {
 	width: 100%;
 	height: auto;
 	max-height: 70vh;
 	object-fit: contain;
 	border-radius: 10px;
+	aspect-ratio: 16/9;
 }
 
 .modal_animate {
@@ -896,7 +898,8 @@ body {
 	opacity: 1;
 	z-index: 5;
 }
-.video-portfolio__slider .slide-video__video video {
+.video-portfolio__slider .slide-video__video video,
+.video-portfolio__slider .slide-video__video iframe {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -909,7 +912,8 @@ body {
 	z-index: 1;
 }
 /* Когда видео играет */
-.video-portfolio__slider .slide-video__video.is-playing video {
+.video-portfolio__slider .slide-video__video.is-playing video,
+.video-portfolio__slider .slide-video__video.is-playing iframe {
 	opacity: 1 !important;
 	transform: scale(1) !important;
 	z-index: 10 !important;
@@ -2251,7 +2255,8 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 	object-fit: cover;
 	border-radius: 1.875rem;
 }
-.slide-advertising__image video {
+.slide-advertising__image video,
+.slide-advertising__image iframe {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -2266,7 +2271,8 @@ background: url('../../assets/img/footer-top.webp') top center/contain repeat-x;
 	z-index: 1;
 }
 /* Когда видео играет */
-.slide-advertising__image.is-playing video {
+.slide-advertising__image.is-playing video,
+.slide-advertising__image.is-playing iframe {
 	opacity: 1 !important;
 	z-index: 10 !important;
 	display: block !important;

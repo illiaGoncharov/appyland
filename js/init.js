@@ -19,13 +19,13 @@ function initVideoSources() {
 		if (newSrc) {
 			video.setAttribute('src', newSrc)
 			video.setAttribute('data-original-src', oldSrc) // сохраняем для отладки
-			if (isDev) console.log(`✓ Video updated: ${filename}`)
+			// if (isDev) console.log(`✓ Video updated: ${filename}`)
 		} else {
 			console.warn(`✗ Video not found: ${filename}`)
 		}
 	})
 	
-	if (isDev) console.log(`📹 Initialized ${videos.length} video elements`)
+	// if (isDev) console.log(`📹 Initialized ${videos.length} video elements`)
 }
 
 // 2. Создаем глобальный хелпер для загрузки анимаций
@@ -67,7 +67,7 @@ window.fetch = function(...args) {
 	// Если это запрос к анимации
 	if (typeof url === 'string' && url.includes('/assets/animations/') && url.endsWith('.json')) {
 		const filename = url.split('/').pop().replace('.json', '')
-		if (isDev) console.log(`🎨 Intercepted animation fetch: ${filename}`)
+		// if (isDev) console.log(`🎨 Intercepted animation fetch: ${filename}`)
 		
 		return getAnimation(filename).then(data => {
 			if (!data) {

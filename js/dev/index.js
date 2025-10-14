@@ -30404,7 +30404,7 @@ var require_index_min = __commonJS({
 
 	// Ждем завершения анимации
 	animation.addEventListener('complete', () => {
-		console.log('Animation complete! Freezing on last frame...')
+		// console.log('Animation complete! Freezing on last frame...')
 		
 		// Принудительно останавливаем на последнем кадре
 		animation.pause()
@@ -30422,7 +30422,7 @@ var require_index_min = __commonJS({
 			svg.style.visibility = 'visible'
 		}
 		
-		console.log('Animation frozen successfully! Position is absolute from start.')
+		// console.log('Animation frozen successfully! Position is absolute from start.')
 	})
 				}
 			}
@@ -30726,15 +30726,15 @@ var require_index_min = __commonJS({
 								animationDuration: String(duration) + 's',
 								animationName: 'marquee-axis',
 						  }
-					console.log('[marquee] built', {
-						dir: cfg.dir,
-						containerLen,
-						baseLen,
-						repeatsNeeded,
-						distancePx,
-						duration: cs.animationDuration,
-						name: cs.animationName,
-					})
+					// console.log('[marquee] built', {
+					// 	dir: cfg.dir,
+					// 	containerLen,
+					// 	baseLen,
+					// 	repeatsNeeded,
+					// 	distancePx,
+					// 	duration: cs.animationDuration,
+					// 	name: cs.animationName,
+					// })
 				}
 			}
 			var hosts = root.querySelectorAll(SELECTOR)

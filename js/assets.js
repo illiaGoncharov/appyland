@@ -77,7 +77,7 @@ export const availableVideos = Object.keys(videos).map(path =>
 
 // В режиме разработки выводим список доступных ассетов
 if (import.meta.env.DEV) {
-	console.log('📦 Available animations:', availableAnimations)
-	console.log('🎬 Available videos:', availableVideos)
+	// console.log('📦 Available animations:', availableAnimations)
+	// console.log('🎬 Available videos:', availableVideos)
 }
 
