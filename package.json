@@ -8,7 +8,9 @@
     "build": "vite build",
     "build:gh": "vite build --base=/appyland/",
     "build:hosting": "vite build --base=/",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "convert:webp": "node scripts/convert-lottie-images-to-webp.js",
+    "convert:letters": "node scripts/convert-lottie-images-to-webp.js letter agrass pballon Y_0"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
   },
   "homepage": "https://github.com/illiaGoncharov/appyland#readme",
   "devDependencies": {
+    "sharp": "^0.34.4",
     "terser": "^5.44.0",
     "vite": "^7.1.9"
   }
