@@ -18,7 +18,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const ANIMATIONS_DIR = path.join(__dirname, '../assets/animations');
-const WEBP_QUALITY = 85; // 85 = high quality, smaller file size
+const WEBP_QUALITY = 75; // 75 = good quality, better compression
+const RESIZE_TO = 250; // Resize images to this dimension (from 700px)
 
 // Statistics
 const stats = {
@@ -29,7 +30,7 @@ const stats = {
 };
 
 /**
- * Convert base64 PNG to base64 WebP
+ * Convert base64 PNG to base64 WebP with resizing
  */
 async function convertBase64PngToWebp(base64Data, originalWidth, originalHeight) {
 	try {
@@ -42,8 +43,18 @@ async function convertBase64PngToWebp(base64Data, originalWidth, originalHeight)
 		const pngBuffer = Buffer.from(base64Only, 'base64');
 		const originalSize = pngBuffer.length;
 		
-		// Convert to WebP using sharp
-		const webpBuffer = await sharp(pngBuffer)
+		// Convert to WebP using sharp with resizing
+		let sharpInstance = sharp(pngBuffer);
+		
+		// Resize if dimensions are larger than target
+		if (originalWidth > RESIZE_TO || originalHeight > RESIZE_TO) {
+			sharpInstance = sharpInstance.resize(RESIZE_TO, RESIZE_TO, {
+				fit: 'inside',
+				withoutEnlargement: true
+			});
+		}
+		
+		const webpBuffer = await sharpInstance
 			.webp({ quality: WEBP_QUALITY })
 			.toBuffer();
 		
@@ -171,7 +182,8 @@ async function processLottieFile(filePath) {
 async function processFiles(targetFiles = []) {
 	console.log('🚀 Lottie PNG → WebP Converter\n');
 	console.log(`📁 Directory: ${ANIMATIONS_DIR}`);
-	console.log(`🎯 WebP Quality: ${WEBP_QUALITY}%\n`);
+	console.log(`🎯 WebP Quality: ${WEBP_QUALITY}%`);
+	console.log(`📐 Resize to: ${RESIZE_TO}px (max dimension)\n`);
 	
 	// Find all JSON files
 	let files = fs.readdirSync(ANIMATIONS_DIR)
